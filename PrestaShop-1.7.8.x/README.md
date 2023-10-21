@@ -21,6 +21,27 @@ Do zatrzymania projektu, należy skorzystać z komendy:
 
 Komendę docker-compoese down trzeba wywołac z innego terminala.
 
+Przydatne informacje o kontenerach i obrazach
+--------
+
+Podczas korzystania z dockera od razu spotka się z pojęciem obrazu i konteneru. Można to trochę porównać do pojęcia klasy i jej instancji. Obraz to przepis na tworzenie kontenerów. Kontenery są od siebie niezależne, tzn. można uruchomić kilka instancji obrazu na raz. Obrazy buduje się z pliku Dockerfile. Polecam komendę --help, która można dodać do samego docker, lub do kazdej z poniższych komend.
+
+Jeśli chodzi o obrazy, to przydatne mogą być komendy:
+
+    docker rmi
+    docker images
+    docker build
+  
+Jeśli chodzi o kontenery, to przydać się moga:
+
+    docker run
+    docker ps
+    docker rm
+
+Może się zdarzyć tak, że dwa kontenery są od siebie zależne np. backend od bazy danych. Żeby nie wpisywać wszystkiego ręcznie i nie musieć dbać o kolejność, korzysta się z narzędzia docker-compose, w którym deklaruje się serwisy. Depends-on pozwala na zachowanie kolejności uruchomień. Serwisy w docker-compose powiązane są ze sobą siecią (network), dzięki czemu mogą się ze sobą komunikować i nie muszą wystawiać endpointów na zewnątrz. Bez docker-compose też da się je tak powiązać, natomiast sieć taką trzeba wtedy stworzyć samemu.
+
+UWAGA - u nas raczej nie trzeba będzie używać dockera, wystarczy docker compose, przynajmniej jeśli 1 etap.
+
 Przydatne informacje o wolumenach i portach
 --------
 
@@ -39,6 +60,4 @@ Przykłady wolumenów w pliku docker-composer:
 
 Uwaga! W przypadku używania wolumenów nazwanych, trzeba je zadeklarować w sekcji pliku volumes:
 Jeśli chodzi o bind-mounty, to w przypadku docker run najlepiej podawać ścieżkę absolutną.
-
-Serwisy w docker-compose powiązane są ze sobą siecią (network). Oznacza to, że nie ma udostępniania na zewnątrz portu z bazy danych, ponieważ presta jest w stanie z niej korzystać ze względu na obecność jednej sieci.
 
