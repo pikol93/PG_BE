@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ ${SSL_RESET} = 1 ]; then
+    /tmp/ssl.sh
+fi
+
 if [ "${DISABLE_MAKE}" != "1" ]; then
   echo "\n* Running composer ...";
   runuser -g www-data -u www-data -- /usr/local/bin/composer install --no-interaction
@@ -76,4 +80,6 @@ fi
 
 echo "\n* Almost ! Starting web server now\n";
 
+a2enmod ssl
+a2enmod rewrite
 exec apache2-foreground

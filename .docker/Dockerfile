@@ -10,9 +10,6 @@ ARG USER_ID
 RUN groupmod -g $GROUP_ID www-data \
   && usermod -u $USER_ID -g $GROUP_ID www-data
 
-COPY .docker/wait-for-it.sh /tmp/
-COPY .docker/docker_run_git.sh /tmp/
-
 RUN mkdir -p /var/www/.npm
 RUN chown -R www-data:www-data /var/www/.npm
 
@@ -27,5 +24,20 @@ RUN apt install -y nodejs
 RUN apt install -y \
     apt-utils \
     mailutils
+
+RUN apt update && apt install -y --no-install-recommends \
+        libc-client-dev \
+        libkrb5-dev \
+        ; \
+        rm -rf /var/lib/apt/lists/*
+
+RUN set -eux; \
+	PHP_OPENSSL=yes docker-php-ext-configure imap --with-kerberos --with-imap-ssl; \
+	docker-php-ext-install imap
+
+COPY .docker/wait-for-it.sh /tmp/
+COPY .docker/docker_run_git.sh /tmp/
+COPY .docker/ssl.sh /tmp/
+COPY .docker/000-default.conf /tmp/
 
 CMD ["/tmp/docker_run_git.sh"]
