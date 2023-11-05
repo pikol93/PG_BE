@@ -1,9 +1,25 @@
 Projekt na biznes elektroniczny
+------
+
+Skład zespołu
+---
+Zespół tworzony jest przez studentów:
+- Sławomir Adamowicz
+- Piotr Dampc
+- Karol Felskowski
+- Jakub Deniziak
+- Michał Szulowski
+
+Struktura projektu
+---
 
 Prestashop zawiera kod sklepu, a także skrypty dotyczące instalacji ssl (w folderze .docker)
 
-Folder ze skryptami zawiera skrypty dotyczące dumpowania bazy.
+Folder Scripts zawiera skrypty dotyczące dumpowania bazy.
 
+
+Dump
+---
 W celu wykonania dumpa należy:
 
 ```
