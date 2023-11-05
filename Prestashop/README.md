@@ -1,15 +1,16 @@
 Instalacja
 --------
 
-Po sklonowaniu repozytorium projektu, w folderze należy umieścić pliki presty:
-https://github.com/PrestaShop/PrestaShop/tree/1.7.8.x
-
 Podczas pierwszego uruchomienia, należy zmienić zmienną środowiskową DISABLE_MAKE w serwisie prestashop-git, który znajduje się w pliku docker-compose.yaml:
 
       DISABLE_MAKE: ${DISABLE_MAKE:-0}
 Przy każdym kolejnym uruchomieniu, zmienna ta powinna być ustawiona na 1:
 
       DISABLE_MAKE: ${DISABLE_MAKE:-1}
+
+Może wystąpić wam problem z błędami pythonowymi, wtedy należy wykonać komendę z folderu Prestashop
+
+    sudo chmod -R 777 ./database-data
 
 
 Uruchomienie
