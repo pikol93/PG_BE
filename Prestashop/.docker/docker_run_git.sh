@@ -1,6 +1,9 @@
 #!/bin/sh
 
-if [ ${SSL_RESET} = 1 ]; then
+rm /etc/apache2/sites-available/000-default.conf
+cp /tmp/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+if [ ${SSL_ENABLE} = 1 ]; then
     /tmp/ssl.sh
 fi
 
@@ -80,6 +83,8 @@ fi
 
 echo "\n* Almost ! Starting web server now\n";
 
-a2enmod ssl
-a2enmod rewrite
+if [ ${SSL_ENABLE} = 1 ]; then
+    a2enmod ssl
+    a2enmod rewrite
+fi
 exec apache2-foreground

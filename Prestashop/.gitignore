@@ -8,7 +8,6 @@ npm-debug.log.*
 *.swo
 .cache/
 
-/database-data
 /database-data/*
 
 # Cache
