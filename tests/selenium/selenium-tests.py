@@ -1,6 +1,12 @@
-from selenium import webdriver
+from chromedriver_provider import ChromeDriverProvider
+from presta_runner import PrestaRunner
 
-driver_path = '/usr/bin/chromedriver'
-driver = webdriver.Chrome(driver_path)
+driver = ChromeDriverProvider().build_chromedriver()
+url_base = 'https://localhost:8001/'
+presta_runner = PrestaRunner(driver, url_base)
 
-driver.get('https://pg.edu.pl/')
+driver.get(url_base)
+
+presta_runner.add_10_products_to_cart()
+
+driver.close()
