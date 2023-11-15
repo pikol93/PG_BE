@@ -2,7 +2,13 @@ use reqwest::blocking;
 use scraper::{Html, Selector};
 use scraper::node::Element;
 
-fn main() {    
+use crate::logging::log_manager;
+
+pub mod logging;
+
+fn main() {
+    log_manager::initialize_logger();
+
     let response = blocking::get("https://e-okularnicy.pl/10-oprawy")
         .expect("Should get response from the url");
     let response_text = response.text()
