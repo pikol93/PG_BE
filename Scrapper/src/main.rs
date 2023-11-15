@@ -15,18 +15,6 @@ async fn main() {
 
     let urls = vec![
         "https://e-okularnicy.pl/10-oprawy?page=1".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=2".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=3".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=4".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=5".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=6".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=7".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=8".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=9".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=10".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=11".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=12".to_string(),
-        "https://e-okularnicy.pl/10-oprawy?page=13".to_string(),
     ];
 
     let product_urls = process_listing_urls_to_product_urls(urls).await;

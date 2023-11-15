@@ -7,7 +7,10 @@ use regex::Regex;
 use scraper::{Html, Selector};
 use tokio::task;
 
-const DETAILS_LENS_WIDTH_KEY: &str = "Szerokość soczewki";
+const DETAILS_KEY_LENS_WIDTH: &str = "Szerokość soczewki";
+const DETAILS_KEY_MATERIAL: &str = "Materiał";
+const DEFAULT_LENS_WIDTH: u32 = 50;
+const DEFAULT_MATERIAL: &str = "ultem";
 
 static DETAILS_TABLE_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("ul.data-sheet").unwrap());
@@ -68,9 +71,12 @@ async fn process_product_site_to_product(product_url: String) -> Result<ShopProd
         return Err(());
     };
 
-    let lens_width = get_lens_width_from_details_table(&details_table).unwrap_or(50);
+    let lens_width = get_lens_width_from_details_table(&details_table)
+        .unwrap_or(DEFAULT_LENS_WIDTH);
+    let material = get_material_from_details_table(&details_table)
+        .unwrap_or_else(|| DEFAULT_MATERIAL.to_owned());
 
-    let shop_product = ShopProduct { id, lens_width };
+    let shop_product = ShopProduct { id, lens_width, material };
 
     Ok(shop_product)
 }
@@ -123,7 +129,7 @@ fn fetch_info_from_details_table(document: &Html) -> Result<HashMap<String, Stri
 }
 
 fn get_lens_width_from_details_table(details_table: &HashMap<String, String>) -> Option<u32> {
-    let Some(lens_width_string) = details_table.get(DETAILS_LENS_WIDTH_KEY) else {
+    let Some(lens_width_string) = details_table.get(DETAILS_KEY_LENS_WIDTH) else {
         return None;
     };
 
@@ -132,6 +138,14 @@ fn get_lens_width_from_details_table(details_table: &HashMap<String, String>) ->
     };
 
     Some(lens_width)
+}
+
+fn get_material_from_details_table(details_table: &HashMap<String, String>) -> Option<String> {
+    let Some(material_string) = details_table.get(DETAILS_KEY_MATERIAL) else {
+        return None;
+    };
+
+    Some(material_string.to_owned())
 }
 
 #[cfg(test)]
