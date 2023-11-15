@@ -9,8 +9,11 @@ use tokio::task;
 
 const DETAILS_KEY_LENS_WIDTH: &str = "Szerokość soczewki";
 const DETAILS_KEY_MATERIAL: &str = "Materiał";
+const DETAILS_KEY_BRIDGE_WIDTH: &str = "Szerokość mostka";
+
 const DEFAULT_LENS_WIDTH: u32 = 50;
 const DEFAULT_MATERIAL: &str = "ultem";
+const DEFAULT_BRIDGE_WIDTH: u32 = 20;
 
 static DETAILS_TABLE_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("ul.data-sheet").unwrap());
@@ -71,12 +74,19 @@ async fn process_product_site_to_product(product_url: String) -> Result<ShopProd
         return Err(());
     };
 
-    let lens_width = get_lens_width_from_details_table(&details_table)
-        .unwrap_or(DEFAULT_LENS_WIDTH);
+    let lens_width =
+        get_lens_width_from_details_table(&details_table).unwrap_or(DEFAULT_LENS_WIDTH);
     let material = get_material_from_details_table(&details_table)
         .unwrap_or_else(|| DEFAULT_MATERIAL.to_owned());
+    let bridge_width =
+        get_bridge_width_from_details_table(&details_table).unwrap_or(DEFAULT_BRIDGE_WIDTH);
 
-    let shop_product = ShopProduct { id, lens_width, material };
+    let shop_product = ShopProduct {
+        id,
+        lens_width,
+        material,
+        bridge_width,
+    };
 
     Ok(shop_product)
 }
@@ -146,6 +156,18 @@ fn get_material_from_details_table(details_table: &HashMap<String, String>) -> O
     };
 
     Some(material_string.to_owned())
+}
+
+fn get_bridge_width_from_details_table(details_table: &HashMap<String, String>) -> Option<u32> {
+    let Some(bridge_width_string) = details_table.get(DETAILS_KEY_BRIDGE_WIDTH) else {
+        return None;
+    };
+
+    let Ok(bridge_width) = bridge_width_string.parse::<u32>() else {
+        return None;
+    };
+
+    Some(bridge_width)
 }
 
 #[cfg(test)]
