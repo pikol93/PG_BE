@@ -1,3 +1,4 @@
+use log::{warn, debug};
 use reqwest::blocking;
 use scraper::{Html, Selector};
 use scraper::node::Element;
@@ -30,9 +31,9 @@ fn parse_page(page_string: &String) {
 fn parse_item(element: &Element) {
     let a = element.attr("href");
     let Some(b) = a else {
-        println!("Could not find href");
+        warn!("Could not find href");
         return;
     };
 
-    println!("item href: {}", b);
+    debug!("item href: {}", b);
 }

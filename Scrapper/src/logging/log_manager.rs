@@ -15,7 +15,7 @@ pub fn initialize_logger() {
         .directory("logs/");
 
     let logger = Logger::try_with_env_or_str(
-        "trace, bevy=off, wgpu=warn, wgpu=warn, mio=warn, winit=warn, gilrs=warn, naga=warn",
+        "error, web_scrapper_rs=trace",
     )
     .expect("Should succeed initializing with env.")
     .format_for_files(format_with_thread)
