@@ -1,3 +1,4 @@
+use itertools::Itertools;
 use log::{error, info};
 use std::collections::HashMap;
 use std::fs;
@@ -26,6 +27,7 @@ struct Subcategory {
 }
 
 const DEFAULT_PAGE_COUNT: usize = 1;
+const OUTPUT_DIRECTORY: &str = "output/";
 
 #[tokio::main]
 async fn main() {
@@ -55,28 +57,42 @@ async fn main() {
         scrapped_products.append(&mut process_result);
     }
 
+    let unique_scrapped_products = scrapped_products
+        .into_iter()
+        .unique_by(|x: &HashMap<String, String>| {
+            x.get("id")
+                .expect("Every product should have an ID")
+                .parse::<u32>()
+                .expect("Every product's ID should be a parsable number")
+        })
+        .collect::<Vec<_>>();
 
-    let products_json = serde_json::to_string(&scrapped_products)
+    fs::create_dir_all(OUTPUT_DIRECTORY).expect("Should be able to create a directory.");
+
+    let products_json = serde_json::to_string(&unique_scrapped_products)
         .expect("Should be able to write product data to JSON.");
-    fs::write("output/scrapped.txt", &products_json)
+    fs::write(OUTPUT_DIRECTORY.to_owned() + "scrapped.txt", products_json)
         .expect("Should be able to write products JSON to disk.");
 
     let categories_json =
         serde_json::to_string(&categories).expect("Should be able to write category data to JSON.");
-    fs::write("output/categories.txt", &categories_json)
-        .expect("Should be able to write categories JSON to disk.");
+    fs::write(
+        OUTPUT_DIRECTORY.to_owned() + "categories.txt",
+        categories_json,
+    )
+    .expect("Should be able to write categories JSON to disk.");
 
     let default_product_value = "NO_INFORMATION".to_owned();
-    let heatmap = collect_heatmap(&scrapped_products, &default_product_value);
+    let heatmap = collect_heatmap(&unique_scrapped_products, &default_product_value);
 
     let heatmap_json =
         serde_json::to_string(&heatmap).expect("Should be able to write heatmap data to JSON.");
-    fs::write("output/heatmap.txt", &heatmap_json)
+    fs::write(OUTPUT_DIRECTORY.to_owned() + "heatmap.txt", heatmap_json)
         .expect("Should be able to write heatmap JSON to disk.");
 
     info!(
         "Finished scrapping. Results: {} products scrapped.",
-        scrapped_products.len()
+        unique_scrapped_products.len()
     );
 }
 
@@ -90,7 +106,7 @@ fn create_vec_with_pages(base_site: &str, page_count: usize) -> Vec<String> {
 }
 
 fn collect_heatmap<'a>(
-    shop_products: &'a Vec<HashMap<String, String>>,
+    shop_products: &'a [HashMap<String, String>],
     default_product_value: &'a String,
 ) -> HashMap<&'a String, HashMap<&'a String, u32>> {
     shop_products

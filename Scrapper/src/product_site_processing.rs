@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use log::{error, trace, warn};
+use log::{error, info, trace, warn};
 use once_cell::sync::Lazy;
 use regex::Regex;
 use scraper::{Html, Selector};
@@ -165,7 +165,10 @@ fn fetch_info_from_details_table(document: &Html) -> Result<HashMap<String, Stri
                 return None;
             };
 
-            Some((name_element.inner_html(), value_element.inner_html()))
+            Some((
+                name_element.inner_html(),
+                validate_value(&value_element.inner_html()),
+            ))
         })
         .for_each(|(key, value)| {
             result.insert(key, value);
@@ -186,7 +189,10 @@ fn fetch_info_from_variant_details_table(document: &Html) -> Result<HashMap<Stri
     names_iter
         .zip(values_iter)
         .for_each(|(name_element, value_element)| {
-            result.insert(name_element.inner_html(), value_element.inner_html());
+            result.insert(
+                name_element.inner_html(),
+                validate_value(&value_element.inner_html()),
+            );
         });
 
     Ok(result)
@@ -228,6 +234,10 @@ fn fetch_image_urls(document: &Html) -> ImageUrls {
             .attr("data-image-large-src")
             .map(|url| url.to_owned()),
     }
+}
+
+fn validate_value(current: &str) -> String {
+    current.replace("<br>\n", ", ")
 }
 
 #[cfg(test)]
