@@ -1,6 +1,6 @@
-use log::{error, warn, debug, info, trace};
+use log::{debug, error, info, trace, warn};
 use once_cell::sync::Lazy;
-use scraper::{Selector, Html, node::Element};
+use scraper::{node::Element, Html, Selector};
 use tokio::task;
 
 static SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::parse("a.tile__product").unwrap());

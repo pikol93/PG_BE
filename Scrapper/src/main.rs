@@ -1,11 +1,11 @@
-use product_site_processing::process_product_sites_to_products;
 use log::info;
+use product_site_processing::process_product_sites_to_products;
 
-use crate::logging::log_manager;
 use crate::listing_site_processing::process_listing_urls_to_product_urls;
+use crate::logging::log_manager;
 
-pub mod logging;
 pub mod listing_site_processing;
+pub mod logging;
 pub mod product_site_processing;
 pub mod shop_product;
 
