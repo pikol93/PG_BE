@@ -1583,6 +1583,7 @@ dependencies = [
  "log",
  "reqwest",
  "scraper",
+ "tokio",
 ]
 
 [[package]]
