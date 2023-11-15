@@ -12,6 +12,9 @@ static DETAILS_TABLE_PAIR_CONTAINER_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("li.data-item").unwrap());
 static DETAILS_TABLE_NAME_SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::parse("dt").unwrap());
 static DETAILS_TABLE_VALUE_SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::parse("dd").unwrap());
+static VARIANT_DETAILS_TABLE_NAMES_SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::parse("table.variant-details>thead>tr>th").unwrap());
+static VARIANT_DETAILS_TABLE_VALUES_SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::parse("table.variant-details>tbody>tr>td").unwrap());
+
 static PRODUCT_ID_REGEX: Lazy<Regex> =
     Lazy::new(|| Regex::new(r"^[^\d]*(\d+)").expect("Should be valid ID regex"));
 
@@ -64,14 +67,25 @@ async fn process_product_site_to_product(
     };
 
     let document = Html::parse_document(&response_text);
-    let Ok(mut details_table) = fetch_info_from_details_table(&document) else {
+    let mut result;
+    if let Ok(details_table) = fetch_info_from_details_table(&document) {
+        result = details_table;
+    }
+    else {
         error!("Could not get details table from URL {}", product_url);
-        return Err(());
-    };
+        result = HashMap::new();
+    }
 
-    details_table.insert("id".to_owned(), id.to_string());
+    if let Ok(variant_details_table) = fetch_info_from_variant_details_table(&document) {
+        result.extend(variant_details_table);
+    }
+    else {
+        error!("Could not get variant details table from URL {}", product_url);
+    }
 
-    Ok(details_table)
+    result.insert("id".to_owned(), id.to_string());
+
+    Ok(result)
 }
 
 fn fetch_id_from_product_url(product_url: &str) -> Option<u32> {
@@ -121,13 +135,31 @@ fn fetch_info_from_details_table(document: &Html) -> Result<HashMap<String, Stri
     Ok(result)
 }
 
+fn fetch_info_from_variant_details_table(document: &Html) -> Result<HashMap<String, String>, ()> {
+    let variant_detail_names = document.select(&VARIANT_DETAILS_TABLE_NAMES_SELECTOR);
+    let variant_detail_values = document.select(&VARIANT_DETAILS_TABLE_VALUES_SELECTOR);
+
+    let mut result = HashMap::new();
+
+    let names_iter = variant_detail_names.into_iter();
+    let values_iter = variant_detail_values.into_iter();
+    
+    names_iter
+        .zip(values_iter)
+        .for_each(|(name_element, value_element)| {
+            result.insert(name_element.inner_html(), value_element.inner_html());
+        });
+
+    Ok(result)
+}
+
 #[cfg(test)]
 mod tests {
     use std::{collections::HashMap, fs};
 
     use scraper::Html;
 
-    use crate::product_site_processing::fetch_info_from_details_table;
+    use crate::product_site_processing::{fetch_info_from_details_table, fetch_info_from_variant_details_table};
 
     use super::fetch_id_from_product_url;
 
@@ -149,7 +181,6 @@ mod tests {
         let document = Html::parse_document(&product_page_html);
         let details_table = fetch_info_from_details_table(&document)
             .expect("Should be able to fetch info from details table");
-        println!("product page: {:#?}", details_table);
 
         let mut expected = HashMap::new();
         expected.insert("Filtr UV".to_owned(), "TAK".to_owned());
@@ -167,5 +198,23 @@ mod tests {
         expected.insert("Szerokość soczewki".to_owned(), "54".to_owned());
 
         assert_eq!(expected, details_table);
+    }
+
+    #[test]
+    fn should_fetch_variant_details_table() {
+        let product_page_html = fs::read_to_string(PRODUCT_PAGE_PATH)
+            .expect("Should be able to read product page from file system.");
+
+        let document = Html::parse_document(&product_page_html);
+        let variant_details_table = fetch_info_from_variant_details_table(&document)
+            .expect("Should be able to fetch info from details table");
+        
+        let mut expected = HashMap::new();
+        expected.insert("Kolor".to_owned(), "Czarny".to_owned());
+        expected.insert("Dodatkowy kolor".to_owned(), "Czerwony".to_owned());
+        expected.insert("Kolor soczewki".to_owned(), "Szary".to_owned());
+        expected.insert("Dodatkowa opcja soczewki".to_owned(), "Antyrefleks".to_owned());
+        
+        assert_eq!(expected, variant_details_table);
     }
 }
