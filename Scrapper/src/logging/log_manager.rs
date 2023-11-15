@@ -10,23 +10,19 @@ const TIME_FORMAT_LONG: &str = "%Y-%m-%d %H:%M:%S%.6f";
 pub fn initialize_logger() {
     std::panic::set_hook(Box::new(on_panic));
 
-    let filespec = FileSpec::default()
-        .basename("log")
-        .directory("logs/");
+    let filespec = FileSpec::default().basename("log").directory("logs/");
 
-    let logger = Logger::try_with_env_or_str(
-        "error, web_scrapper_rs=trace",
-    )
-    .expect("Should succeed initializing with env.")
-    .format_for_files(format_with_thread)
-    .format_for_stdout(format_colored_with_thread)
-    .log_to_file(filespec)
-    .rotate(
-        Criterion::Size(10 * 1024 * 1024),
-        Naming::Timestamps,
-        Cleanup::KeepLogFiles(5),
-    )
-    .duplicate_to_stdout(Duplicate::All);
+    let logger = Logger::try_with_env_or_str("error, web_scrapper_rs=trace")
+        .expect("Should succeed initializing with env.")
+        .format_for_files(format_with_thread)
+        .format_for_stdout(format_colored_with_thread)
+        .log_to_file(filespec)
+        .rotate(
+            Criterion::Size(10 * 1024 * 1024),
+            Naming::Timestamps,
+            Cleanup::KeepLogFiles(5),
+        )
+        .duplicate_to_stdout(Duplicate::All);
 
     match logger.start() {
         Ok(_) => info!("Logging initialized."),
