@@ -15,19 +15,24 @@ async fn main() {
     log_manager::initialize_logger();
 
     let urls = vec![
-        "https://e-okularnicy.pl/10-oprawy?page=1",
-        "https://e-okularnicy.pl/10-oprawy?page=2",
+        "https://e-okularnicy.pl/10-oprawy?page=1".to_string(),
+        "https://e-okularnicy.pl/10-oprawy?page=2".to_string(),
     ];
 
+    process_listing_urls_to_product_urls(urls).await;
+}
+
+async fn process_listing_urls_to_product_urls(urls: Vec<String>) -> Vec<String> {
     let mut join_handles = Vec::with_capacity(urls.len());
-    for ele in urls {
-        let join_handle = task::spawn(process_url(ele));
-        join_handles.push(join_handle);
+    for url in urls {
+        let url_clone = url.clone();
+        let join_handle = task::spawn(process_url(url_clone));
+        join_handles.push((url, join_handle));
     }
 
     let mut product_links: Vec<String> = vec![];
-    for join_handle in join_handles {
-        let Ok((url, await_result)) = join_handle.await else {
+    for (url, join_handle) in join_handles {
+        let Ok(await_result) = join_handle.await else {
             error!("Could not await the join handle.");
             continue;
         };
@@ -47,23 +52,25 @@ async fn main() {
     }
 
     info!("Found {} product URLs", product_links.len());
-    for ele in product_links {
+    for ele in &product_links {
         trace!("Product link: {}", ele);
     }
+
+    product_links
 }
 
 /// Scraps the page URL for product URLs.
-async fn process_url(url: &str) -> (&str, Result<Vec<String>, ()>) {
+async fn process_url(url: String) -> Result<Vec<String>, ()> {
     debug!("Began processing URL {}", url);
 
-    let Ok(response) = reqwest::get(url).await else {
+    let Ok(response) = reqwest::get(&url).await else {
         error!("Could not get response for URL {}", url);
-        return (url, Err(()));
+        return Err(());
     };
 
     let Ok(response_text) = response.text().await else {
         error!("Could not get text from response from URL {}", url);
-        return (url, Err(()));
+        return Err(());
     };
 
     let document = Html::parse_document(&response_text);
@@ -71,7 +78,7 @@ async fn process_url(url: &str) -> (&str, Result<Vec<String>, ()>) {
         .select(&SELECTOR)
         .map(|selected| selected.value())
         .filter_map(|element| match get_product_url_from_element(element) {
-            Ok(url) => Some(url),
+            Ok(url) => Some(url.to_owned()),
             Err(_) => {
                 warn!("Could not fetch URL for product.");
                 None
@@ -79,15 +86,15 @@ async fn process_url(url: &str) -> (&str, Result<Vec<String>, ()>) {
         })
         .collect();
 
-    (url, Ok(element_urls))
+    Ok(element_urls)
 }
 
-fn get_product_url_from_element(element: &Element) -> Result<String, ()> {
+fn get_product_url_from_element(element: &Element) -> Result<&str, ()> {
     let a = element.attr("href");
     let Some(product_url) = a else {
         warn!("Could not find href");
         return Err(());
     };
 
-    Ok(product_url.to_owned())
+    Ok(product_url)
 }
