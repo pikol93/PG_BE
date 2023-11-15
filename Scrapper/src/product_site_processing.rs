@@ -31,11 +31,17 @@ struct ImageUrls {
 
 pub async fn process_product_sites_to_products(
     product_urls: &Vec<String>,
+    category_name: &'static str,
+    subcategory_name: &'static str,
 ) -> Vec<HashMap<String, String>> {
     let mut join_handles = Vec::with_capacity(product_urls.len());
     for url in product_urls {
         let url_clone = url.clone();
-        let join_handle = task::spawn(process_product_site_to_product(url_clone));
+        let join_handle = task::spawn(process_product_site_to_product(
+            url_clone,
+            category_name,
+            subcategory_name,
+        ));
         join_handles.push((url, join_handle));
     }
 
@@ -61,6 +67,8 @@ pub async fn process_product_sites_to_products(
 
 async fn process_product_site_to_product(
     product_url: String,
+    category_name: &str,
+    subcategory_name: &str,
 ) -> Result<HashMap<String, String>, ()> {
     let Some(id) = fetch_id_from_product_url(&product_url) else {
         error!("Could not fetch ID from URL {}", product_url);
@@ -113,6 +121,8 @@ async fn process_product_site_to_product(
     }
 
     result.insert("id".to_owned(), id.to_string());
+    result.insert("category".to_owned(), category_name.to_owned());
+    result.insert("subcategory".to_owned(), subcategory_name.to_owned());
 
     Ok(result)
 }
