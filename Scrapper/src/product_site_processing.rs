@@ -6,6 +6,8 @@ use regex::Regex;
 use scraper::{Html, Selector};
 use tokio::task;
 
+static CURRENT_PRICE_SELECTOR: Lazy<Selector> =
+    Lazy::new(|| Selector::parse("div.current-price>span").unwrap());
 static DETAILS_TABLE_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("ul.data-sheet").unwrap());
 static DETAILS_TABLE_PAIR_CONTAINER_SELECTOR: Lazy<Selector> =
@@ -86,6 +88,10 @@ async fn process_product_site_to_product(
         );
     }
 
+    if let Ok(price_string) = fetch_price_info(&document) {
+        result.insert("price".to_owned(), price_string);
+    }
+
     result.insert("id".to_owned(), id.to_string());
 
     Ok(result)
@@ -152,6 +158,27 @@ fn fetch_info_from_variant_details_table(document: &Html) -> Result<HashMap<Stri
         .for_each(|(name_element, value_element)| {
             result.insert(name_element.inner_html(), value_element.inner_html());
         });
+
+    Ok(result)
+}
+
+fn fetch_price_info(document: &Html) -> Result<String, ()> {
+    let mut price_select = document.select(&CURRENT_PRICE_SELECTOR);
+
+    let price_element_option = price_select.next();
+    let Some(price_element) = price_element_option else {
+        error!("Could not find HTML element for price element");
+        return Err(());
+    };
+
+    let result_with_unicode = price_element.inner_html();
+
+    if result_with_unicode.is_empty() {
+        error!("Returned inner HTML is empty for price element");
+        return Err(());
+    }
+
+    let result = result_with_unicode.replace("&nbsp;", " ");
 
     Ok(result)
 }
