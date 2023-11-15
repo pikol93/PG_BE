@@ -18,8 +18,16 @@ static VARIANT_DETAILS_TABLE_NAMES_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("table.variant-details>thead>tr>th").unwrap());
 static VARIANT_DETAILS_TABLE_VALUES_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("table.variant-details>tbody>tr>td").unwrap());
+static IMAGE_CONTAINER_SELECTOR: Lazy<Selector> =
+    Lazy::new(|| Selector::parse("img.d-block").unwrap());
 
 static PRODUCT_ID_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\D*(\d+)").unwrap());
+
+#[derive(Default)]
+struct ImageUrls {
+    medium_image_url: Option<String>,
+    large_image_url: Option<String>,
+}
 
 pub async fn process_product_sites_to_products(
     product_urls: &Vec<String>,
@@ -89,6 +97,19 @@ async fn process_product_site_to_product(
 
     if let Ok(price_string) = fetch_price_info(&document) {
         result.insert("price".to_owned(), price_string);
+    }
+
+    let image_urls = fetch_image_urls(&document);
+    if let Some(large_image_url) = image_urls.large_image_url {
+        result.insert("large_image_url".to_owned(), large_image_url);
+    } else {
+        error!("Could not fetch large image URL.");
+    }
+
+    if let Some(medium_image_url) = image_urls.medium_image_url {
+        result.insert("medium_image_url".to_owned(), medium_image_url);
+    } else {
+        error!("Could not fetch medium image URL.");
     }
 
     result.insert("id".to_owned(), id.to_string());
@@ -180,6 +201,23 @@ fn fetch_price_info(document: &Html) -> Result<String, ()> {
     let result = result_with_unicode.replace("&nbsp;", " ");
 
     Ok(result)
+}
+
+fn fetch_image_urls(document: &Html) -> ImageUrls {
+    let Some(selected) = document.select(&IMAGE_CONTAINER_SELECTOR).next() else {
+        return ImageUrls::default();
+    };
+
+    ImageUrls {
+        medium_image_url: selected
+            .value()
+            .attr("data-image-medium-src")
+            .map(|url| url.to_owned()),
+        large_image_url: selected
+            .value()
+            .attr("data-image-large-src")
+            .map(|url| url.to_owned()),
+    }
 }
 
 #[cfg(test)]
