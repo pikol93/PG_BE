@@ -1,19 +1,10 @@
 use std::collections::HashMap;
 
-use crate::shop_product::ShopProduct;
 use log::{error, trace, warn};
 use once_cell::sync::Lazy;
 use regex::Regex;
 use scraper::{Html, Selector};
 use tokio::task;
-
-const DETAILS_KEY_LENS_WIDTH: &str = "Szerokość soczewki";
-const DETAILS_KEY_MATERIAL: &str = "Materiał";
-const DETAILS_KEY_BRIDGE_WIDTH: &str = "Szerokość mostka";
-
-const DEFAULT_LENS_WIDTH: u32 = 50;
-const DEFAULT_MATERIAL: &str = "ultem";
-const DEFAULT_BRIDGE_WIDTH: u32 = 20;
 
 static DETAILS_TABLE_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("ul.data-sheet").unwrap());
@@ -24,7 +15,9 @@ static DETAILS_TABLE_VALUE_SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::par
 static PRODUCT_ID_REGEX: Lazy<Regex> =
     Lazy::new(|| Regex::new(r"^[^\d]*(\d+)").expect("Should be valid ID regex"));
 
-pub async fn process_product_sites_to_products(product_urls: Vec<String>) -> Vec<ShopProduct> {
+pub async fn process_product_sites_to_products(
+    product_urls: Vec<String>,
+) -> Vec<HashMap<String, String>> {
     let mut join_handles = Vec::with_capacity(product_urls.len());
     for url in product_urls {
         let url_clone = url.clone();
@@ -32,7 +25,7 @@ pub async fn process_product_sites_to_products(product_urls: Vec<String>) -> Vec
         join_handles.push((url, join_handle));
     }
 
-    let mut product_links: Vec<ShopProduct> = Vec::with_capacity(join_handles.len());
+    let mut product_links = Vec::with_capacity(join_handles.len());
     for (url, join_handle) in join_handles {
         let Ok(await_result) = join_handle.await else {
             error!("Could not await the join handle for URL {}", url);
@@ -52,7 +45,9 @@ pub async fn process_product_sites_to_products(product_urls: Vec<String>) -> Vec
     product_links
 }
 
-async fn process_product_site_to_product(product_url: String) -> Result<ShopProduct, ()> {
+async fn process_product_site_to_product(
+    product_url: String,
+) -> Result<HashMap<String, String>, ()> {
     let Some(id) = fetch_id_from_product_url(&product_url) else {
         error!("Could not fetch ID from URL {}", product_url);
         return Err(());
@@ -69,26 +64,14 @@ async fn process_product_site_to_product(product_url: String) -> Result<ShopProd
     };
 
     let document = Html::parse_document(&response_text);
-    let Ok(details_table) = fetch_info_from_details_table(&document) else {
+    let Ok(mut details_table) = fetch_info_from_details_table(&document) else {
         error!("Could not get details table from URL {}", product_url);
         return Err(());
     };
 
-    let lens_width =
-        get_lens_width_from_details_table(&details_table).unwrap_or(DEFAULT_LENS_WIDTH);
-    let material = get_material_from_details_table(&details_table)
-        .unwrap_or_else(|| DEFAULT_MATERIAL.to_owned());
-    let bridge_width =
-        get_bridge_width_from_details_table(&details_table).unwrap_or(DEFAULT_BRIDGE_WIDTH);
+    details_table.insert("id".to_owned(), id.to_string());
 
-    let shop_product = ShopProduct {
-        id,
-        lens_width,
-        material,
-        bridge_width,
-    };
-
-    Ok(shop_product)
+    Ok(details_table)
 }
 
 fn fetch_id_from_product_url(product_url: &str) -> Option<u32> {
@@ -136,38 +119,6 @@ fn fetch_info_from_details_table(document: &Html) -> Result<HashMap<String, Stri
         });
 
     Ok(result)
-}
-
-fn get_lens_width_from_details_table(details_table: &HashMap<String, String>) -> Option<u32> {
-    let Some(lens_width_string) = details_table.get(DETAILS_KEY_LENS_WIDTH) else {
-        return None;
-    };
-
-    let Ok(lens_width) = lens_width_string.parse::<u32>() else {
-        return None;
-    };
-
-    Some(lens_width)
-}
-
-fn get_material_from_details_table(details_table: &HashMap<String, String>) -> Option<String> {
-    let Some(material_string) = details_table.get(DETAILS_KEY_MATERIAL) else {
-        return None;
-    };
-
-    Some(material_string.to_owned())
-}
-
-fn get_bridge_width_from_details_table(details_table: &HashMap<String, String>) -> Option<u32> {
-    let Some(bridge_width_string) = details_table.get(DETAILS_KEY_BRIDGE_WIDTH) else {
-        return None;
-    };
-
-    let Ok(bridge_width) = bridge_width_string.parse::<u32>() else {
-        return None;
-    };
-
-    Some(bridge_width)
 }
 
 #[cfg(test)]
