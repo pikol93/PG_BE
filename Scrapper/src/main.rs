@@ -1,5 +1,6 @@
-use log::error;
+use log::{error, info};
 use std::collections::HashMap;
+use std::fs;
 use tokio::task;
 
 use product_site_processing::process_product_sites_to_products;
@@ -51,7 +52,14 @@ async fn main() {
         scrapped_products.append(&mut process_result);
     }
 
-    dbg!(scrapped_products);
+    let products_json =
+        serde_json::to_string(&scrapped_products).expect("Should be able to write data to JSON.");
+    fs::write("output/scrapped.txt", &products_json).expect("Should be able to write to disk.");
+
+    info!(
+        "Finished scrapping. Results: {} products scrapped.",
+        scrapped_products.len()
+    );
 }
 
 fn create_vec_with_pages(base_site: &str, page_count: usize) -> Vec<String> {
