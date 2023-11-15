@@ -19,11 +19,10 @@ static VARIANT_DETAILS_TABLE_NAMES_SELECTOR: Lazy<Selector> =
 static VARIANT_DETAILS_TABLE_VALUES_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("table.variant-details>tbody>tr>td").unwrap());
 
-static PRODUCT_ID_REGEX: Lazy<Regex> =
-    Lazy::new(|| Regex::new(r"^[^\d]*(\d+)").expect("Should be valid ID regex"));
+static PRODUCT_ID_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\D*(\d+)").unwrap());
 
 pub async fn process_product_sites_to_products(
-    product_urls: Vec<String>,
+    product_urls: &Vec<String>,
 ) -> Vec<HashMap<String, String>> {
     let mut join_handles = Vec::with_capacity(product_urls.len());
     for url in product_urls {

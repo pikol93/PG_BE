@@ -5,7 +5,7 @@ use tokio::task;
 
 static SELECTOR: Lazy<Selector> = Lazy::new(|| Selector::parse("a.tile__product").unwrap());
 
-pub async fn process_listing_urls_to_product_urls(urls: Vec<String>) -> Vec<String> {
+pub async fn process_listing_urls_to_product_urls(urls: &Vec<String>) -> Vec<String> {
     let mut join_handles = Vec::with_capacity(urls.len());
     for url in urls {
         let url_clone = url.clone();
