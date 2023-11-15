@@ -4,6 +4,7 @@ use std::fs;
 use tokio::task;
 
 use product_site_processing::process_product_sites_to_products;
+use serde::Serialize;
 
 use crate::listing_site_processing::process_listing_urls_to_product_urls;
 use crate::logging::log_manager;
@@ -12,11 +13,13 @@ pub mod listing_site_processing;
 pub mod logging;
 pub mod product_site_processing;
 
+#[derive(Serialize)]
 struct Category {
     name: &'static str,
     subcategories: Vec<Subcategory>,
 }
 
+#[derive(Serialize)]
 struct Subcategory {
     name: &'static str,
     url: &'static str,
@@ -52,9 +55,24 @@ async fn main() {
         scrapped_products.append(&mut process_result);
     }
 
-    let products_json =
-        serde_json::to_string(&scrapped_products).expect("Should be able to write data to JSON.");
-    fs::write("output/scrapped.txt", &products_json).expect("Should be able to write to disk.");
+
+    let products_json = serde_json::to_string(&scrapped_products)
+        .expect("Should be able to write product data to JSON.");
+    fs::write("output/scrapped.txt", &products_json)
+        .expect("Should be able to write products JSON to disk.");
+
+    let categories_json =
+        serde_json::to_string(&categories).expect("Should be able to write category data to JSON.");
+    fs::write("output/categories.txt", &categories_json)
+        .expect("Should be able to write categories JSON to disk.");
+
+    let default_product_value = "NO_INFORMATION".to_owned();
+    let heatmap = collect_heatmap(&scrapped_products, &default_product_value);
+
+    let heatmap_json =
+        serde_json::to_string(&heatmap).expect("Should be able to write heatmap data to JSON.");
+    fs::write("output/heatmap.txt", &heatmap_json)
+        .expect("Should be able to write heatmap JSON to disk.");
 
     info!(
         "Finished scrapping. Results: {} products scrapped.",
