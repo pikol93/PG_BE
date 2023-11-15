@@ -1605,6 +1605,7 @@ dependencies = [
  "flexi_logger",
  "log",
  "once_cell",
+ "regex",
  "reqwest",
  "scraper",
  "tokio",
