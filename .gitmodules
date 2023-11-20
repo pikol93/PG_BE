@@ -1,0 +1,3 @@
+[submodule "PrestaShop"]
+	path = PrestaShop
+	url = git@github.com:pikol93/PG_BE_PrestaShop.git
