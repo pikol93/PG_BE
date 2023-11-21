@@ -1,4 +1,4 @@
 {
-  "CategoriesFilePath": "../../../../ScrappedData/categories_large.txt",
-  "ScrappedFilePath": "../../../../ScrappedData/scrapped_large.txt"
+  "CategoriesFilePath": "../../../../ScrappedData/categories_small.txt",
+  "ScrappedFilePath": "../../../../ScrappedData/scrapped_small.txt"
 }
