@@ -8,9 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Config.Net" Version="5.1.5"/>
-        <PackageReference Include="NLog" Version="5.2.6"/>
-        <PackageReference Include="PrestaSharp" Version="1.2.9"/>
+        <PackageReference Include="Config.Net" Version="5.1.5" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="NLog" Version="5.2.6" />
+        <PackageReference Include="PrestaSharp" Version="1.2.9" />
     </ItemGroup>
 
     <ItemGroup>
