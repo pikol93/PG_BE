@@ -11,14 +11,159 @@ public class Product
     public int Id { get; set; }
 
     [JsonProperty("category")]
-    public string Category { get; set; }
+    public string Category { get; set; } = "INVALID";
 
     [JsonProperty("subcategory")]
-    public string Subcategory { get; set; }
+    public string Subcategory { get; set; } = "INVALID";
+
+    [JsonProperty("large_image_url")]
+    public string LargeImageUrl { get; set; } = "INVALID";
+
+    [JsonProperty("medium_image_url")]
+    public string MediumImageUrl { get; set; } = "INVALID";
+
+    [JsonProperty("price")]
+    public string Price { get; set; } = "INVALID";
 
     [JsonProperty("Kolor")]
     [OptionalProductProperty]
     public string? Color { get; set; }
+
+    [JsonProperty("Długość zausznika")]
+    [OptionalProductProperty]
+    public string? TempleLength { get; set; }
+
+    [JsonProperty("Szerokość soczewki")]
+    [OptionalProductProperty]
+    public string? LensWidth { get; set; }
+
+    [JsonProperty("Długość")]
+    [OptionalProductProperty]
+    public string? Length { get; set; }
+
+    [JsonProperty("Materiał soczewki")]
+    [OptionalProductProperty]
+    public string? LensMaterial { get; set; }
+
+    [JsonProperty("Waga")]
+    [OptionalProductProperty]
+    public string? Weight { get; set; }
+
+    [JsonProperty("Dodatkowy kolor")]
+    [OptionalProductProperty]
+    public string? SecondaryColor { get; set; }
+
+    [JsonProperty("Kolor soczewki")]
+    [OptionalProductProperty]
+    public string? LensColor { get; set; }
+
+    [JsonProperty("Zakrywane oko")]
+    [OptionalProductProperty]
+    public string? CoveredEye { get; set; }
+
+    [JsonProperty("Funkcja specjalna")]
+    [OptionalProductProperty]
+    public string? SpecialFunction { get; set; }
+
+    [JsonProperty("Index")]
+    [OptionalProductProperty]
+    public string? Index { get; set; }
+
+    [JsonProperty("Rodzaj soczewek")]
+    [OptionalProductProperty]
+    public string? LensType { get; set; }
+
+    [JsonProperty("Lustrzanka")]
+    [OptionalProductProperty]
+    public string? UhIdk { get; set; }
+
+    [JsonProperty("Dyscyplina")]
+    [OptionalProductProperty]
+    public string? Discipline { get; set; }
+
+    [JsonProperty("Pojemność")]
+    [OptionalProductProperty]
+    public string? Capacity { get; set; }
+
+    [JsonProperty("Kształt")]
+    [OptionalProductProperty]
+    public string? Shape { get; set; }
+
+    [JsonProperty("Wysokość soczewki")]
+    [OptionalProductProperty]
+    public string? LensHeight { get; set; }
+
+    [JsonProperty("Kolekcja")]
+    [OptionalProductProperty]
+    public string? Collection { get; set; }
+
+    [JsonProperty("Szerokość mostka")]
+    [OptionalProductProperty]
+    public string? BridgeWidth { get; set; }
+
+    [JsonProperty("Wymiary")]
+    [OptionalProductProperty]
+    public string? Dimensions { get; set; }
+
+    [JsonProperty("Przeznaczenie")]
+    [OptionalProductProperty]
+    public string? Purpose { get; set; }
+
+    [JsonProperty("Odporność na zarysowania")]
+    [OptionalProductProperty]
+    public string? ScratchResistance { get; set; }
+
+    [JsonProperty("Wzór")]
+    [OptionalProductProperty]
+    public string? Pattern { get; set; }
+
+    [JsonProperty("Polaryzacja")]
+    [OptionalProductProperty]
+    public string? Polarization { get; set; }
+
+    [JsonProperty("Filtr UV")]
+    [OptionalProductProperty]
+    public string? UvFilter { get; set; }
+
+    [JsonProperty("Szerokość oprawy")]
+    [OptionalProductProperty]
+    public string? BindingWidth { get; set; }
+
+    [JsonProperty("Typ")]
+    [OptionalProductProperty]
+    public string? Type { get; set; }
+
+    [JsonProperty("Termin realizacji zamówienia")]
+    [OptionalProductProperty]
+    public string? OrderCompletionDate { get; set; }
+
+    [JsonProperty("Rozmiar")]
+    [OptionalProductProperty]
+    public string? Size { get; set; }
+
+    [JsonProperty("Przekątna soczewki")]
+    [OptionalProductProperty]
+    public string? LensDiagonal { get; set; }
+
+    [JsonProperty("Wykończenie")]
+    [OptionalProductProperty]
+    public string? Finishing { get; set; }
+
+    [JsonProperty("Antyreflex")]
+    [OptionalProductProperty]
+    public string? Antireflex { get; set; }
+
+    [JsonProperty("Materiał")]
+    [OptionalProductProperty]
+    public string? Material { get; set; }
+
+    [JsonProperty("Kolory Minaflex")]
+    [OptionalProductProperty]
+    public string? MiraflexColors { get; set; }
+
+    [JsonProperty("Odpowiednie dla wieku")]
+    [OptionalProductProperty]
+    public string? SuitableForAge { get; set; }
 
     public Dictionary<string, string> GetOptionalProperties()
     {
@@ -27,7 +172,7 @@ public class Product
 
         foreach (var propertyInfo in propertyInfos)
         {
-            string jsonPropertyName = null;
+            string? jsonPropertyName = null;
             var attributes = propertyInfo.GetCustomAttributes(true);
             var isOptional = false;
             foreach (var attribute in attributes)
