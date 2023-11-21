@@ -1,10 +1,12 @@
+from selenium.common import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as EC, expected_conditions
 from selenium.webdriver.common.keys import Keys
 import time
 import random
+import string
 
 class PrestaRunner():
     __GO_TO_ORDER_XPATH = '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
@@ -16,16 +18,16 @@ class PrestaRunner():
 
     def add_10_products_to_cart(self):
         self.__select_first_category()
-        self.__select_products_from_category(2)
+        self.__select_products_from_category(6)
         self.__select_second_category()
-        self.__select_products_from_category(2)
+        self.__select_products_from_category(4)
 
     def search_for_product_and_add_to_cart(self):
         search_field = self.web_driver.find_element(By.XPATH, '//*[@id="search_widget"]/form/input[2]')
         search_field.send_keys(self.__SEARCHED_PRODUCT_NAME)
         search_field.send_keys(Keys.ENTER)
         self.__go_to_rand_element()
-        self.__add_to_cart()
+        self.__add_to_cart(1)
 
     def delete_3_products_from_cart(self):
         self.__go_to_cart()
@@ -46,8 +48,29 @@ class PrestaRunner():
         self.__go_to_cart()
         self.web_driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a').click()
         self.__fill_address_data()
-        self.web_driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a').click('//*[@id="delivery_option_11"]')
+        self.__choose_delivery()
+        self.__finalize_delivery()
 
+    def get_order_details(self):
+        self.__go_to_order_details()
+        self.__download_vat_invoice()
+
+    def __download_vat_invoice(self):
+        self.web_driver.find_element(By.XPATH, '//*[@id="order-infos"]/div[2]/ul/li[3]/a').click()
+
+    def __go_to_order_details(self):
+        self.web_driver.find_element(By.XPATH, '//*[@id="_desktop_user_info"]/div/a[2]/span').click()
+        self.web_driver.find_element(By.XPATH, '//*[@id="history-link"]/span/i').click()
+        self.web_driver.find_element(By.XPATH, '//*[@id="content"]/table/tbody/tr/td[6]/a[1]').click()
+
+    def __finalize_delivery(self):
+        self.web_driver.find_element(By.XPATH, '//*[@id="payment-option-2"]').click()
+        self.web_driver.find_element(By.XPATH, '//*[@id="conditions_to_approve[terms-and-conditions]"]').click()
+        self.web_driver.find_element(By.XPATH, '//*[@id="payment-confirmation"]/div[1]/button').click()
+
+    def __choose_delivery(self):
+        self.web_driver.find_element(By.XPATH, '//*[@id="js-delivery"]/div/div[1]/div[4]/div/span/span').click()
+        self.web_driver.find_element(By.XPATH, '//*[@id="js-delivery"]/button').click()
 
     def __fill_address_data(self):
         address = 'ul. Warszawska 1'
@@ -64,7 +87,7 @@ class PrestaRunner():
     def __fill_personal_data(self):
         name = 'Andrzej'
         second_name = 'Warszawski'
-        email = 'andrzej.warszawski@wp.pl'
+        email = 'andrzej.' + self.__get_random_email_elem() + '@wp.pl'
         password = 'passwordi3402'
         birth_date = '2000-01-01'
 
@@ -108,20 +131,38 @@ class PrestaRunner():
 
     def __select_products_from_category(self, count):
         for i in range(count):
-            self.__go_to_nth_product_and_add_to_cart(i + 1)
+            prd_count = 1
+            if i % 2 == 0:
+                prd_count = 3
+            self.__go_to_nth_product_and_add_to_cart(i + 1, prd_count)
 
-    def __go_to_nth_product_and_add_to_cart(self, index):
+    def __go_to_nth_product_and_add_to_cart(self, index, count):
         xpath = self.__get_nth_element_xpath(index)
         product_elem = self.web_driver.find_element(By.XPATH, xpath)
         product_elem.click()
-        self.__add_to_cart()
+        self.__add_to_cart(count)
 
-    def __add_to_cart(self):
-        add_to_cart_button = self.web_driver.find_element(By.XPATH,
-                                                          '//*[@id="add-to-cart-or-refresh"]/div[2]/div/div[2]/button')
+    def __add_to_cart(self, count):
+
+        #increase_count_button = self.web_driver.find_element(By.XPATH,
+        #                                                     '//*[@id="add-to-cart-or-refresh"]/div[2]/div[1]/div[1]/div/span[3]/button[1]')
+        if count > 1:
+            input_elem = self.web_driver.find_element(By.XPATH, '//*[@id="quantity_wanted"]')
+            input_elem.send_keys('1')
+            #input_elem.send_keys(Keys.ENTER)
+
+        ignored_exceptions = (NoSuchElementException, StaleElementReferenceException)
+        add_to_cart_button = WebDriverWait(self.web_driver, 10, ignored_exceptions=ignored_exceptions) \
+            .until(expected_conditions.presence_of_element_located((By.CLASS_NAME,
+                                                          'btn.btn-primary.add-to-cart')))
+
         add_to_cart_button.click()
         WebDriverWait(self.web_driver, 5).until(EC.presence_of_element_located((By.XPATH, self.__GO_TO_ORDER_XPATH)))
         self.web_driver.back()
 
     def __get_nth_element_xpath(self, index):
         return f'//*[@id="js-product-list"]/div[1]/div[{index}]/article/div/div[1]/a/img'
+
+    def __get_random_email_elem(self):
+        length = 10
+        return ''.join(random.choices(string.ascii_letters, k=length)).lower()
