@@ -1,4 +1,7 @@
 {
   "CategoriesFilePath": "../../../../ScrappedData/categories_small.txt",
-  "ScrappedFilePath": "../../../../ScrappedData/scrapped_small.txt"
+  "ScrappedFilePath": "../../../../ScrappedData/scrapped_small.txt",
+  "PrestaShopBaseUrl": "https://localhost:8001/api",
+  "PrestaShopAccount": "NI842DWD2X2I28F1NDCSB8MN6FEV8BBF",
+  "PrestaShopSecretKey": ""
 }
