@@ -10,7 +10,7 @@ public class Category
     public string Name { get; set; }
 
     [JsonProperty("subcategories")]
-    public List<Category>? Subcategories { get; set; }
+    public List<Category> Subcategories { get; set; } = new();
 
     public override string ToString()
     {

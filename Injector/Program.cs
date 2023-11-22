@@ -27,6 +27,7 @@ public static class Program
                 throw new Exception("Could not deserialize categories");
         var products = JsonConvert.DeserializeObject<List<Product>>(productsString) ??
                 throw new Exception("Could not deserialize products");
+        var flattenedCategories = categories.SelectMany(category => category.Subcategories);
 
         // XDDDD
         ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
@@ -84,10 +85,7 @@ public static class Program
                 continue;
             }
 
-            if (category.Subcategories == null)
-            {
-                continue;
-            }
+            category.Id = id;
 
             InsertCategoryTree(categoryFactory, category.Subcategories, id.Value);
         }
