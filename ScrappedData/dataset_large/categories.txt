@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Oprawy",
+    "subcategories": [
+      {
+        "name": "Damskie",
+        "url": "https://e-okularnicy.pl/16-damskie"
+      },
+      {
+        "name": "Męskie",
+        "url": "https://e-okularnicy.pl/17-meskie"
+      },
+      {
+        "name": "Dziecięce",
+        "url": "https://e-okularnicy.pl/18-dzieciece"
+      },
+      {
+        "name": "Sportowe",
+        "url": "https://e-okularnicy.pl/19-sportowe"
+      }
+    ]
+  },
+  {
+    "name": "Soczewki okularowe",
+    "subcategories": [
+      {
+        "name": "Ogólne",
+        "url": "https://e-okularnicy.pl/21-ogolne"
+      },
+      {
+        "name": "Do komputera",
+        "url": "https://e-okularnicy.pl/22-do-komputera"
+      },
+      {
+        "name": "Dla kierowców",
+        "url": "https://e-okularnicy.pl/23-dla-kierowcow"
+      },
+      {
+        "name": "Dla dzieci",
+        "url": "https://e-okularnicy.pl/24-dla-dzieci"
+      }
+    ]
+  },
+  {
+    "name": "Okulary przeciwsłoneczne",
+    "subcategories": [
+      {
+        "name": "Damskie",
+        "url": "https://e-okularnicy.pl/30-damskie"
+      },
+      {
+        "name": "Męskie",
+        "url": "https://e-okularnicy.pl/31-meskie"
+      },
+      {
+        "name": "Dziecięce",
+        "url": "https://e-okularnicy.pl/32-dzieciece"
+      },
+      {
+        "name": "Sportowe",
+        "url": "https://e-okularnicy.pl/33-sportowe"
+      }
+    ]
+  },
+  {
+    "name": "Okulary specjalne",
+    "subcategories": [
+      {
+        "name": "Ochronne",
+        "url": "https://e-okularnicy.pl/34-ochronne"
+      },
+      {
+        "name": "Do pływania",
+        "url": "https://e-okularnicy.pl/35-do-plywania"
+      },
+      {
+        "name": "Do makijażu",
+        "url": "https://e-okularnicy.pl/35-do-plywania"
+      },
+      {
+        "name": "Gogle",
+        "url": "https://e-okularnicy.pl/37-gogle"
+      }
+    ]
+  },
+  {
+    "name": "Akcesoria",
+    "subcategories": [
+      {
+        "name": "Pielęgnacja",
+        "url": "https://e-okularnicy.pl/38-pielegnacja"
+      },
+      {
+        "name": "Dodatki",
+        "url": "https://e-okularnicy.pl/39-dodatki"
+      },
+      {
+        "name": "Etui",
+        "url": "https://e-okularnicy.pl/40-etui"
+      },
+      {
+        "name": "Plastry na oko",
+        "url": "https://e-okularnicy.pl/41-plastry-na-oko"
+      }
+    ]
+  }
+]

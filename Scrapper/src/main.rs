@@ -1,15 +1,18 @@
+use const_format::concatcp;
 use itertools::Itertools;
 use log::{error, info};
 use std::collections::HashMap;
 use std::fs;
 use tokio::task;
 
+use crate::image_processing::fetch_images_from_products;
 use product_site_processing::process_product_sites_to_products;
 use serde::Serialize;
 
 use crate::listing_site_processing::process_listing_urls_to_product_urls;
 use crate::logging::log_manager;
 
+mod image_processing;
 pub mod listing_site_processing;
 pub mod logging;
 pub mod product_site_processing;
@@ -26,8 +29,9 @@ struct Subcategory {
     url: &'static str,
 }
 
-const DEFAULT_PAGE_COUNT: usize = 1;
+const DEFAULT_PAGE_COUNT: usize = 30;
 const OUTPUT_DIRECTORY: &str = "output/";
+const OUTPUT_IMAGES_DIRECTORY: &str = concatcp!(OUTPUT_DIRECTORY, "images/");
 
 #[tokio::main]
 async fn main() {
@@ -69,13 +73,13 @@ async fn main() {
 
     fs::create_dir_all(OUTPUT_DIRECTORY).expect("Should be able to create a directory.");
 
-    let products_json = serde_json::to_string(&unique_scrapped_products)
+    let products_json = serde_json::to_string_pretty(&unique_scrapped_products)
         .expect("Should be able to write product data to JSON.");
     fs::write(OUTPUT_DIRECTORY.to_owned() + "scrapped.txt", products_json)
         .expect("Should be able to write products JSON to disk.");
 
-    let categories_json =
-        serde_json::to_string(&categories).expect("Should be able to write category data to JSON.");
+    let categories_json = serde_json::to_string_pretty(&categories)
+        .expect("Should be able to write category data to JSON.");
     fs::write(
         OUTPUT_DIRECTORY.to_owned() + "categories.txt",
         categories_json,
@@ -85,10 +89,12 @@ async fn main() {
     let default_product_value = "NO_INFORMATION".to_owned();
     let heatmap = collect_heatmap(&unique_scrapped_products, &default_product_value);
 
-    let heatmap_json =
-        serde_json::to_string(&heatmap).expect("Should be able to write heatmap data to JSON.");
+    let heatmap_json = serde_json::to_string_pretty(&heatmap)
+        .expect("Should be able to write heatmap data to JSON.");
     fs::write(OUTPUT_DIRECTORY.to_owned() + "heatmap.txt", heatmap_json)
         .expect("Should be able to write heatmap JSON to disk.");
+
+    fetch_images_from_products(OUTPUT_IMAGES_DIRECTORY, &unique_scrapped_products).await;
 
     info!(
         "Finished scrapping. Results: {} products scrapped.",

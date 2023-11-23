@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 
-use log::{error, info, trace, warn};
+use log::{error, trace, warn};
 use once_cell::sync::Lazy;
 use regex::Regex;
-use scraper::{Html, Selector};
+use scraper::{Html, Node, Selector};
 use tokio::task;
 
 static CURRENT_PRICE_SELECTOR: Lazy<Selector> =
@@ -20,6 +20,10 @@ static VARIANT_DETAILS_TABLE_VALUES_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("table.variant-details>tbody>tr>td").unwrap());
 static IMAGE_CONTAINER_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("img.d-block").unwrap());
+static NAME_SELECTOR: Lazy<Selector> =
+    Lazy::new(|| Selector::parse("div.product-content>h1").unwrap());
+static DESCRIPTION_SELECTOR: Lazy<Selector> =
+    Lazy::new(|| Selector::parse("div.description").unwrap());
 
 static PRODUCT_ID_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\D*(\d+)").unwrap());
 
@@ -86,6 +90,11 @@ async fn process_product_site_to_product(
     };
 
     let document = Html::parse_document(&response_text);
+    let Ok(name) = fetch_name_from_product(&document) else {
+        error!("Could not fetch name from product");
+        return Err(());
+    };
+
     let mut result;
     if let Ok(details_table) = fetch_info_from_details_table(&document) {
         result = details_table;
@@ -120,6 +129,10 @@ async fn process_product_site_to_product(
         error!("Could not fetch medium image URL.");
     }
 
+    let description = fetch_description_from_product(&document);
+
+    result.insert("name".to_owned(), name);
+    result.insert("description".to_owned(), description);
     result.insert("id".to_owned(), id.to_string());
     result.insert("category".to_owned(), category_name.to_owned());
     result.insert("subcategory".to_owned(), subcategory_name.to_owned());
@@ -141,6 +154,44 @@ fn fetch_id_from_product_url(product_url: &str) -> Option<u32> {
     };
 
     Some(id)
+}
+
+fn fetch_name_from_product(document: &Html) -> Result<String, ()> {
+    let name_ref = document.select(&NAME_SELECTOR).next();
+
+    let Some(name_element) = name_ref else {
+        error!("Could not find the name element.");
+        return Err(());
+    };
+
+    let result = name_element
+        .text()
+        .next()
+        .unwrap()
+        .to_string()
+        .replace("                  ", "")
+        .replace("              ", "")
+        .replace('\n', "");
+
+    Ok(result)
+}
+
+fn fetch_description_from_product(document: &Html) -> String {
+    let mut result = "".to_owned();
+
+    let selected = document.select(&DESCRIPTION_SELECTOR);
+    for node_ref in selected.flat_map(|a| a.descendants()) {
+        let node = node_ref.value();
+        if let Node::Text(text) = node {
+            result.push_str(&text.text)
+        };
+    }
+
+    result
+        .trim()
+        .to_owned()
+        .replace(['\n', '\u{a0}'], " ")
+        .replace('_', "")
 }
 
 fn fetch_info_from_details_table(document: &Html) -> Result<HashMap<String, String>, ()> {
@@ -183,11 +234,8 @@ fn fetch_info_from_variant_details_table(document: &Html) -> Result<HashMap<Stri
 
     let mut result = HashMap::new();
 
-    let names_iter = variant_detail_names.into_iter();
-    let values_iter = variant_detail_values.into_iter();
-
-    names_iter
-        .zip(values_iter)
+    variant_detail_names
+        .zip(variant_detail_values)
         .for_each(|(name_element, value_element)| {
             result.insert(
                 name_element.inner_html(),
@@ -247,7 +295,8 @@ mod tests {
     use scraper::Html;
 
     use crate::product_site_processing::{
-        fetch_info_from_details_table, fetch_info_from_variant_details_table,
+        fetch_description_from_product, fetch_info_from_details_table,
+        fetch_info_from_variant_details_table,
     };
 
     use super::fetch_id_from_product_url;
@@ -308,5 +357,16 @@ mod tests {
         );
 
         assert_eq!(expected, variant_details_table);
+    }
+
+    #[test]
+    fn should_fetch_description() {
+        let product_page_html = fs::read_to_string(PRODUCT_PAGE_PATH)
+            .expect("Should be able to read product page from file system.");
+
+        let document = Html::parse_document(&product_page_html);
+        let result = fetch_description_from_product(&document);
+
+        dbg!(result);
     }
 }
