@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use log::{error, info, trace, warn};
+use log::{error, trace, warn};
 use once_cell::sync::Lazy;
 use regex::Regex;
 use scraper::{Html, Selector};
