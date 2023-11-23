@@ -17,7 +17,7 @@ public static class Program
 
     private static ILogger Logger { get; } = LogManager.GetCurrentClassLogger();
 
-    public static void Main()
+    public static async Task Main()
     {
         var settings = new ConfigurationBuilder<InjectorSettings>()
                 .UseJsonFile(ConfigurationFile)
@@ -54,6 +54,9 @@ public static class Program
         var stockAvailableFactory = new StockAvailableFactory(settings.PrestaShopBaseUrl,
                 settings.PrestaShopAccount,
                 settings.PrestaShopSecretKey);
+        var imageFactory = new ImageFactory(settings.PrestaShopBaseUrl,
+                settings.PrestaShopAccount,
+                settings.PrestaShopSecretKey);
 
         var productOptionMapping = new ProductOptionMapping();
 
@@ -65,6 +68,7 @@ public static class Program
         productOptionMapping.Insert(productFeatureFactory, productFeatureValueFactory, products);
         AddProducts(productFactory, productOptionMapping, products, categories);
         UpdateStockCount(productFactory, stockAvailableFactory);
+        await AddImagesToProducts(imageFactory, products, settings.ImagesDirectoryFilePath);
     }
 
     private static void ClearProducts(ProductFactory productFactory)
@@ -268,5 +272,47 @@ public static class Program
                 Logger.Info("Updated product {} quantity to {}", product.id, quantity);
             }
         }
+    }
+
+    private static async Task AddImagesToProducts(ImageFactory imageFactory, List<Product> products, string imagesRootPath)
+    {
+        var tasks = new List<Task>();
+        foreach (var product in products)
+        {
+            if (product.InsertedId == null)
+            {
+                continue;
+            }
+            
+            tasks.Add(AddImageToProduct(imageFactory, imagesRootPath, product));
+        }
+
+        await Task.WhenAll(tasks);
+    }
+
+    private static async Task AddImageToProduct(ImageFactory imageFactory, string imagesRootPath, Product product)
+    {
+        var imagePath = $"{imagesRootPath}{product.Id}/large.jpg";
+        byte[] imageData;
+        try
+        {
+            imageData = await File.ReadAllBytesAsync(imagePath);
+        }
+        catch (Exception)
+        {
+            Logger.Error("Could not read image data from path {}", imagePath);
+            return;
+        }
+
+        try
+        {
+            await imageFactory.AddProductImageAsync((long)product.InsertedId, imageData);
+        }
+        catch (Exception)
+        {
+            Logger.Error("Could not add image to a product {}", product.Id);
+        }
+        
+        Logger.Info("Inserted image for product {}. Image size = {}", product.InsertedId, imageData.Length);
     }
 }
