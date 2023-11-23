@@ -283,7 +283,7 @@ public static class Program
             {
                 continue;
             }
-            
+
             tasks.Add(AddImageToProduct(imageFactory, imagesRootPath, product));
         }
 
@@ -312,7 +312,7 @@ public static class Program
         {
             Logger.Error("Could not add image to a product {}", product.Id);
         }
-        
+
         Logger.Info("Inserted image for product {}. Image size = {}", product.InsertedId, imageData.Length);
     }
 }
