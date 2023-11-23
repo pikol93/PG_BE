@@ -7,7 +7,7 @@ public class Category
     public long? Id { get; set; }
 
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [JsonProperty("subcategories")]
     public List<Category> Subcategories { get; set; } = new();

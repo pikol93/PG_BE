@@ -7,6 +7,8 @@ public class Product
 {
     private static ILogger Logger { get; } = LogManager.GetCurrentClassLogger();
 
+    public long? insertedId { get; set; }
+
     [JsonProperty("id")]
     public int Id { get; set; }
 
@@ -164,6 +166,51 @@ public class Product
     [JsonProperty("Odpowiednie dla wieku")]
     [OptionalProductProperty]
     public string? SuitableForAge { get; set; }
+
+    public static List<(string, Func<Product, string?>)> GetOptionalPropertyTuples()
+    {
+        var propertyInfos = typeof(Product).GetProperties();
+        var result = new List<(string, Func<Product, string?>)>();
+
+        foreach (var propertyInfo in propertyInfos)
+        {
+            string? jsonPropertyName = null;
+            var attributes = propertyInfo.GetCustomAttributes(true);
+            var isOptional = false;
+            foreach (var attribute in attributes)
+            {
+                switch (attribute)
+                {
+                    case OptionalProductPropertyAttribute:
+                        isOptional = true;
+                        break;
+                    case JsonPropertyAttribute property:
+                        jsonPropertyName = property.PropertyName;
+                        break;
+                }
+            }
+
+            if (!isOptional)
+            {
+                continue;
+            }
+
+            if (jsonPropertyName == null)
+            {
+                throw new Exception("JSON property should have a name");
+            }
+
+            result.Add((jsonPropertyName, Lambda));
+            continue;
+
+            string? Lambda(Product product)
+            {
+                return propertyInfo.GetValue(product) as string;
+            }
+        }
+
+        return result;
+    }
 
     public Dictionary<string, string> GetOptionalProperties()
     {
