@@ -20,6 +20,8 @@ static VARIANT_DETAILS_TABLE_VALUES_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("table.variant-details>tbody>tr>td").unwrap());
 static IMAGE_CONTAINER_SELECTOR: Lazy<Selector> =
     Lazy::new(|| Selector::parse("img.d-block").unwrap());
+static NAME_SELECTOR: Lazy<Selector> =
+    Lazy::new(|| Selector::parse("div.product-content>h1").unwrap());
 
 static PRODUCT_ID_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\D*(\d+)").unwrap());
 
@@ -86,6 +88,11 @@ async fn process_product_site_to_product(
     };
 
     let document = Html::parse_document(&response_text);
+    let Ok(name) = fetch_name_from_product(&document) else {
+        error!("Could not fetch name from product");
+        return Err(());
+    };
+
     let mut result;
     if let Ok(details_table) = fetch_info_from_details_table(&document) {
         result = details_table;
@@ -120,6 +127,7 @@ async fn process_product_site_to_product(
         error!("Could not fetch medium image URL.");
     }
 
+    result.insert("name".to_owned(), name);
     result.insert("id".to_owned(), id.to_string());
     result.insert("category".to_owned(), category_name.to_owned());
     result.insert("subcategory".to_owned(), subcategory_name.to_owned());
@@ -141,6 +149,26 @@ fn fetch_id_from_product_url(product_url: &str) -> Option<u32> {
     };
 
     Some(id)
+}
+
+fn fetch_name_from_product(document: &Html) -> Result<String, ()> {
+    let name_ref = document.select(&NAME_SELECTOR).next();
+
+    let Some(name_element) = name_ref else {
+        error!("Could not find the name element.");
+        return Err(());
+    };
+
+    let result = name_element
+        .text()
+        .next()
+        .unwrap()
+        .to_string()
+        .replace("                  ", "")
+        .replace("              ", "")
+        .replace('\n', "");
+
+    Ok(result)
 }
 
 fn fetch_info_from_details_table(document: &Html) -> Result<HashMap<String, String>, ()> {

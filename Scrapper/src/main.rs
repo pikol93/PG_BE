@@ -69,13 +69,13 @@ async fn main() {
 
     fs::create_dir_all(OUTPUT_DIRECTORY).expect("Should be able to create a directory.");
 
-    let products_json = serde_json::to_string(&unique_scrapped_products)
+    let products_json = serde_json::to_string_pretty(&unique_scrapped_products)
         .expect("Should be able to write product data to JSON.");
     fs::write(OUTPUT_DIRECTORY.to_owned() + "scrapped.txt", products_json)
         .expect("Should be able to write products JSON to disk.");
 
-    let categories_json =
-        serde_json::to_string(&categories).expect("Should be able to write category data to JSON.");
+    let categories_json = serde_json::to_string_pretty(&categories)
+        .expect("Should be able to write category data to JSON.");
     fs::write(
         OUTPUT_DIRECTORY.to_owned() + "categories.txt",
         categories_json,
@@ -85,8 +85,8 @@ async fn main() {
     let default_product_value = "NO_INFORMATION".to_owned();
     let heatmap = collect_heatmap(&unique_scrapped_products, &default_product_value);
 
-    let heatmap_json =
-        serde_json::to_string(&heatmap).expect("Should be able to write heatmap data to JSON.");
+    let heatmap_json = serde_json::to_string_pretty(&heatmap)
+        .expect("Should be able to write heatmap data to JSON.");
     fs::write(OUTPUT_DIRECTORY.to_owned() + "heatmap.txt", heatmap_json)
         .expect("Should be able to write heatmap JSON to disk.");
 
