@@ -17,7 +17,7 @@ public static class Program
 
     private static ILogger Logger { get; } = LogManager.GetCurrentClassLogger();
 
-    public static void Main()
+    public static async Task Main()
     {
         var settings = new ConfigurationBuilder<InjectorSettings>()
                 .UseJsonFile(ConfigurationFile)
@@ -54,6 +54,9 @@ public static class Program
         var stockAvailableFactory = new StockAvailableFactory(settings.PrestaShopBaseUrl,
                 settings.PrestaShopAccount,
                 settings.PrestaShopSecretKey);
+        var imageFactory = new ImageFactory(settings.PrestaShopBaseUrl,
+                settings.PrestaShopAccount,
+                settings.PrestaShopSecretKey);
 
         var productOptionMapping = new ProductOptionMapping();
 
@@ -65,6 +68,7 @@ public static class Program
         productOptionMapping.Insert(productFeatureFactory, productFeatureValueFactory, products);
         AddProducts(productFactory, productOptionMapping, products, categories);
         UpdateStockCount(productFactory, stockAvailableFactory);
+        await AddImagesToProducts(imageFactory, products, settings.ImagesDirectoryFilePath);
     }
 
     private static void ClearProducts(ProductFactory productFactory)
@@ -146,10 +150,10 @@ public static class Program
         {
             var cat = new category
             {
-                    active = 1,
-                    id_parent = parentId,
-                    name = category.Name.ToLanguageList(),
-                    link_rewrite = category.Name.Slugify().ToLanguageList(),
+                active = 1,
+                id_parent = parentId,
+                name = category.Name.ToLanguageList(),
+                link_rewrite = category.Name.Slugify().ToLanguageList(),
             };
 
             var insertedCategory = categoryFactory.Add(cat);
@@ -195,8 +199,6 @@ public static class Program
                     .Select(subcategory => subcategory.Id)
                     .First();
 
-            Logger.Error("Category ID: {}", categoryId);
-
             if (categoryId == null)
             {
                 Logger.Warn("Could not find category for product {}", product.Id);
@@ -205,28 +207,28 @@ public static class Program
 
             var prod = new product
             {
-                    active = 1,
-                    state = 1,
-                    name = "TODO".ToLanguageList(),
-                    link_rewrite = $"TODO_{product.Id}".ToLanguageList(),
-                    available_for_order = 1,
-                    price = decimal.Round(new decimal(price / VAT_MULTIPLIER), 2),
-                    id_tax_rules_group = 1,
-                    visibility = "both",
-                    type = "simple",
-                    show_price = 1,
-                    minimal_quantity = 1,
-                    id_category_default = categoryId,
-                    description = "TODO".ToLanguageList(),
-                    description_short = "TODO".ToLanguageList(),
-                    associations = new AssociationsProduct
-                    {
-                            categories = new List<Bukimedia.PrestaSharp.Entities.AuxEntities.category>
+                active = 1,
+                state = 1,
+                name = product.Name.ToLanguageList(),
+                link_rewrite = $"product-{product.Id}".ToLanguageList(),
+                available_for_order = 1,
+                price = decimal.Round(new decimal(price / VAT_MULTIPLIER), 2),
+                id_tax_rules_group = 1,
+                visibility = "both",
+                type = "simple",
+                show_price = 1,
+                minimal_quantity = 1,
+                id_category_default = categoryId,
+                description = product.Description.ToLanguageList(),
+                description_short = "".ToLanguageList(),
+                associations = new AssociationsProduct
+                {
+                    categories = new List<Bukimedia.PrestaSharp.Entities.AuxEntities.category>
                             {
                                     new((long)categoryId),
                             },
-                            product_features = optionMapping.GetFeatureListForProduct(product),
-                    },
+                    product_features = optionMapping.GetFeatureListForProduct(product),
+                },
             };
 
             long insertedProductId;
@@ -242,7 +244,7 @@ public static class Program
             }
 
             Logger.Info("Inserted a product {}. Resulted in ID = {}", product.Id, insertedProductId);
-            product.insertedId = insertedProductId;
+            product.InsertedId = insertedProductId;
         }
     }
 
@@ -270,5 +272,47 @@ public static class Program
                 Logger.Info("Updated product {} quantity to {}", product.id, quantity);
             }
         }
+    }
+
+    private static async Task AddImagesToProducts(ImageFactory imageFactory, List<Product> products, string imagesRootPath)
+    {
+        var tasks = new List<Task>();
+        foreach (var product in products)
+        {
+            if (product.InsertedId == null)
+            {
+                continue;
+            }
+
+            tasks.Add(AddImageToProduct(imageFactory, imagesRootPath, product));
+        }
+
+        await Task.WhenAll(tasks);
+    }
+
+    private static async Task AddImageToProduct(ImageFactory imageFactory, string imagesRootPath, Product product)
+    {
+        var imagePath = $"{imagesRootPath}{product.Id}/large.jpg";
+        byte[] imageData;
+        try
+        {
+            imageData = await File.ReadAllBytesAsync(imagePath);
+        }
+        catch (Exception)
+        {
+            Logger.Error("Could not read image data from path {}", imagePath);
+            return;
+        }
+
+        try
+        {
+            await imageFactory.AddProductImageAsync((long)product.InsertedId, imageData);
+        }
+        catch (Exception)
+        {
+            Logger.Error("Could not add image to a product {}", product.Id);
+        }
+
+        Logger.Info("Inserted image for product {}. Image size = {}", product.InsertedId, imageData.Length);
     }
 }

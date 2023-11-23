@@ -7,10 +7,16 @@ public class Product
 {
     private static ILogger Logger { get; } = LogManager.GetCurrentClassLogger();
 
-    public long? insertedId { get; set; }
+    public long? InsertedId { get; set; }
 
     [JsonProperty("id")]
     public int Id { get; set; }
+
+    [JsonProperty("name")]
+    public string Name { get; set; } = "";
+
+    [JsonProperty("description")]
+    public string Description { get; set; } = "";
 
     [JsonProperty("category")]
     public string Category { get; set; } = "INVALID";

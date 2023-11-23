@@ -37,7 +37,7 @@ public class ProductOptionMapping
 
             var option = new Bukimedia.PrestaSharp.Entities.product_feature
             {
-                    name = propertyName.ToLanguageList(),
+                name = propertyName.ToLanguageList(),
             };
 
             long featureId;
@@ -58,8 +58,8 @@ public class ProductOptionMapping
             {
                 var optionValue = new product_feature_value
                 {
-                        id_feature = featureId,
-                        value = possibleValue.ToLanguageList(),
+                    id_feature = featureId,
+                    value = possibleValue.ToLanguageList(),
                 };
 
                 long optionValueId;
@@ -79,8 +79,8 @@ public class ProductOptionMapping
 
                 var productFeatureValue = new ProductFeatureValue
                 {
-                        Id = optionValueId,
-                        Name = possibleValue,
+                    Id = optionValueId,
+                    Name = possibleValue,
                 };
 
                 productFeatureValues.Add(productFeatureValue);
@@ -89,9 +89,9 @@ public class ProductOptionMapping
             var possibleValuesDictionary = productFeatureValues.ToDictionary(value => value.Name, value => value);
             var productOption = new ProductOption
             {
-                    Id = featureId,
-                    Name = propertyName,
-                    PossibleValues = possibleValuesDictionary,
+                Id = featureId,
+                Name = propertyName,
+                PossibleValues = possibleValuesDictionary,
             };
 
             NameToProductOptionDictionary.Add(propertyName, productOption);
@@ -109,8 +109,8 @@ public class ProductOptionMapping
                     productOption.Id, productOptionValue.Id);
             result.Add(new product_feature
             {
-                    id = productOption.Id,
-                    id_feature_value = productOptionValue.Id,
+                id = productOption.Id,
+                id_feature_value = productOptionValue.Id,
             });
         }
 
