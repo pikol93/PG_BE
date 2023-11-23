@@ -29,7 +29,7 @@ struct Subcategory {
     url: &'static str,
 }
 
-const DEFAULT_PAGE_COUNT: usize = 1;
+const DEFAULT_PAGE_COUNT: usize = 30;
 const OUTPUT_DIRECTORY: &str = "output/";
 const OUTPUT_IMAGES_DIRECTORY: &str = concatcp!(OUTPUT_DIRECTORY, "images/");
 
