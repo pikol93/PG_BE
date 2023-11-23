@@ -1017,7 +1017,7 @@ CREATE TABLE `ps_address` (
   KEY `id_manufacturer` (`id_manufacturer`),
   KEY `id_supplier` (`id_supplier`),
   KEY `id_warehouse` (`id_warehouse`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1318,7 +1318,7 @@ CREATE TABLE `ps_admin_filter` (
   `filter_id` varchar(191) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_filter_search_id_idx` (`employee`,`shop`,`controller`,`action`,`filter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1330,7 +1330,7 @@ LOCK TABLES `ps_admin_filter` WRITE;
 INSERT INTO `ps_admin_filter` VALUES
 (1,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order\",\"sortOrder\":\"DESC\",\"filters\":[]}','order'),
 (2,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order_slip\",\"sortOrder\":\"asc\",\"filters\":[]}','credit_slip'),
-(3,1,1,'ProductController','catalogAction','{\"filter_category\":\"\",\"filter_column_id_product\":\"\",\"filter_column_name\":\"\",\"filter_column_reference\":\"\",\"filter_column_name_category\":\"\",\"filter_column_price\":\"\",\"filter_column_sav_quantity\":\"\",\"filter_column_active\":\"\",\"last_offset\":\"0\",\"last_limit\":\"20\",\"last_orderBy\":\"id_product\",\"last_sortOrder\":\"desc\"}',''),
+(3,1,1,'ProductController','catalogAction','{\"filter_category\":\"\",\"filter_column_id_product\":\"\",\"filter_column_name\":\"Dekoptica\",\"filter_column_reference\":\"\",\"filter_column_name_category\":\"\",\"filter_column_price\":\"\",\"filter_column_sav_quantity\":\"\",\"filter_column_active\":\"\",\"last_offset\":\"0\",\"last_limit\":\"20\",\"last_orderBy\":\"id_product\",\"last_sortOrder\":\"desc\"}',''),
 (4,1,1,'','','{\"limit\":10,\"orderBy\":\"id_request_sql\",\"sortOrder\":\"desc\",\"filters\":[]}','sql_request'),
 (5,1,1,'backup','index','{\"limit\":20,\"orderBy\":null,\"sortOrder\":null,\"filters\":[]}',''),
 (6,1,1,'','','{\"limit\":50,\"orderBy\":\"id_webservice_account\",\"sortOrder\":\"asc\",\"filters\":[]}','webservice_key'),
@@ -1377,7 +1377,7 @@ CREATE TABLE `ps_alias` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_alias`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1466,32 +1466,6 @@ CREATE TABLE `ps_attribute` (
 
 LOCK TABLES `ps_attribute` WRITE;
 /*!40000 ALTER TABLE `ps_attribute` DISABLE KEYS */;
-INSERT INTO `ps_attribute` VALUES
-(1,1,'',0),
-(2,1,'',1),
-(3,1,'',2),
-(4,1,'',3),
-(5,2,'#AAB2BD',0),
-(6,2,'#CFC4A6',1),
-(7,2,'#f5f5dc',2),
-(8,2,'#ffffff',3),
-(9,2,'#faebd7',4),
-(10,2,'#E84C3D',5),
-(11,2,'#434A54',6),
-(12,2,'#C19A6B',7),
-(13,2,'#F39C11',8),
-(14,2,'#5D9CEC',9),
-(15,2,'#A0D468',10),
-(16,2,'#F1C40F',11),
-(17,2,'#964B00',12),
-(18,2,'#FCCACD',13),
-(19,3,'',0),
-(20,3,'',1),
-(21,3,'',2),
-(22,4,'',0),
-(23,4,'',1),
-(24,4,'',2),
-(25,4,'',3);
 /*!40000 ALTER TABLE `ps_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1517,11 +1491,6 @@ CREATE TABLE `ps_attribute_group` (
 
 LOCK TABLES `ps_attribute_group` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_group` DISABLE KEYS */;
-INSERT INTO `ps_attribute_group` VALUES
-(1,0,'select',0),
-(2,1,'color',1),
-(3,0,'select',2),
-(4,0,'select',3);
 /*!40000 ALTER TABLE `ps_attribute_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1549,11 +1518,6 @@ CREATE TABLE `ps_attribute_group_lang` (
 
 LOCK TABLES `ps_attribute_group_lang` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_group_lang` DISABLE KEYS */;
-INSERT INTO `ps_attribute_group_lang` VALUES
-(1,1,'Rozmiar','Rozmiar'),
-(2,1,'Kolor','Kolor'),
-(3,1,'Dimension','Dimension'),
-(4,1,'Paper Type','Paper Type');
 /*!40000 ALTER TABLE `ps_attribute_group_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1579,11 +1543,6 @@ CREATE TABLE `ps_attribute_group_shop` (
 
 LOCK TABLES `ps_attribute_group_shop` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_group_shop` DISABLE KEYS */;
-INSERT INTO `ps_attribute_group_shop` VALUES
-(1,1),
-(2,1),
-(3,1),
-(4,1);
 /*!40000 ALTER TABLE `ps_attribute_group_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1637,32 +1596,6 @@ CREATE TABLE `ps_attribute_lang` (
 
 LOCK TABLES `ps_attribute_lang` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_lang` DISABLE KEYS */;
-INSERT INTO `ps_attribute_lang` VALUES
-(1,1,'S'),
-(2,1,'M'),
-(3,1,'L'),
-(4,1,'XL'),
-(5,1,'Szary'),
-(6,1,'Szarobrązowy'),
-(7,1,'Beżowy'),
-(8,1,'Biały'),
-(9,1,'Złamana biel'),
-(10,1,'Czerwony'),
-(11,1,'czarny'),
-(12,1,'Wielbłąd'),
-(13,1,'Pomarańczowy'),
-(14,1,'Niebieski'),
-(15,1,'Zielony'),
-(16,1,'Żółty'),
-(17,1,'Brązowy'),
-(18,1,'Różowy'),
-(19,1,'40x60cm'),
-(20,1,'60x90cm'),
-(21,1,'80x120cm'),
-(22,1,'Ruled'),
-(23,1,'Plain'),
-(24,1,'Squarred'),
-(25,1,'Doted');
 /*!40000 ALTER TABLE `ps_attribute_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1688,32 +1621,6 @@ CREATE TABLE `ps_attribute_shop` (
 
 LOCK TABLES `ps_attribute_shop` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_shop` DISABLE KEYS */;
-INSERT INTO `ps_attribute_shop` VALUES
-(1,1),
-(2,1),
-(3,1),
-(4,1),
-(5,1),
-(6,1),
-(7,1),
-(8,1),
-(9,1),
-(10,1),
-(11,1),
-(12,1),
-(13,1),
-(14,1),
-(15,1),
-(16,1),
-(17,1),
-(18,1),
-(19,1),
-(20,1),
-(21,1),
-(22,1),
-(23,1),
-(24,1),
-(25,1);
 /*!40000 ALTER TABLE `ps_attribute_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1729,7 +1636,7 @@ CREATE TABLE `ps_authorization_role` (
   `slug` varchar(191) NOT NULL,
   PRIMARY KEY (`id_authorization_role`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=965 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=966 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2614,7 +2521,7 @@ CREATE TABLE `ps_carrier` (
   KEY `deleted` (`deleted`,`active`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `reference` (`id_reference`,`deleted`,`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3319,7 +3226,7 @@ CREATE TABLE `ps_category` (
   KEY `nright` (`nright`),
   KEY `activenleft` (`active`,`nleft`),
   KEY `activenright` (`active`,`nright`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3329,10 +3236,8 @@ CREATE TABLE `ps_category` (
 LOCK TABLES `ps_category` WRITE;
 /*!40000 ALTER TABLE `ps_category` DISABLE KEYS */;
 INSERT INTO `ps_category` VALUES
-(1,0,1,0,1,8,1,'2023-10-23 14:28:54','2023-10-23 14:28:54',0,0),
-(2,1,1,1,2,7,1,'2023-10-23 14:28:54','2023-10-23 14:28:54',0,1),
-(14,2,1,2,3,4,1,'2023-11-15 17:10:58','2023-11-15 17:11:14',0,0),
-(15,2,1,2,5,6,1,'2023-11-15 17:11:31','2023-11-15 17:11:31',1,0);
+(1,0,1,0,1,4,1,'2023-10-23 14:28:54','2023-10-23 14:28:54',0,0),
+(2,1,1,1,2,3,1,'2023-10-23 14:28:54','2023-10-23 14:28:54',0,1);
 /*!40000 ALTER TABLE `ps_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3362,13 +3267,7 @@ INSERT INTO `ps_category_group` VALUES
 (2,0),
 (2,1),
 (2,2),
-(2,3),
-(14,1),
-(14,2),
-(14,3),
-(15,1),
-(15,2),
-(15,3);
+(2,3);
 /*!40000 ALTER TABLE `ps_category_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3402,9 +3301,7 @@ LOCK TABLES `ps_category_lang` WRITE;
 /*!40000 ALTER TABLE `ps_category_lang` DISABLE KEYS */;
 INSERT INTO `ps_category_lang` VALUES
 (1,1,1,'Baza','','baza','','',''),
-(2,1,1,'Strona główna','','strona-glowna','','',''),
-(14,1,1,'Oprawy','','oprawy','','',''),
-(15,1,1,'Soczewki okularowe','','soczewki-okularowe','','','');
+(2,1,1,'Strona główna','','strona-glowna','','','');
 /*!40000 ALTER TABLE `ps_category_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3431,8 +3328,6 @@ CREATE TABLE `ps_category_product` (
 
 LOCK TABLES `ps_category_product` WRITE;
 /*!40000 ALTER TABLE `ps_category_product` DISABLE KEYS */;
-INSERT INTO `ps_category_product` VALUES
-(2,25,1);
 /*!40000 ALTER TABLE `ps_category_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3459,9 +3354,7 @@ LOCK TABLES `ps_category_shop` WRITE;
 /*!40000 ALTER TABLE `ps_category_shop` DISABLE KEYS */;
 INSERT INTO `ps_category_shop` VALUES
 (1,1,0),
-(2,1,0),
-(14,1,0),
-(15,1,1);
+(2,1,0);
 /*!40000 ALTER TABLE `ps_category_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3479,7 +3372,7 @@ CREATE TABLE `ps_cms` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `indexation` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_cms`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3514,7 +3407,7 @@ CREATE TABLE `ps_cms_category` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_cms_category`),
   KEY `category_parent` (`id_parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3573,7 +3466,7 @@ CREATE TABLE `ps_cms_category_shop` (
   `id_shop` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_cms_category`,`id_shop`),
   KEY `id_shop` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3636,7 +3529,7 @@ CREATE TABLE `ps_cms_role` (
   `id_cms` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_cms_role`,`id_cms`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3725,7 +3618,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=718 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=719 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3878,11 +3771,11 @@ INSERT INTO `ps_configuration` VALUES
 (141,NULL,NULL,'PS_SHOW_NEW_MESSAGES','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (142,NULL,NULL,'PS_FEATURE_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (143,NULL,NULL,'PS_COMBINATION_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(144,NULL,NULL,'PS_SPECIFIC_PRICE_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-17 20:47:59'),
+(144,NULL,NULL,'PS_SPECIFIC_PRICE_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-23 22:24:30'),
 (145,NULL,NULL,'PS_VIRTUAL_PROD_FEATURE_ACTIVE','1','0000-00-00 00:00:00','2023-10-23 14:29:43'),
 (146,NULL,NULL,'PS_CUSTOMIZATION_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (147,NULL,NULL,'PS_CART_RULE_FEATURE_ACTIVE','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-17 20:43:49'),
+(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-23 21:31:10'),
 (149,NULL,NULL,'PS_ALIAS_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (150,NULL,NULL,'PS_TAX_ADDRESS_TYPE','id_address_delivery','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (151,NULL,NULL,'PS_SHOP_DEFAULT','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -4225,8 +4118,8 @@ INSERT INTO `ps_configuration` VALUES
 (635,NULL,NULL,'PS_SAV_IMAP_OPT_NOTLS','0','2023-10-30 23:23:16','2023-10-31 09:08:17'),
 (636,NULL,NULL,'PS_MAIL_EMAIL_MESSAGE','2','2023-10-31 09:56:49','2023-10-31 09:56:49'),
 (637,NULL,NULL,'PS_MAIL_DOMAIN',NULL,'2023-10-31 09:56:49','2023-11-21 10:22:54'),
-(638,NULL,NULL,'PS_CCCJS_VERSION','11','2023-10-31 10:03:44','2023-11-12 15:25:32'),
-(639,NULL,NULL,'PS_CCCCSS_VERSION','11','2023-10-31 10:03:44','2023-11-12 15:25:32'),
+(638,NULL,NULL,'PS_CCCJS_VERSION','13','2023-10-31 10:03:44','2023-11-23 22:05:12'),
+(639,NULL,NULL,'PS_CCCCSS_VERSION','13','2023-10-31 10:03:44','2023-11-23 22:05:12'),
 (708,NULL,NULL,'PS_SHOWCASECARD_CATEGORIES_CLOSED','1','2023-11-15 17:01:19','2023-11-15 17:01:19'),
 (709,NULL,NULL,'BLOCK_CATEG_SORT_WAY','0','2023-11-15 17:02:54','2023-11-15 17:02:54'),
 (710,NULL,NULL,'BLOCK_CATEG_SORT','0','2023-11-15 17:02:54','2023-11-15 17:02:54'),
@@ -4258,7 +4151,7 @@ CREATE TABLE `ps_configuration_kpi` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4442,7 +4335,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4494,7 +4387,9 @@ INSERT INTO `ps_connections` VALUES
 (41,1,1,20,1,2886860801,'2023-11-17 20:52:31','https://localhost:8001/'),
 (43,1,1,11,2,2886860801,'2023-11-21 10:17:12',''),
 (44,1,1,22,1,2886860801,'2023-11-21 10:28:56','https://localhost:8001/'),
-(45,1,1,23,4,2886860801,'2023-11-21 10:38:00','https://localhost:8001/moje-konto');
+(45,1,1,23,4,2886860801,'2023-11-21 10:38:00','https://localhost:8001/moje-konto'),
+(46,1,1,23,1,2886860801,'2023-11-23 20:58:15',''),
+(47,1,1,23,1,2886860801,'2023-11-23 21:36:53','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4542,7 +4437,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=408 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=455 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4955,7 +4850,54 @@ INSERT INTO `ps_connections_source` VALUES
 (404,45,'https://localhost:8001/moje-konto','localhost:8001/logowanie?back=my-account','','2023-11-21 10:38:00'),
 (405,45,'https://localhost:8001/','localhost:8001/logowanie?back=my-account','','2023-11-21 10:45:38'),
 (406,45,'https://localhost:8001/logowanie?back=my-account','localhost:8001/odzyskiwanie-hasla','','2023-11-21 10:45:41'),
-(407,45,'https://localhost:8001/odzyskiwanie-hasla','localhost:8001/odzyskiwanie-hasla','','2023-11-21 10:45:47');
+(407,45,'https://localhost:8001/odzyskiwanie-hasla','localhost:8001/odzyskiwanie-hasla','','2023-11-21 10:45:47'),
+(408,47,'https://localhost:8001/','localhost:8001/etui/1056-product-4896.html','','2023-11-23 21:37:00'),
+(409,47,'https://localhost:8001/etui/1062-product-4875.html','localhost:8001/favicon.ico','','2023-11-23 21:37:09'),
+(410,47,'https://localhost:8001/','localhost:8001/etui/1056-product-4896.html','','2023-11-23 21:37:19'),
+(411,47,'https://localhost:8001/','localhost:8001/etui/1056-product-4896.html','','2023-11-23 21:37:35'),
+(412,47,'https://localhost:8001/','localhost:8001/','','2023-11-23 21:38:04'),
+(413,47,'https://localhost:8001/','localhost:8001/meskie/422-product-2626.html','','2023-11-23 21:38:08'),
+(414,47,'https://localhost:8001/meskie/422-product-2626.html','localhost:8001/19-meskie','','2023-11-23 21:38:34'),
+(415,47,'https://localhost:8001/19-meskie','localhost:8001/meskie/243-product-4931.html','','2023-11-23 21:38:45'),
+(416,47,'https://localhost:8001/meskie/243-product-4931.html','localhost:8001/etui/1053-product-4899.html','','2023-11-23 21:39:31'),
+(417,47,'https://localhost:8001/etui/1053-product-4899.html','localhost:8001/etui/1054-product-4898.html','','2023-11-23 21:39:35'),
+(418,47,'https://localhost:8001/etui/1054-product-4898.html','localhost:8001/etui/1062-product-4875.html','','2023-11-23 21:39:41'),
+(419,47,'https://localhost:8001/etui/1062-product-4875.html','localhost:8001/damskie/100-product-4615.html','','2023-11-23 21:41:56'),
+(420,47,'https://localhost:8001/etui/1062-product-4875.html','localhost:8001/damskie/100-product-4615.html','','2023-11-23 21:46:56'),
+(421,47,'https://localhost:8001/damskie/100-product-4615.html','localhost:8001/damskie/96-product-4619.html','','2023-11-23 21:47:02'),
+(422,47,'https://localhost:8001/damskie/100-product-4615.html','localhost:8001/damskie/96-product-4619.html','','2023-11-23 21:59:18'),
+(423,47,'https://localhost:8001/admin-dev/index.php?controller=AdminLogin&token=bcb166afb43fdadd365f0320625444f4','localhost:8001/img/prestashop@2x.png','','2023-11-23 21:59:22'),
+(424,47,'https://localhost:8001/admin-dev/index.php?controller=AdminLogin&token=bcb166afb43fdadd365f0320625444f4','localhost:8001/img/preston-login@2x.png','','2023-11-23 21:59:22'),
+(425,47,'https://localhost:8001/admin-dev/index.php?controller=AdminLogin&token=bcb166afb43fdadd365f0320625444f4','localhost:8001/img/preston-login-wink@2x.png','','2023-11-23 21:59:23'),
+(426,47,'https://localhost:8001/admin-dev/index.php?controller=AdminLogin&token=bcb166afb43fdadd365f0320625444f4','localhost:8001/img/app_icon.png','','2023-11-23 21:59:23'),
+(427,47,'https://localhost:8001/admin-dev/index.php?controller=AdminDashboard&token=bfe00f057ad7b7ebfef91fbb641fae1d','localhost:8001/img/favicon.ico','','2023-11-23 21:59:29'),
+(428,47,'https://localhost:8001/admin-dev/index.php/sell/catalog/products?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 21:59:40'),
+(429,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/performance/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 21:59:49'),
+(430,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/performance/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:00:09'),
+(431,47,'https://localhost:8001/damskie/100-product-4615.html','localhost:8001/damskie/96-product-4619.html','','2023-11-23 22:00:14'),
+(432,47,'https://localhost:8001/damskie/96-product-4619.html','localhost:8001/img/favicon.ico?1324977642','','2023-11-23 22:00:15'),
+(433,47,'https://localhost:8001/admin-dev/index.php/sell/catalog/products?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:00:22'),
+(434,47,'https://localhost:8001/admin-dev/index.php/sell/catalog/products?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/app_icon.png','','2023-11-23 22:00:23'),
+(435,47,'https://localhost:8001/admin-dev/index.php/sell/catalog/products?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:01:53'),
+(436,47,'https://localhost:8001/admin-dev/index.php/sell/catalog/products?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/app_icon.png','','2023-11-23 22:01:54'),
+(437,47,'https://localhost:8001/damskie/96-product-4619.html','localhost:8001/18-damskie','','2023-11-23 22:03:15'),
+(438,47,'https://localhost:8001/18-damskie','localhost:8001/img/favicon.ico?1324977642','','2023-11-23 22:03:16'),
+(439,47,'https://localhost:8001/18-damskie','localhost:8001/','','2023-11-23 22:03:22'),
+(440,47,'https://localhost:8001/','localhost:8001/img/favicon.ico?1324977642','','2023-11-23 22:03:22'),
+(441,47,'https://localhost:8001/18-damskie','localhost:8001/','','2023-11-23 22:03:23'),
+(442,47,'https://localhost:8001/','localhost:8001/img/favicon.ico?1324977642','','2023-11-23 22:03:24'),
+(443,47,'https://localhost:8001/admin-dev/index.php/configure/shop/customer-preferences/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:03:52'),
+(444,47,'https://localhost:8001/admin-dev/index.php/configure/shop/customer-preferences/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/app_icon.png','','2023-11-23 22:03:53'),
+(445,47,'https://localhost:8001/admin-dev/index.php/configure/shop/preferences/preferences?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:03:56'),
+(446,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/logs/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:04:55'),
+(447,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/logs/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/app_icon.png','','2023-11-23 22:04:56'),
+(448,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/performance/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:05:11'),
+(449,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/performance/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/app_icon.png','','2023-11-23 22:05:11'),
+(450,47,'https://localhost:8001/admin-dev/index.php/configure/advanced/performance/?_token=K5fElkR6sBIkatmZyINjGXpTuRfhYZFgcPqWENcYR78','localhost:8001/img/favicon.ico','','2023-11-23 22:05:29'),
+(451,47,'https://localhost:8001/damskie/100-product-4615.html','localhost:8001/damskie/96-product-4619.html','','2023-11-23 22:07:19'),
+(452,47,'https://localhost:8001/damskie/100-product-4615.html','localhost:8001/damskie/96-product-4619.html','','2023-11-23 22:26:12'),
+(453,47,'https://localhost:8001/damskie/96-product-4619.html','localhost:8001/damskie/96-product-4619.html?page=1','','2023-11-23 22:26:12'),
+(454,47,'https://localhost:8001/damskie/96-product-4619.html','localhost:8001/','','2023-11-23 22:26:13');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4972,7 +4914,7 @@ CREATE TABLE `ps_contact` (
   `customer_service` tinyint(1) NOT NULL DEFAULT 0,
   `position` tinyint(2) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_contact`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5064,7 +5006,7 @@ CREATE TABLE `ps_country` (
   PRIMARY KEY (`id_country`),
   KEY `country_iso_code` (`iso_code`),
   KEY `country_` (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5870,7 +5812,7 @@ CREATE TABLE `ps_currency` (
   `modified` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_currency`),
   KEY `currency_iso_code` (`iso_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6096,7 +6038,7 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6307,7 +6249,7 @@ CREATE TABLE `ps_delivery` (
   KEY `id_carrier` (`id_carrier`,`id_zone`),
   KEY `id_range_price` (`id_range_price`),
   KEY `id_range_weight` (`id_range_weight`)
-) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6501,7 +6443,7 @@ CREATE TABLE `ps_employee` (
   KEY `employee_login` (`email`,`passwd`),
   KEY `id_employee_passwd` (`id_employee`,`passwd`),
   KEY `id_profile` (`id_profile`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6511,7 +6453,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Politechniki','Student','demo@prestashop.com','$2y$10$St76xFqcBCF9vyjSnen2tuEjqQazlg2W/l/xqZYTsaYv.KDUwSod6','2023-10-23 08:28:56','2023-09-23','2023-10-23','0000-00-00','0000-00-00',1,'','','default','theme.css',1,0,1,1,NULL,6,0,0,'2023-11-21','','0000-00-00 00:00:00',0);
+(1,1,1,'Politechniki','Student','demo@prestashop.com','$2y$10$St76xFqcBCF9vyjSnen2tuEjqQazlg2W/l/xqZYTsaYv.KDUwSod6','2023-10-23 08:28:56','2023-09-23','2023-10-23','0000-00-00','0000-00-00',1,'','','default','theme.css',1,0,1,1,NULL,6,0,0,'2023-11-23','','0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6527,7 +6469,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6541,7 +6483,7 @@ INSERT INTO `ps_employee_session` VALUES
 (29,1,'afb1dd18d2e479d76d39f0afc8e3e87cd3d58e34'),
 (32,1,'834326de27057eaacef135ab0f9ab277e2be5a9c'),
 (35,1,'775393c8c44cd5b61f735d30862bc9d2abacb6f9'),
-(37,1,'9988531a975248955de842f45c2079351ec13a9d');
+(41,1,'9e242973ebd7816c020efa81c5e959d038fa9410');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6611,7 +6553,7 @@ CREATE TABLE `ps_feature` (
   `id_feature` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_feature`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6620,9 +6562,6 @@ CREATE TABLE `ps_feature` (
 
 LOCK TABLES `ps_feature` WRITE;
 /*!40000 ALTER TABLE `ps_feature` DISABLE KEYS */;
-INSERT INTO `ps_feature` VALUES
-(1,0),
-(2,1);
 /*!40000 ALTER TABLE `ps_feature` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6643,7 +6582,7 @@ CREATE TABLE `ps_feature_flag` (
   `description_domain` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_feature_flag`),
   UNIQUE KEY `UNIQ_91700F175E237E06` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6679,9 +6618,6 @@ CREATE TABLE `ps_feature_lang` (
 
 LOCK TABLES `ps_feature_lang` WRITE;
 /*!40000 ALTER TABLE `ps_feature_lang` DISABLE KEYS */;
-INSERT INTO `ps_feature_lang` VALUES
-(1,1,'Composition'),
-(2,1,'Property');
 /*!40000 ALTER TABLE `ps_feature_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6732,9 +6668,6 @@ CREATE TABLE `ps_feature_shop` (
 
 LOCK TABLES `ps_feature_shop` WRITE;
 /*!40000 ALTER TABLE `ps_feature_shop` DISABLE KEYS */;
-INSERT INTO `ps_feature_shop` VALUES
-(1,1),
-(2,1);
 /*!40000 ALTER TABLE `ps_feature_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6751,7 +6684,7 @@ CREATE TABLE `ps_feature_value` (
   `custom` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_feature_value`),
   KEY `feature` (`id_feature`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=423 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6760,17 +6693,6 @@ CREATE TABLE `ps_feature_value` (
 
 LOCK TABLES `ps_feature_value` WRITE;
 /*!40000 ALTER TABLE `ps_feature_value` DISABLE KEYS */;
-INSERT INTO `ps_feature_value` VALUES
-(1,1,0),
-(2,1,0),
-(3,1,0),
-(4,1,0),
-(5,1,0),
-(6,1,0),
-(7,2,0),
-(8,2,0),
-(9,2,0),
-(10,2,0);
 /*!40000 ALTER TABLE `ps_feature_value` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6795,17 +6717,6 @@ CREATE TABLE `ps_feature_value_lang` (
 
 LOCK TABLES `ps_feature_value_lang` WRITE;
 /*!40000 ALTER TABLE `ps_feature_value_lang` DISABLE KEYS */;
-INSERT INTO `ps_feature_value_lang` VALUES
-(1,1,'Poliester'),
-(2,1,'Wełna'),
-(3,1,'Ceramic'),
-(4,1,'Bawełna'),
-(5,1,'Recycled cardboard'),
-(6,1,'Matt paper'),
-(7,1,'Long sleeves'),
-(8,1,'Short sleeves'),
-(9,1,'Removable cover'),
-(10,1,'120 pages');
 /*!40000 ALTER TABLE `ps_feature_value_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6820,7 +6731,7 @@ CREATE TABLE `ps_gender` (
   `id_gender` int(11) NOT NULL AUTO_INCREMENT,
   `type` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_gender`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6878,7 +6789,7 @@ CREATE TABLE `ps_group` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7026,7 +6937,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7069,7 +6980,7 @@ CREATE TABLE `ps_homeslider` (
   `id_homeslider_slides` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_shop` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_homeslider_slides`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7097,7 +7008,7 @@ CREATE TABLE `ps_homeslider_slides` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_homeslider_slides`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7161,7 +7072,7 @@ CREATE TABLE `ps_hook` (
   `position` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_hook`),
   UNIQUE KEY `hook_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=763 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=764 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7942,7 +7853,7 @@ CREATE TABLE `ps_hook_alias` (
   `name` varchar(191) NOT NULL,
   PRIMARY KEY (`id_hook_alias`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8306,7 +8217,7 @@ CREATE TABLE `ps_image` (
   UNIQUE KEY `id_product_cover` (`id_product`,`cover`),
   UNIQUE KEY `idx_product_image` (`id_image`,`id_product`,`cover`),
   KEY `image_product` (`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=510 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8389,7 +8300,7 @@ CREATE TABLE `ps_image_type` (
   `stores` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_image_type`),
   KEY `image_type_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8444,7 +8355,7 @@ DROP TABLE IF EXISTS `ps_info`;
 CREATE TABLE `ps_info` (
   `id_info` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_info`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8528,7 +8439,7 @@ CREATE TABLE `ps_lang` (
   `date_format_full` varchar(32) NOT NULL,
   `is_rtl` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_lang`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8589,7 +8500,7 @@ CREATE TABLE `ps_layered_category` (
   PRIMARY KEY (`id_layered_category`),
   KEY `id_category_shop` (`id_category`,`id_shop`,`type`,`id_value`,`position`),
   KEY `id_category` (`id_category`,`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8676,7 +8587,7 @@ CREATE TABLE `ps_layered_filter` (
   `n_categories` int(10) unsigned NOT NULL,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_layered_filter`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8837,9 +8748,6 @@ CREATE TABLE `ps_layered_indexable_feature` (
 
 LOCK TABLES `ps_layered_indexable_feature` WRITE;
 /*!40000 ALTER TABLE `ps_layered_indexable_feature` DISABLE KEYS */;
-INSERT INTO `ps_layered_indexable_feature` VALUES
-(1,0),
-(2,0);
 /*!40000 ALTER TABLE `ps_layered_indexable_feature` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8942,7 +8850,1063 @@ INSERT INTO `ps_layered_price_index` VALUES
 (19,1,1,17.097000,17.097000,14),
 (20,1,1,0.000000,0.000000,14),
 (24,1,1,11.000000,11.000000,14),
-(25,1,1,0.000000,0.000000,14);
+(25,1,1,0.000000,0.000000,14),
+(27,1,1,279.997200,279.997200,14),
+(28,1,1,279.997200,279.997200,14),
+(29,1,1,279.997200,279.997200,14),
+(30,1,1,279.997200,279.997200,14),
+(31,1,1,279.997200,279.997200,14),
+(32,1,1,229.997700,229.997700,14),
+(33,1,1,279.997200,279.997200,14),
+(34,1,1,199.998000,199.998000,14),
+(35,1,1,199.998000,199.998000,14),
+(36,1,1,199.998000,199.998000,14),
+(37,1,1,199.998000,199.998000,14),
+(38,1,1,199.998000,199.998000,14),
+(39,1,1,199.998000,199.998000,14),
+(40,1,1,199.998000,199.998000,14),
+(41,1,1,472.000200,472.000200,14),
+(42,1,1,392.001000,392.001000,14),
+(43,1,1,415.998300,415.998300,14),
+(44,1,1,448.002900,448.002900,14),
+(45,1,1,392.001000,392.001000,14),
+(46,1,1,312.001800,312.001800,14),
+(47,1,1,448.002900,448.002900,14),
+(48,1,1,392.001000,392.001000,14),
+(49,1,1,392.001000,392.001000,14),
+(50,1,1,279.997200,279.997200,14),
+(51,1,1,259.997400,259.997400,14),
+(52,1,1,259.997400,259.997400,14),
+(53,1,1,259.997400,259.997400,14),
+(54,1,1,259.997400,259.997400,14),
+(55,1,1,259.997400,259.997400,14),
+(56,1,1,259.997400,259.997400,14),
+(57,1,1,259.997400,259.997400,14),
+(58,1,1,259.997400,259.997400,14),
+(59,1,1,880.003500,880.003500,14),
+(60,1,1,183.995700,183.995700,14),
+(61,1,1,183.995700,183.995700,14),
+(62,1,1,183.995700,183.995700,14),
+(63,1,1,109.002600,109.002600,14),
+(64,1,1,109.002600,109.002600,14),
+(65,1,1,109.002600,109.002600,14),
+(66,1,1,99.999000,99.999000,14),
+(67,1,1,99.999000,99.999000,14),
+(68,1,1,99.999000,99.999000,14),
+(69,1,1,99.999000,99.999000,14),
+(70,1,1,99.999000,99.999000,14),
+(71,1,1,99.999000,99.999000,14),
+(72,1,1,109.002600,109.002600,14),
+(73,1,1,109.002600,109.002600,14),
+(74,1,1,109.002600,109.002600,14),
+(75,1,1,99.999000,99.999000,14),
+(76,1,1,99.999000,99.999000,14),
+(77,1,1,99.999000,99.999000,14),
+(78,1,1,272.002200,272.002200,14),
+(79,1,1,312.001800,312.001800,14),
+(80,1,1,791.997000,791.997000,14),
+(81,1,1,980.002500,980.002500,14),
+(82,1,1,791.997000,791.997000,14),
+(83,1,1,169.998300,169.998300,14),
+(84,1,1,472.000200,472.000200,14),
+(85,1,1,229.997700,229.997700,14),
+(86,1,1,219.997800,219.997800,14),
+(87,1,1,791.997000,791.997000,14),
+(88,1,1,880.003500,880.003500,14),
+(89,1,1,791.997000,791.997000,14),
+(90,1,1,259.001100,259.001100,14),
+(91,1,1,489.995100,489.995100,14),
+(92,1,1,489.995100,489.995100,14),
+(93,1,1,489.995100,489.995100,14),
+(94,1,1,259.997400,259.997400,14),
+(95,1,1,119.998800,119.998800,14),
+(96,1,1,289.997100,289.997100,14),
+(97,1,1,289.997100,289.997100,14),
+(98,1,1,245.003700,245.003700,14),
+(99,1,1,289.997100,289.997100,14),
+(100,1,1,289.997100,289.997100,14),
+(101,1,1,289.997100,289.997100,14),
+(102,1,1,225.003900,225.003900,14),
+(103,1,1,245.003700,245.003700,14),
+(104,1,1,289.997100,289.997100,14),
+(105,1,1,289.997100,289.997100,14),
+(106,1,1,289.997100,289.997100,14),
+(107,1,1,289.997100,289.997100,14),
+(108,1,1,289.997100,289.997100,14),
+(109,1,1,289.997100,289.997100,14),
+(110,1,1,289.997100,289.997100,14),
+(111,1,1,784.002000,784.002000,14),
+(112,1,1,784.002000,784.002000,14),
+(113,1,1,784.002000,784.002000,14),
+(114,1,1,232.002600,232.002600,14),
+(115,1,1,232.002600,232.002600,14),
+(116,1,1,232.002600,232.002600,14),
+(117,1,1,249.997500,249.997500,14),
+(118,1,1,289.997100,289.997100,14),
+(119,1,1,259.997400,259.997400,14),
+(120,1,1,263.994900,263.994900,14),
+(121,1,1,185.004300,185.004300,14),
+(122,1,1,259.997400,259.997400,14),
+(123,1,1,259.997400,259.997400,14),
+(124,1,1,269.997300,269.997300,14),
+(125,1,1,269.997300,269.997300,14),
+(126,1,1,269.997300,269.997300,14),
+(127,1,1,269.997300,269.997300,14),
+(128,1,1,269.997300,269.997300,14),
+(129,1,1,269.997300,269.997300,14),
+(130,1,1,269.997300,269.997300,14),
+(131,1,1,289.997100,289.997100,14),
+(132,1,1,269.997300,269.997300,14),
+(133,1,1,289.997100,289.997100,14),
+(134,1,1,269.997300,269.997300,14),
+(135,1,1,255.200400,255.200400,14),
+(136,1,1,255.200400,255.200400,14),
+(137,1,1,216.000300,216.000300,14),
+(138,1,1,232.002600,232.002600,14),
+(139,1,1,199.998000,199.998000,14),
+(140,1,1,239.997600,239.997600,14),
+(141,1,1,255.999900,255.999900,14),
+(142,1,1,239.997600,239.997600,14),
+(143,1,1,255.999900,255.999900,14),
+(144,1,1,176.000700,176.000700,14),
+(145,1,1,179.998200,179.998200,14),
+(146,1,1,179.998200,179.998200,14),
+(147,1,1,129.998700,129.998700,14),
+(148,1,1,79.999200,79.999200,14),
+(149,1,1,79.999200,79.999200,14),
+(150,1,1,89.999100,89.999100,14),
+(151,1,1,189.001800,189.001800,14),
+(152,1,1,189.001800,189.001800,14),
+(153,1,1,203.995500,203.995500,14),
+(154,1,1,183.995700,183.995700,14),
+(155,1,1,229.997700,229.997700,14),
+(156,1,1,199.998000,199.998000,14),
+(157,1,1,259.001100,259.001100,14),
+(158,1,1,249.997500,249.997500,14),
+(159,1,1,263.994900,263.994900,14),
+(160,1,1,263.195400,263.195400,14),
+(161,1,1,247.205400,247.205400,14),
+(162,1,1,176.000700,176.000700,14),
+(163,1,1,247.205400,247.205400,14),
+(164,1,1,289.997100,289.997100,14),
+(165,1,1,176.000700,176.000700,14),
+(166,1,1,247.205400,247.205400,14),
+(167,1,1,223.195800,223.195800,14),
+(168,1,1,231.203100,231.203100,14),
+(169,1,1,255.200400,255.200400,14),
+(170,1,1,231.203100,231.203100,14),
+(171,1,1,176.000700,176.000700,14),
+(172,1,1,231.203100,231.203100,14),
+(173,1,1,223.995300,223.995300,14),
+(174,1,1,176.000700,176.000700,14),
+(175,1,1,176.000700,176.000700,14),
+(176,1,1,176.000700,176.000700,14),
+(177,1,1,419.995800,419.995800,14),
+(178,1,1,900.003300,900.003300,14),
+(179,1,1,249.997500,249.997500,14),
+(180,1,1,259.001100,259.001100,14),
+(181,1,1,208.005300,208.005300,14),
+(182,1,1,179.998200,179.998200,14),
+(183,1,1,109.002600,109.002600,14),
+(184,1,1,109.002600,109.002600,14),
+(185,1,1,249.997500,249.997500,14),
+(186,1,1,249.997500,249.997500,14),
+(187,1,1,249.997500,249.997500,14),
+(188,1,1,109.002600,109.002600,14),
+(189,1,1,109.002600,109.002600,14),
+(190,1,1,109.002600,109.002600,14),
+(191,1,1,109.002600,109.002600,14),
+(192,1,1,249.997500,249.997500,14),
+(193,1,1,249.997500,249.997500,14),
+(194,1,1,259.997400,259.997400,14),
+(195,1,1,249.997500,249.997500,14),
+(196,1,1,165.004500,165.004500,14),
+(197,1,1,175.004400,175.004400,14),
+(198,1,1,209.997900,209.997900,14),
+(199,1,1,169.998300,169.998300,14),
+(200,1,1,860.003700,860.003700,14),
+(201,1,1,860.003700,860.003700,14),
+(202,1,1,439.995600,439.995600,14),
+(203,1,1,99.002700,99.002700,14),
+(204,1,1,519.994800,519.994800,14),
+(205,1,1,87.994200,87.994200,14),
+(206,1,1,126.001200,126.001200,14),
+(207,1,1,113.000100,113.000100,14),
+(208,1,1,117.993900,117.993900,14),
+(209,1,1,109.002600,109.002600,14),
+(210,1,1,119.998800,119.998800,14),
+(211,1,1,359.996400,359.996400,14),
+(212,1,1,219.997800,219.997800,14),
+(213,1,1,149.998500,149.998500,14),
+(214,1,1,67.994400,67.994400,14),
+(215,1,1,79.002900,79.002900,14),
+(216,1,1,179.001900,179.001900,14),
+(217,1,1,750.004800,750.004800,14),
+(218,1,1,850.003800,850.003800,14),
+(219,1,1,343.994100,343.994100,14),
+(220,1,1,349.996500,349.996500,14),
+(221,1,1,192.003000,192.003000,14),
+(222,1,1,105.005100,105.005100,14),
+(223,1,1,105.005100,105.005100,14),
+(224,1,1,208.005300,208.005300,14),
+(225,1,1,179.998200,179.998200,14),
+(226,1,1,179.998200,179.998200,14),
+(227,1,1,179.998200,179.998200,14),
+(228,1,1,179.998200,179.998200,14),
+(229,1,1,179.998200,179.998200,14),
+(230,1,1,179.998200,179.998200,14),
+(231,1,1,143.996100,143.996100,14),
+(232,1,1,156.000900,156.000900,14),
+(233,1,1,279.997200,279.997200,14),
+(234,1,1,289.997100,289.997100,14),
+(235,1,1,259.997400,259.997400,14),
+(236,1,1,159.998400,159.998400,14),
+(237,1,1,159.998400,159.998400,14),
+(238,1,1,228.005100,228.005100,14),
+(239,1,1,79.002900,79.002900,14),
+(240,1,1,343.994100,343.994100,14),
+(241,1,1,97.994100,97.994100,14),
+(242,1,1,89.999100,89.999100,14),
+(243,1,1,279.997200,279.997200,14),
+(244,1,1,279.997200,279.997200,14),
+(245,1,1,279.997200,279.997200,14),
+(246,1,1,279.997200,279.997200,14),
+(247,1,1,279.997200,279.997200,14),
+(248,1,1,791.997000,791.997000,14),
+(249,1,1,880.003500,880.003500,14),
+(250,1,1,880.003500,880.003500,14),
+(251,1,1,880.003500,880.003500,14),
+(252,1,1,259.997400,259.997400,14),
+(253,1,1,389.996100,389.996100,14),
+(254,1,1,259.997400,259.997400,14),
+(255,1,1,249.997500,249.997500,14),
+(256,1,1,119.002500,119.002500,14),
+(257,1,1,99.999000,99.999000,14),
+(258,1,1,119.002500,119.002500,14),
+(259,1,1,119.002500,119.002500,14),
+(260,1,1,119.002500,119.002500,14),
+(261,1,1,119.002500,119.002500,14),
+(262,1,1,119.002500,119.002500,14),
+(263,1,1,119.002500,119.002500,14),
+(264,1,1,109.002600,109.002600,14),
+(265,1,1,109.002600,109.002600,14),
+(266,1,1,109.002600,109.002600,14),
+(267,1,1,109.002600,109.002600,14),
+(268,1,1,299.997000,299.997000,14),
+(269,1,1,319.996800,319.996800,14),
+(270,1,1,349.996500,349.996500,14),
+(271,1,1,125.004900,125.004900,14),
+(272,1,1,125.004900,125.004900,14),
+(273,1,1,489.995100,489.995100,14),
+(274,1,1,199.001700,199.001700,14),
+(275,1,1,109.002600,109.002600,14),
+(276,1,1,239.198100,239.198100,14),
+(277,1,1,289.997100,289.997100,14),
+(278,1,1,139.998600,139.998600,14),
+(279,1,1,223.995300,223.995300,14),
+(280,1,1,223.995300,223.995300,14),
+(281,1,1,208.005300,208.005300,14),
+(282,1,1,289.997100,289.997100,14),
+(283,1,1,269.997300,269.997300,14),
+(284,1,1,269.997300,269.997300,14),
+(285,1,1,248.004900,248.004900,14),
+(286,1,1,272.002200,272.002200,14),
+(287,1,1,349.996500,349.996500,14),
+(288,1,1,189.001800,189.001800,14),
+(289,1,1,279.997200,279.997200,14),
+(290,1,1,249.997500,249.997500,14),
+(291,1,1,249.997500,249.997500,14),
+(292,1,1,249.997500,249.997500,14),
+(293,1,1,285.003300,285.003300,14),
+(294,1,1,312.001800,312.001800,14),
+(295,1,1,312.001800,312.001800,14),
+(296,1,1,210.994200,210.994200,14),
+(297,1,1,179.998200,179.998200,14),
+(298,1,1,489.995100,489.995100,14),
+(299,1,1,489.995100,489.995100,14),
+(300,1,1,489.995100,489.995100,14),
+(301,1,1,219.997800,219.997800,14),
+(302,1,1,156.000900,156.000900,14),
+(303,1,1,219.997800,219.997800,14),
+(304,1,1,219.997800,219.997800,14),
+(305,1,1,287.205000,287.205000,14),
+(306,1,1,287.205000,287.205000,14),
+(307,1,1,179.198700,179.198700,14),
+(308,1,1,179.198700,179.198700,14),
+(309,1,1,179.198700,179.198700,14),
+(310,1,1,179.198700,179.198700,14),
+(311,1,1,208.005300,208.005300,14),
+(312,1,1,208.005300,208.005300,14),
+(313,1,1,183.995700,183.995700,14),
+(314,1,1,183.995700,183.995700,14),
+(315,1,1,279.997200,279.997200,14),
+(316,1,1,279.997200,279.997200,14),
+(317,1,1,199.998000,199.998000,14),
+(318,1,1,205.004100,205.004100,14),
+(319,1,1,209.997900,209.997900,14),
+(320,1,1,203.995500,203.995500,14),
+(321,1,1,203.995500,203.995500,14),
+(322,1,1,203.995500,203.995500,14),
+(323,1,1,183.995700,183.995700,14),
+(324,1,1,202.002900,202.002900,14),
+(325,1,1,218.005200,218.005200,14),
+(326,1,1,218.005200,218.005200,14),
+(327,1,1,218.005200,218.005200,14),
+(328,1,1,218.005200,218.005200,14),
+(329,1,1,218.005200,218.005200,14),
+(330,1,1,218.005200,218.005200,14),
+(331,1,1,218.005200,218.005200,14),
+(332,1,1,218.005200,218.005200,14),
+(333,1,1,218.005200,218.005200,14),
+(334,1,1,218.005200,218.005200,14),
+(335,1,1,218.005200,218.005200,14),
+(336,1,1,218.005200,218.005200,14),
+(337,1,1,218.005200,218.005200,14),
+(338,1,1,218.005200,218.005200,14),
+(339,1,1,218.005200,218.005200,14),
+(340,1,1,218.005200,218.005200,14),
+(341,1,1,218.005200,218.005200,14),
+(342,1,1,218.005200,218.005200,14),
+(343,1,1,218.005200,218.005200,14),
+(344,1,1,183.995700,183.995700,14),
+(345,1,1,249.997500,249.997500,14),
+(346,1,1,249.997500,249.997500,14),
+(347,1,1,249.997500,249.997500,14),
+(348,1,1,219.997800,219.997800,14),
+(349,1,1,195.004200,195.004200,14),
+(350,1,1,189.001800,189.001800,14),
+(351,1,1,249.997500,249.997500,14),
+(352,1,1,219.001500,219.001500,14),
+(353,1,1,249.001200,249.001200,14),
+(354,1,1,219.001500,219.001500,14),
+(355,1,1,229.001400,229.001400,14),
+(356,1,1,255.999900,255.999900,14),
+(357,1,1,303.994500,303.994500,14),
+(358,1,1,711.997800,711.997800,14),
+(359,1,1,439.995600,439.995600,14),
+(360,1,1,432.000600,432.000600,14),
+(361,1,1,690.005400,690.005400,14),
+(362,1,1,176.000700,176.000700,14),
+(363,1,1,215.200800,215.200800,14),
+(364,1,1,223.995300,223.995300,14),
+(365,1,1,176.000700,176.000700,14),
+(366,1,1,176.000700,176.000700,14),
+(367,1,1,99.002700,99.002700,14),
+(368,1,1,99.999000,99.999000,14),
+(369,1,1,109.002600,109.002600,14),
+(370,1,1,109.002600,109.002600,14),
+(371,1,1,109.002600,109.002600,14),
+(372,1,1,109.002600,109.002600,14),
+(373,1,1,129.998700,129.998700,14),
+(374,1,1,409.995900,409.995900,14),
+(375,1,1,129.998700,129.998700,14),
+(376,1,1,349.996500,349.996500,14),
+(377,1,1,95.005200,95.005200,14),
+(378,1,1,105.005100,105.005100,14),
+(379,1,1,95.005200,95.005200,14),
+(380,1,1,95.005200,95.005200,14),
+(381,1,1,389.996100,389.996100,14),
+(382,1,1,229.997700,229.997700,14),
+(383,1,1,189.001800,189.001800,14),
+(384,1,1,229.997700,229.997700,14),
+(385,1,1,179.001900,179.001900,14),
+(386,1,1,77.994300,77.994300,14),
+(387,1,1,268.004700,268.004700,14),
+(388,1,1,219.997800,219.997800,14),
+(389,1,1,179.998200,179.998200,14),
+(390,1,1,175.201200,175.201200,14),
+(391,1,1,156.997200,156.997200,14),
+(392,1,1,175.201200,175.201200,14),
+(393,1,1,183.196200,183.196200,14),
+(394,1,1,183.196200,183.196200,14),
+(395,1,1,159.998400,159.998400,14),
+(396,1,1,219.001500,219.001500,14),
+(397,1,1,259.997400,259.997400,14),
+(398,1,1,249.997500,249.997500,14),
+(399,1,1,249.997500,249.997500,14),
+(400,1,1,189.001800,189.001800,14),
+(401,1,1,215.004000,215.004000,14),
+(402,1,1,159.998400,159.998400,14),
+(403,1,1,168.005700,168.005700,14),
+(404,1,1,159.998400,159.998400,14),
+(405,1,1,369.996300,369.996300,14),
+(406,1,1,105.005100,105.005100,14),
+(407,1,1,549.994500,549.994500,14),
+(408,1,1,179.001900,179.001900,14),
+(409,1,1,850.003800,850.003800,14),
+(410,1,1,631.998600,631.998600,14),
+(411,1,1,389.996100,389.996100,14),
+(412,1,1,389.996100,389.996100,14),
+(413,1,1,449.995500,449.995500,14),
+(414,1,1,449.995500,449.995500,14),
+(415,1,1,449.995500,449.995500,14),
+(416,1,1,389.996100,389.996100,14),
+(417,1,1,175.201200,175.201200,14),
+(418,1,1,175.004400,175.004400,14),
+(419,1,1,178.005600,178.005600,14),
+(420,1,1,189.998100,189.998100,14),
+(421,1,1,159.998400,159.998400,14),
+(422,1,1,259.001100,259.001100,14),
+(423,1,1,359.996400,359.996400,14),
+(424,1,1,392.001000,392.001000,14),
+(425,1,1,359.996400,359.996400,14),
+(426,1,1,359.996400,359.996400,14),
+(427,1,1,359.996400,359.996400,14),
+(428,1,1,343.994100,343.994100,14),
+(429,1,1,343.994100,343.994100,14),
+(430,1,1,312.001800,312.001800,14),
+(431,1,1,343.994100,343.994100,14),
+(432,1,1,352.001400,352.001400,14),
+(433,1,1,375.998700,375.998700,14),
+(434,1,1,219.997800,219.997800,14),
+(435,1,1,449.995500,449.995500,14),
+(436,1,1,449.995500,449.995500,14),
+(437,1,1,419.995800,419.995800,14),
+(438,1,1,389.996100,389.996100,14),
+(439,1,1,335.999100,335.999100,14),
+(440,1,1,415.998300,415.998300,14),
+(441,1,1,472.000200,472.000200,14),
+(442,1,1,392.001000,392.001000,14),
+(443,1,1,349.996500,349.996500,14),
+(444,1,1,349.996500,349.996500,14),
+(445,1,1,359.996400,359.996400,14),
+(446,1,1,159.198900,159.198900,14),
+(447,1,1,249.997500,249.997500,14),
+(448,1,1,109.002600,109.002600,14),
+(449,1,1,309.996900,309.996900,14),
+(450,1,1,109.002600,109.002600,14),
+(451,1,1,259.997400,259.997400,14),
+(452,1,1,599.994000,599.994000,14),
+(453,1,1,650.005800,650.005800,14),
+(454,1,1,99.002700,99.002700,14),
+(455,1,1,99.002700,99.002700,14),
+(456,1,1,99.002700,99.002700,14),
+(457,1,1,99.999000,99.999000,14),
+(458,1,1,99.999000,99.999000,14),
+(459,1,1,133.996200,133.996200,14),
+(460,1,1,99.999000,99.999000,14),
+(461,1,1,119.002500,119.002500,14),
+(462,1,1,369.996300,369.996300,14),
+(463,1,1,369.996300,369.996300,14),
+(464,1,1,249.997500,249.997500,14),
+(465,1,1,209.997900,209.997900,14),
+(466,1,1,239.997600,239.997600,14),
+(467,1,1,249.997500,249.997500,14),
+(468,1,1,219.997800,219.997800,14),
+(469,1,1,249.997500,249.997500,14),
+(470,1,1,229.001400,229.001400,14),
+(471,1,1,249.997500,249.997500,14),
+(472,1,1,319.996800,319.996800,14),
+(473,1,1,219.997800,219.997800,14),
+(474,1,1,249.997500,249.997500,14),
+(475,1,1,249.997500,249.997500,14),
+(476,1,1,249.997500,249.997500,14),
+(477,1,1,187.206000,187.206000,14),
+(478,1,1,249.997500,249.997500,14),
+(479,1,1,259.997400,259.997400,14),
+(480,1,1,279.997200,279.997200,14),
+(481,1,1,249.997500,249.997500,14),
+(482,1,1,279.997200,279.997200,14),
+(483,1,1,249.997500,249.997500,14),
+(484,1,1,249.997500,249.997500,14),
+(485,1,1,249.997500,249.997500,14),
+(486,1,1,189.001800,189.001800,14),
+(487,1,1,209.997900,209.997900,14),
+(488,1,1,249.997500,249.997500,14),
+(489,1,1,219.997800,219.997800,14),
+(490,1,1,219.997800,219.997800,14),
+(491,1,1,219.997800,219.997800,14),
+(492,1,1,199.998000,199.998000,14),
+(493,1,1,392.001000,392.001000,14),
+(494,1,1,245.003700,245.003700,14),
+(495,1,1,245.003700,245.003700,14),
+(496,1,1,245.003700,245.003700,14),
+(497,1,1,289.997100,289.997100,14),
+(498,1,1,289.997100,289.997100,14),
+(499,1,1,289.997100,289.997100,14),
+(500,1,1,392.001000,392.001000,14),
+(501,1,1,109.998900,109.998900,14),
+(502,1,1,172.003200,172.003200,14),
+(503,1,1,172.003200,172.003200,14),
+(504,1,1,192.003000,192.003000,14),
+(505,1,1,119.998800,119.998800,14),
+(506,1,1,187.206000,187.206000,14),
+(507,1,1,187.206000,187.206000,14),
+(508,1,1,419.995800,419.995800,14),
+(509,1,1,409.995900,409.995900,14),
+(510,1,1,495.001200,495.001200,14),
+(511,1,1,395.002200,395.002200,14),
+(512,1,1,495.001200,495.001200,14),
+(513,1,1,100.995300,100.995300,14),
+(514,1,1,100.995300,100.995300,14),
+(515,1,1,100.995300,100.995300,14),
+(516,1,1,97.994100,97.994100,14),
+(517,1,1,90.995400,90.995400,14),
+(518,1,1,135.004800,135.004800,14),
+(519,1,1,259.001100,259.001100,14),
+(520,1,1,800.004300,800.004300,14),
+(521,1,1,129.002400,129.002400,14),
+(522,1,1,970.002600,970.002600,14),
+(523,1,1,429.995700,429.995700,14),
+(524,1,1,389.996100,389.996100,14),
+(525,1,1,950.002800,950.002800,14),
+(526,1,1,888.994800,888.994800,14),
+(527,1,1,186.996900,186.996900,14),
+(528,1,1,219.001500,219.001500,14),
+(529,1,1,239.001300,239.001300,14),
+(530,1,1,222.396300,222.396300,14),
+(531,1,1,269.997300,269.997300,14),
+(532,1,1,245.003700,245.003700,14),
+(533,1,1,468.999000,468.999000,14),
+(534,1,1,70.995600,70.995600,14),
+(535,1,1,349.996500,349.996500,14),
+(536,1,1,79.999200,79.999200,14),
+(537,1,1,79.002900,79.002900,14),
+(538,1,1,259.997400,259.997400,14),
+(539,1,1,236.000100,236.000100,14),
+(540,1,1,129.998700,129.998700,14),
+(541,1,1,288.004500,288.004500,14),
+(542,1,1,159.998400,159.998400,14),
+(543,1,1,109.998900,109.998900,14),
+(544,1,1,89.999100,89.999100,14),
+(545,1,1,249.997500,249.997500,14),
+(546,1,1,249.997500,249.997500,14),
+(547,1,1,249.997500,249.997500,14),
+(548,1,1,249.997500,249.997500,14),
+(549,1,1,249.997500,249.997500,14),
+(550,1,1,249.997500,249.997500,14),
+(551,1,1,153.996000,153.996000,14),
+(552,1,1,189.998100,189.998100,14),
+(553,1,1,189.998100,189.998100,14),
+(554,1,1,189.998100,189.998100,14),
+(555,1,1,189.998100,189.998100,14),
+(556,1,1,189.998100,189.998100,14),
+(557,1,1,189.998100,189.998100,14),
+(558,1,1,239.997600,239.997600,14),
+(559,1,1,189.998100,189.998100,14),
+(560,1,1,189.998100,189.998100,14),
+(561,1,1,189.998100,189.998100,14),
+(562,1,1,189.998100,189.998100,14),
+(563,1,1,239.997600,239.997600,14),
+(564,1,1,239.997600,239.997600,14),
+(565,1,1,239.997600,239.997600,14),
+(566,1,1,239.997600,239.997600,14),
+(567,1,1,239.997600,239.997600,14),
+(568,1,1,239.997600,239.997600,14),
+(569,1,1,69.999300,69.999300,14),
+(570,1,1,65.005500,65.005500,14),
+(571,1,1,79.999200,79.999200,14),
+(572,1,1,77.994300,77.994300,14),
+(573,1,1,79.999200,79.999200,14),
+(574,1,1,59.999400,59.999400,14),
+(575,1,1,69.999300,69.999300,14),
+(576,1,1,65.005500,65.005500,14),
+(577,1,1,65.005500,65.005500,14),
+(578,1,1,82.004100,82.004100,14),
+(579,1,1,69.999300,69.999300,14),
+(580,1,1,83.996700,83.996700,14),
+(581,1,1,239.997600,239.997600,14),
+(582,1,1,97.994100,97.994100,14),
+(583,1,1,97.994100,97.994100,14),
+(584,1,1,249.997500,249.997500,14),
+(585,1,1,249.997500,249.997500,14),
+(586,1,1,75.005400,75.005400,14),
+(587,1,1,65.005500,65.005500,14),
+(588,1,1,189.998100,189.998100,14),
+(589,1,1,49.999500,49.999500,14),
+(590,1,1,55.005600,55.005600,14),
+(591,1,1,72.004200,72.004200,14),
+(592,1,1,255.999900,255.999900,14),
+(593,1,1,269.997300,269.997300,14),
+(594,1,1,189.998100,189.998100,14),
+(595,1,1,229.997700,229.997700,14),
+(596,1,1,229.997700,229.997700,14),
+(597,1,1,389.996100,389.996100,14),
+(598,1,1,389.996100,389.996100,14),
+(599,1,1,389.996100,389.996100,14),
+(600,1,1,389.996100,389.996100,14),
+(601,1,1,49.999500,49.999500,14),
+(602,1,1,179.998200,179.998200,14),
+(603,1,1,72.004200,72.004200,14),
+(604,1,1,49.999500,49.999500,14),
+(605,1,1,82.004100,82.004100,14),
+(606,1,1,82.004100,82.004100,14),
+(607,1,1,77.994300,77.994300,14),
+(608,1,1,77.994300,77.994300,14),
+(609,1,1,72.004200,72.004200,14),
+(610,1,1,119.002500,119.002500,14),
+(611,1,1,72.004200,72.004200,14),
+(612,1,1,72.004200,72.004200,14),
+(613,1,1,72.004200,72.004200,14),
+(614,1,1,119.002500,119.002500,14),
+(615,1,1,223.995300,223.995300,14),
+(616,1,1,223.995300,223.995300,14),
+(617,1,1,116.001300,116.001300,14),
+(618,1,1,116.001300,116.001300,14),
+(619,1,1,223.995300,223.995300,14),
+(620,1,1,223.995300,223.995300,14),
+(621,1,1,223.995300,223.995300,14),
+(622,1,1,208.005300,208.005300,14),
+(623,1,1,208.005300,208.005300,14),
+(624,1,1,116.001300,116.001300,14),
+(625,1,1,116.001300,116.001300,14),
+(626,1,1,69.003000,69.003000,14),
+(627,1,1,99.002700,99.002700,14),
+(628,1,1,119.998800,119.998800,14),
+(629,1,1,169.002000,169.002000,14),
+(630,1,1,119.998800,119.998800,14),
+(631,1,1,139.002300,139.002300,14),
+(632,1,1,139.002300,139.002300,14),
+(633,1,1,228.005100,228.005100,14),
+(634,1,1,132.003600,132.003600,14),
+(635,1,1,119.998800,119.998800,14),
+(636,1,1,85.005300,85.005300,14),
+(637,1,1,289.997100,289.997100,14),
+(638,1,1,279.997200,279.997200,14),
+(639,1,1,319.996800,319.996800,14),
+(640,1,1,319.996800,319.996800,14),
+(641,1,1,179.998200,179.998200,14),
+(642,1,1,179.998200,179.998200,14),
+(643,1,1,179.998200,179.998200,14),
+(644,1,1,169.002000,169.002000,14),
+(645,1,1,179.998200,179.998200,14),
+(646,1,1,179.998200,179.998200,14),
+(647,1,1,179.998200,179.998200,14),
+(648,1,1,89.999100,89.999100,14),
+(649,1,1,179.998200,179.998200,14),
+(650,1,1,179.998200,179.998200,14),
+(651,1,1,189.998100,189.998100,14),
+(652,1,1,168.005700,168.005700,14),
+(653,1,1,189.998100,189.998100,14),
+(654,1,1,189.998100,189.998100,14),
+(655,1,1,189.998100,189.998100,14),
+(656,1,1,179.998200,179.998200,14),
+(657,1,1,89.002800,89.002800,14),
+(658,1,1,59.999400,59.999400,14),
+(659,1,1,69.999300,69.999300,14),
+(660,1,1,53.997000,53.997000,14),
+(661,1,1,65.005500,65.005500,14),
+(662,1,1,219.997800,219.997800,14),
+(663,1,1,65.005500,65.005500,14),
+(664,1,1,79.002900,79.002900,14),
+(665,1,1,529.994700,529.994700,14),
+(666,1,1,529.994700,529.994700,14),
+(667,1,1,529.994700,529.994700,14),
+(668,1,1,329.996700,329.996700,14),
+(669,1,1,365.002500,365.002500,14),
+(670,1,1,425.001900,425.001900,14),
+(671,1,1,389.996100,389.996100,14),
+(672,1,1,389.996100,389.996100,14),
+(673,1,1,389.996100,389.996100,14),
+(674,1,1,389.996100,389.996100,14),
+(675,1,1,529.994700,529.994700,14),
+(676,1,1,389.996100,389.996100,14),
+(677,1,1,349.996500,349.996500,14),
+(678,1,1,349.996500,349.996500,14),
+(679,1,1,349.996500,349.996500,14),
+(680,1,1,429.995700,429.995700,14),
+(681,1,1,429.995700,429.995700,14),
+(682,1,1,429.995700,429.995700,14),
+(683,1,1,229.001400,229.001400,14),
+(684,1,1,359.000100,359.000100,14),
+(685,1,1,319.996800,319.996800,14),
+(686,1,1,458.999100,458.999100,14),
+(687,1,1,418.999500,418.999500,14),
+(688,1,1,419.995800,419.995800,14),
+(689,1,1,389.996100,389.996100,14),
+(690,1,1,319.996800,319.996800,14),
+(691,1,1,89.999100,89.999100,14),
+(692,1,1,75.005400,75.005400,14),
+(693,1,1,179.998200,179.998200,14),
+(694,1,1,119.998800,119.998800,14),
+(695,1,1,589.994100,589.994100,14),
+(696,1,1,489.995100,489.995100,14),
+(697,1,1,289.997100,289.997100,14),
+(698,1,1,299.997000,299.997000,14),
+(699,1,1,289.997100,289.997100,14),
+(700,1,1,149.998500,149.998500,14),
+(701,1,1,189.998100,189.998100,14),
+(702,1,1,289.997100,289.997100,14),
+(703,1,1,349.996500,349.996500,14),
+(704,1,1,219.997800,219.997800,14),
+(705,1,1,389.996100,389.996100,14),
+(706,1,1,389.996100,389.996100,14),
+(707,1,1,389.996100,389.996100,14),
+(708,1,1,389.996100,389.996100,14),
+(709,1,1,219.001500,219.001500,14),
+(710,1,1,219.001500,219.001500,14),
+(711,1,1,219.001500,219.001500,14),
+(712,1,1,219.001500,219.001500,14),
+(713,1,1,219.001500,219.001500,14),
+(714,1,1,219.001500,219.001500,14),
+(715,1,1,219.001500,219.001500,14),
+(716,1,1,219.001500,219.001500,14),
+(717,1,1,299.000700,299.000700,14),
+(718,1,1,388.999800,388.999800,14),
+(719,1,1,339.000300,339.000300,14),
+(720,1,1,209.001600,209.001600,14),
+(721,1,1,219.001500,219.001500,14),
+(722,1,1,219.001500,219.001500,14),
+(723,1,1,219.001500,219.001500,14),
+(724,1,1,219.001500,219.001500,14),
+(725,1,1,219.001500,219.001500,14),
+(726,1,1,219.001500,219.001500,14),
+(727,1,1,219.001500,219.001500,14),
+(728,1,1,219.001500,219.001500,14),
+(729,1,1,219.001500,219.001500,14),
+(730,1,1,219.001500,219.001500,14),
+(731,1,1,219.001500,219.001500,14),
+(732,1,1,219.001500,219.001500,14),
+(733,1,1,219.001500,219.001500,14),
+(734,1,1,219.001500,219.001500,14),
+(735,1,1,219.001500,219.001500,14),
+(736,1,1,219.001500,219.001500,14),
+(737,1,1,219.001500,219.001500,14),
+(738,1,1,219.001500,219.001500,14),
+(739,1,1,219.001500,219.001500,14),
+(740,1,1,239.001300,239.001300,14),
+(741,1,1,279.000900,279.000900,14),
+(742,1,1,288.004500,288.004500,14),
+(743,1,1,279.000900,279.000900,14),
+(744,1,1,279.000900,279.000900,14),
+(745,1,1,269.001000,269.001000,14),
+(746,1,1,279.000900,279.000900,14),
+(747,1,1,279.000900,279.000900,14),
+(748,1,1,279.000900,279.000900,14),
+(749,1,1,286.995900,286.995900,14),
+(750,1,1,286.995900,286.995900,14),
+(751,1,1,269.001000,269.001000,14),
+(752,1,1,279.000900,279.000900,14),
+(753,1,1,265.003500,265.003500,14),
+(754,1,1,378.999900,378.999900,14),
+(755,1,1,199.001700,199.001700,14),
+(756,1,1,189.001800,189.001800,14),
+(757,1,1,119.998800,119.998800,14),
+(758,1,1,218.005200,218.005200,14),
+(759,1,1,219.997800,219.997800,14),
+(760,1,1,189.001800,189.001800,14),
+(761,1,1,299.000700,299.000700,14),
+(762,1,1,245.003700,245.003700,14),
+(763,1,1,269.997300,269.997300,14),
+(764,1,1,139.002300,139.002300,14),
+(765,1,1,139.002300,139.002300,14),
+(766,1,1,299.000700,299.000700,14),
+(767,1,1,379.996200,379.996200,14),
+(768,1,1,269.001000,269.001000,14),
+(769,1,1,269.001000,269.001000,14),
+(770,1,1,279.000900,279.000900,14),
+(771,1,1,189.998100,189.998100,14),
+(772,1,1,219.997800,219.997800,14),
+(773,1,1,239.997600,239.997600,14),
+(774,1,1,276.996000,276.996000,14),
+(775,1,1,225.003900,225.003900,14),
+(776,1,1,225.003900,225.003900,14),
+(777,1,1,149.002200,149.002200,14),
+(778,1,1,139.002300,139.002300,14),
+(779,1,1,139.002300,139.002300,14),
+(780,1,1,155.004600,155.004600,14),
+(781,1,1,179.998200,179.998200,14),
+(782,1,1,228.005100,228.005100,14),
+(783,1,1,279.000900,279.000900,14),
+(784,1,1,275.003400,275.003400,14),
+(785,1,1,239.001300,239.001300,14),
+(786,1,1,269.001000,269.001000,14),
+(787,1,1,298.004400,298.004400,14),
+(788,1,1,279.000900,279.000900,14),
+(789,1,1,269.001000,269.001000,14),
+(790,1,1,333.994200,333.994200,14),
+(791,1,1,179.998200,179.998200,14),
+(792,1,1,155.004600,155.004600,14),
+(793,1,1,129.998700,129.998700,14),
+(794,1,1,155.004600,155.004600,14),
+(795,1,1,145.004700,145.004700,14),
+(796,1,1,155.004600,155.004600,14),
+(797,1,1,155.004600,155.004600,14),
+(798,1,1,379.996200,379.996200,14),
+(799,1,1,279.997200,279.997200,14),
+(800,1,1,299.997000,299.997000,14),
+(801,1,1,343.994100,343.994100,14),
+(802,1,1,175.004400,175.004400,14),
+(803,1,1,242.002500,242.002500,14),
+(804,1,1,155.004600,155.004600,14),
+(805,1,1,155.004600,155.004600,14),
+(806,1,1,155.004600,155.004600,14),
+(807,1,1,155.004600,155.004600,14),
+(808,1,1,155.004600,155.004600,14),
+(809,1,1,155.004600,155.004600,14),
+(810,1,1,155.004600,155.004600,14),
+(811,1,1,179.998200,179.998200,14),
+(812,1,1,259.997400,259.997400,14),
+(813,1,1,249.997500,249.997500,14),
+(814,1,1,239.997600,239.997600,14),
+(815,1,1,239.997600,239.997600,14),
+(816,1,1,225.003900,225.003900,14),
+(817,1,1,225.003900,225.003900,14),
+(818,1,1,225.003900,225.003900,14),
+(819,1,1,225.003900,225.003900,14),
+(820,1,1,225.003900,225.003900,14),
+(821,1,1,239.001300,239.001300,14),
+(822,1,1,239.001300,239.001300,14),
+(823,1,1,255.003600,255.003600,14),
+(824,1,1,225.003900,225.003900,14),
+(825,1,1,225.003900,225.003900,14),
+(826,1,1,225.003900,225.003900,14),
+(827,1,1,239.001300,239.001300,14),
+(828,1,1,225.003900,225.003900,14),
+(829,1,1,225.003900,225.003900,14),
+(830,1,1,269.997300,269.997300,14),
+(831,1,1,269.997300,269.997300,14),
+(832,1,1,239.001300,239.001300,14),
+(833,1,1,269.997300,269.997300,14),
+(834,1,1,225.003900,225.003900,14),
+(835,1,1,253.995000,253.995000,14),
+(836,1,1,249.997500,249.997500,14),
+(837,1,1,289.000800,289.000800,14),
+(838,1,1,219.997800,219.997800,14),
+(839,1,1,199.001700,199.001700,14),
+(840,1,1,199.001700,199.001700,14),
+(841,1,1,199.001700,199.001700,14),
+(842,1,1,199.001700,199.001700,14),
+(843,1,1,199.001700,199.001700,14),
+(844,1,1,199.001700,199.001700,14),
+(845,1,1,199.001700,199.001700,14),
+(846,1,1,199.001700,199.001700,14),
+(847,1,1,199.001700,199.001700,14),
+(848,1,1,219.001500,219.001500,14),
+(849,1,1,219.001500,219.001500,14),
+(850,1,1,219.001500,219.001500,14),
+(851,1,1,219.001500,219.001500,14),
+(852,1,1,219.001500,219.001500,14),
+(853,1,1,219.001500,219.001500,14),
+(854,1,1,239.001300,239.001300,14),
+(855,1,1,239.001300,239.001300,14),
+(856,1,1,219.001500,219.001500,14),
+(857,1,1,219.001500,219.001500,14),
+(858,1,1,219.001500,219.001500,14),
+(859,1,1,219.001500,219.001500,14),
+(860,1,1,219.001500,219.001500,14),
+(861,1,1,219.001500,219.001500,14),
+(862,1,1,209.001600,209.001600,14),
+(863,1,1,209.001600,209.001600,14),
+(864,1,1,239.001300,239.001300,14),
+(865,1,1,299.000700,299.000700,14),
+(866,1,1,299.000700,299.000700,14),
+(867,1,1,299.000700,299.000700,14),
+(868,1,1,589.994100,589.994100,14),
+(869,1,1,589.994100,589.994100,14),
+(870,1,1,589.994100,589.994100,14),
+(871,1,1,589.994100,589.994100,14),
+(872,1,1,146.001000,146.001000,14),
+(873,1,1,146.001000,146.001000,14),
+(874,1,1,146.001000,146.001000,14),
+(875,1,1,146.001000,146.001000,14),
+(876,1,1,146.001000,146.001000,14),
+(877,1,1,189.001800,189.001800,14),
+(878,1,1,139.002300,139.002300,14),
+(879,1,1,219.997800,219.997800,14),
+(880,1,1,279.000900,279.000900,14),
+(881,1,1,189.998100,189.998100,14),
+(882,1,1,299.000700,299.000700,14),
+(883,1,1,225.003900,225.003900,14),
+(884,1,1,289.000800,289.000800,14),
+(885,1,1,255.999900,255.999900,14),
+(886,1,1,255.999900,255.999900,14),
+(887,1,1,265.003500,265.003500,14),
+(888,1,1,252.002400,252.002400,14),
+(889,1,1,252.002400,252.002400,14),
+(890,1,1,225.003900,225.003900,14),
+(891,1,1,253.995000,253.995000,14),
+(892,1,1,252.002400,252.002400,14),
+(893,1,1,289.997100,289.997100,14),
+(894,1,1,343.994100,343.994100,14),
+(895,1,1,343.994100,343.994100,14),
+(896,1,1,299.000700,299.000700,14),
+(897,1,1,155.004600,155.004600,14),
+(898,1,1,155.004600,155.004600,14),
+(899,1,1,149.002200,149.002200,14),
+(900,1,1,129.002400,129.002400,14),
+(901,1,1,265.003500,265.003500,14),
+(902,1,1,146.001000,146.001000,14),
+(903,1,1,146.001000,146.001000,14),
+(904,1,1,146.001000,146.001000,14),
+(905,1,1,146.001000,146.001000,14),
+(906,1,1,146.001000,146.001000,14),
+(907,1,1,146.001000,146.001000,14),
+(908,1,1,146.001000,146.001000,14),
+(909,1,1,146.001000,146.001000,14),
+(910,1,1,129.002400,129.002400,14),
+(911,1,1,129.002400,129.002400,14),
+(912,1,1,129.002400,129.002400,14),
+(913,1,1,129.002400,129.002400,14),
+(914,1,1,129.002400,129.002400,14),
+(915,1,1,129.002400,129.002400,14),
+(916,1,1,129.002400,129.002400,14),
+(917,1,1,129.002400,129.002400,14),
+(918,1,1,129.002400,129.002400,14),
+(919,1,1,129.002400,129.002400,14),
+(920,1,1,129.002400,129.002400,14),
+(921,1,1,129.002400,129.002400,14),
+(922,1,1,129.002400,129.002400,14),
+(923,1,1,129.002400,129.002400,14),
+(924,1,1,129.002400,129.002400,14),
+(925,1,1,129.002400,129.002400,14),
+(926,1,1,129.002400,129.002400,14),
+(927,1,1,129.002400,129.002400,14),
+(928,1,1,129.002400,129.002400,14),
+(929,1,1,129.002400,129.002400,14),
+(930,1,1,129.002400,129.002400,14),
+(931,1,1,129.002400,129.002400,14),
+(932,1,1,129.002400,129.002400,14),
+(933,1,1,129.002400,129.002400,14),
+(934,1,1,129.002400,129.002400,14),
+(935,1,1,129.002400,129.002400,14),
+(936,1,1,129.002400,129.002400,14),
+(937,1,1,119.002500,119.002500,14),
+(938,1,1,129.002400,129.002400,14),
+(939,1,1,129.002400,129.002400,14),
+(940,1,1,119.002500,119.002500,14),
+(941,1,1,119.002500,119.002500,14),
+(942,1,1,69.003000,69.003000,14),
+(943,1,1,69.003000,69.003000,14),
+(944,1,1,69.003000,69.003000,14),
+(945,1,1,69.003000,69.003000,14),
+(946,1,1,139.002300,139.002300,14),
+(947,1,1,109.002600,109.002600,14),
+(948,1,1,97.994100,97.994100,14),
+(949,1,1,97.994100,97.994100,14),
+(950,1,1,139.002300,139.002300,14),
+(951,1,1,97.994100,97.994100,14),
+(952,1,1,97.994100,97.994100,14),
+(953,1,1,119.998800,119.998800,14),
+(954,1,1,119.998800,119.998800,14),
+(955,1,1,119.998800,119.998800,14),
+(956,1,1,119.998800,119.998800,14),
+(957,1,1,119.998800,119.998800,14),
+(958,1,1,119.998800,119.998800,14),
+(959,1,1,119.998800,119.998800,14),
+(960,1,1,319.996800,319.996800,14),
+(961,1,1,289.000800,289.000800,14),
+(962,1,1,249.001200,249.001200,14),
+(963,1,1,305.003100,305.003100,14),
+(964,1,1,279.997200,279.997200,14),
+(965,1,1,249.001200,249.001200,14),
+(966,1,1,259.001100,259.001100,14),
+(967,1,1,259.001100,259.001100,14),
+(968,1,1,279.000900,279.000900,14),
+(969,1,1,279.997200,279.997200,14),
+(970,1,1,229.997700,229.997700,14),
+(971,1,1,229.997700,229.997700,14),
+(972,1,1,229.997700,229.997700,14),
+(973,1,1,229.997700,229.997700,14),
+(974,1,1,229.997700,229.997700,14),
+(975,1,1,229.997700,229.997700,14),
+(976,1,1,589.994100,589.994100,14),
+(977,1,1,589.994100,589.994100,14),
+(978,1,1,279.000900,279.000900,14),
+(979,1,1,255.003600,255.003600,14),
+(980,1,1,258.004800,258.004800,14),
+(981,1,1,235.003800,235.003800,14),
+(982,1,1,143.996100,143.996100,14),
+(983,1,1,143.996100,143.996100,14),
+(984,1,1,143.996100,143.996100,14),
+(985,1,1,235.003800,235.003800,14),
+(986,1,1,219.001500,219.001500,14),
+(987,1,1,269.997300,269.997300,14),
+(988,1,1,179.998200,179.998200,14),
+(989,1,1,89.999100,89.999100,14),
+(990,1,1,196.000500,196.000500,14),
+(991,1,1,196.000500,196.000500,14),
+(992,1,1,359.996400,359.996400,14),
+(993,1,1,269.997300,269.997300,14),
+(994,1,1,269.997300,269.997300,14),
+(995,1,1,42.004500,42.004500,14),
+(996,1,1,149.998500,149.998500,14),
+(997,1,1,365.002500,365.002500,14),
+(998,1,1,365.002500,365.002500,14),
+(999,1,1,299.000700,299.000700,14),
+(1000,1,1,32.004600,32.004600,14),
+(1001,1,1,339.000300,339.000300,14),
+(1002,1,1,339.000300,339.000300,14),
+(1003,1,1,95.005200,95.005200,14),
+(1004,1,1,229.997700,229.997700,14),
+(1005,1,1,255.999900,255.999900,14),
+(1006,1,1,339.000300,339.000300,14),
+(1007,1,1,259.997400,259.997400,14),
+(1008,1,1,149.998500,149.998500,14),
+(1009,1,1,79.002900,79.002900,14),
+(1010,1,1,6.998700,6.998700,14),
+(1011,1,1,239.001300,239.001300,14),
+(1012,1,1,25.005900,25.005900,14),
+(1013,1,1,33.000900,33.000900,14),
+(1014,1,1,33.000900,33.000900,14),
+(1015,1,1,33.000900,33.000900,14),
+(1016,1,1,33.000900,33.000900,14),
+(1017,1,1,33.000900,33.000900,14),
+(1018,1,1,7.503000,7.503000,14),
+(1019,1,1,7.503000,7.503000,14),
+(1020,1,1,7.503000,7.503000,14),
+(1021,1,1,7.503000,7.503000,14),
+(1022,1,1,7.503000,7.503000,14),
+(1023,1,1,7.503000,7.503000,14),
+(1024,1,1,17.994900,17.994900,14),
+(1025,1,1,25.005900,25.005900,14),
+(1026,1,1,39.999600,39.999600,14),
+(1027,1,1,33.000900,33.000900,14),
+(1028,1,1,26.002200,26.002200,14),
+(1029,1,1,7.503000,7.503000,14),
+(1030,1,1,7.503000,7.503000,14),
+(1031,1,1,7.503000,7.503000,14),
+(1032,1,1,7.503000,7.503000,14),
+(1033,1,1,7.503000,7.503000,14),
+(1034,1,1,7.503000,7.503000,14),
+(1035,1,1,7.503000,7.503000,14),
+(1036,1,1,7.503000,7.503000,14),
+(1037,1,1,7.503000,7.503000,14),
+(1038,1,1,7.503000,7.503000,14),
+(1039,1,1,7.503000,7.503000,14),
+(1040,1,1,7.503000,7.503000,14),
+(1041,1,1,7.503000,7.503000,14),
+(1042,1,1,7.503000,7.503000,14),
+(1043,1,1,7.503000,7.503000,14),
+(1044,1,1,7.503000,7.503000,14),
+(1045,1,1,7.503000,7.503000,14),
+(1046,1,1,7.503000,7.503000,14),
+(1047,1,1,6.494400,6.494400,14),
+(1048,1,1,69.999300,69.999300,14),
+(1049,1,1,56.001900,56.001900,14),
+(1050,1,1,129.998700,129.998700,14),
+(1051,1,1,56.998200,56.998200,14),
+(1052,1,1,33.997200,33.997200,14),
+(1053,1,1,55.005600,55.005600,14),
+(1054,1,1,55.005600,55.005600,14),
+(1055,1,1,45.005700,45.005700,14),
+(1056,1,1,39.003300,39.003300,14),
+(1057,1,1,49.003200,49.003200,14),
+(1058,1,1,45.005700,45.005700,14),
+(1059,1,1,49.003200,49.003200,14),
+(1060,1,1,45.005700,45.005700,14),
+(1061,1,1,47.994600,47.994600,14),
+(1062,1,1,55.005600,55.005600,14),
+(1063,1,1,55.005600,55.005600,14),
+(1064,1,1,49.003200,49.003200,14),
+(1065,1,1,36.002100,36.002100,14),
+(1066,1,1,35.005800,35.005800,14),
+(1067,1,1,35.005800,35.005800,14),
+(1068,1,1,59.003100,59.003100,14),
+(1069,1,1,33.000900,33.000900,14),
+(1070,1,1,55.005600,55.005600,14),
+(1071,1,1,49.999500,49.999500,14),
+(1072,1,1,52.004400,52.004400,14),
+(1073,1,1,49.003200,49.003200,14),
+(1074,1,1,57.994500,57.994500,14),
+(1075,1,1,47.994600,47.994600,14),
+(1076,1,1,57.994500,57.994500,14),
+(1077,1,1,57.994500,57.994500,14),
+(1078,1,1,49.003200,49.003200,14),
+(1079,1,1,57.994500,57.994500,14),
+(1080,1,1,52.004400,52.004400,14),
+(1081,1,1,19.003500,19.003500,14),
+(1082,1,1,57.994500,57.994500,14);
 /*!40000 ALTER TABLE `ps_layered_price_index` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9023,7 +9987,7 @@ CREATE TABLE `ps_link_block` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `content` text DEFAULT NULL,
   PRIMARY KEY (`id_link_block`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9078,7 +10042,7 @@ CREATE TABLE `ps_link_block_shop` (
   `id_shop` int(10) unsigned NOT NULL,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_link_block`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9166,7 +10130,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9243,7 +10207,11 @@ INSERT INTO `ps_log` VALUES
 (67,1,0,'Core output folder: /var/www/html/mails','',0,1,NULL,1,0,1,'2023-11-21 10:41:56','2023-11-21 10:41:56'),
 (68,1,0,'Modules output folder: /var/www/html/modules/','',0,1,NULL,1,0,1,'2023-11-21 10:41:56','2023-11-21 10:41:56'),
 (69,3,0,'No result was found for query although at least one row was expected.','',0,1,NULL,1,0,1,'2023-11-21 10:42:18','2023-11-21 10:42:18'),
-(70,3,0,'You must specify as many arguments (%d, %s ...) as the original string.','',0,1,NULL,1,0,1,'2023-11-21 10:42:18','2023-11-21 10:42:18');
+(70,3,0,'You must specify as many arguments (%d, %s ...) as the original string.','',0,1,NULL,1,0,1,'2023-11-21 10:42:18','2023-11-21 10:42:18'),
+(71,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-23 20:59:18','2023-11-23 20:59:18'),
+(72,1,0,'Klucz API został stworzony: BBVLCZ1Y9AD4GH3MLZQZGSYEM8FHE4X9','WebserviceKey',1,1,NULL,1,0,1,'2023-11-23 21:01:45','2023-11-23 21:01:45'),
+(74,1,0,'Połączenie z panelem administracyjnym z 172.19.0.1','',0,NULL,NULL,1,1,1,'2023-11-23 21:47:17','2023-11-23 21:47:17'),
+(75,1,0,'Połączenie z panelem administracyjnym z 172.20.0.1','',0,NULL,NULL,1,1,1,'2023-11-23 21:59:27','2023-11-23 21:59:27');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9289,7 +10257,7 @@ CREATE TABLE `ps_manufacturer` (
   `date_upd` datetime NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_manufacturer`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9457,7 +10425,7 @@ CREATE TABLE `ps_meta` (
   `configurable` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_meta`),
   UNIQUE KEY `page` (`page`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9586,7 +10554,7 @@ CREATE TABLE `ps_module` (
   PRIMARY KEY (`id_module`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10218,7 +11186,7 @@ CREATE TABLE `ps_module_history` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10360,7 +11328,7 @@ CREATE TABLE `ps_operating_system` (
   `id_operating_system` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_operating_system`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10403,7 +11371,7 @@ CREATE TABLE `ps_order_carrier` (
   KEY `id_order` (`id_order`),
   KEY `id_carrier` (`id_carrier`),
   KEY `id_order_invoice` (`id_order_invoice`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10517,7 +11485,7 @@ CREATE TABLE `ps_order_detail` (
   KEY `product_attribute_id` (`product_attribute_id`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_order_id_order_detail` (`id_order`,`id_order_detail`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10583,7 +11551,7 @@ CREATE TABLE `ps_order_history` (
   KEY `order_history_order` (`id_order`),
   KEY `id_employee` (`id_employee`),
   KEY `id_order_state` (`id_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10707,7 +11675,7 @@ CREATE TABLE `ps_order_message` (
   `id_order_message` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_order_message`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10848,7 +11816,7 @@ CREATE TABLE `ps_order_return_state` (
   `id_order_return_state` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_order_return_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10988,7 +11956,7 @@ CREATE TABLE `ps_order_state` (
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_order_state`),
   KEY `module_name` (`module_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11134,7 +12102,7 @@ CREATE TABLE `ps_orders` (
   KEY `current_state` (`current_state`),
   KEY `id_shop` (`id_shop`),
   KEY `date_add` (`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11193,7 +12161,7 @@ CREATE TABLE `ps_page` (
   PRIMARY KEY (`id_page`),
   KEY `id_page_type` (`id_page_type`),
   KEY `id_object` (`id_object`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11222,7 +12190,7 @@ CREATE TABLE `ps_page_type` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id_page_type`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11545,7 +12513,7 @@ CREATE TABLE `ps_product` (
   KEY `indexed` (`indexed`),
   KEY `date_add` (`date_add`),
   KEY `state` (`state`,`date_upd`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1084 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11554,8 +12522,6 @@ CREATE TABLE `ps_product` (
 
 LOCK TABLES `ps_product` WRITE;
 /*!40000 ALTER TABLE `ps_product` DISABLE KEYS */;
-INSERT INTO `ps_product` VALUES
-(25,0,0,2,1,0,0,0,'','','','',0.000000,0,1,NULL,0,0.000000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,1,0,0,0,0,0,'404',0,1,'0000-00-00',0,'new',1,0,'both',0,0,0,0,'2023-11-17 20:41:13','2023-11-17 20:41:36',0,3,0,'');
 /*!40000 ALTER TABLE `ps_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -11782,7 +12748,7 @@ CREATE TABLE `ps_product_comment_criterion` (
   `id_product_comment_criterion_type` tinyint(1) NOT NULL,
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_product_comment_criterion`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12055,8 +13021,6 @@ CREATE TABLE `ps_product_lang` (
 
 LOCK TABLES `ps_product_lang` WRITE;
 /*!40000 ALTER TABLE `ps_product_lang` DISABLE KEYS */;
-INSERT INTO `ps_product_lang` VALUES
-(25,1,1,'','','','','','','','','','','');
 /*!40000 ALTER TABLE `ps_product_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12140,8 +13104,6 @@ CREATE TABLE `ps_product_shop` (
 
 LOCK TABLES `ps_product_shop` WRITE;
 /*!40000 ALTER TABLE `ps_product_shop` DISABLE KEYS */;
-INSERT INTO `ps_product_shop` VALUES
-(25,1,2,0,0,0,0.000000,1,NULL,0,0.000000,0.000000,'',0.000000,0.000000,0,0,0,0,'404',0,1,'0000-00-00',0,'new',1,0,'both',0,0,'2023-11-17 20:41:13','2023-11-17 20:41:36',3);
 /*!40000 ALTER TABLE `ps_product_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12211,7 +13173,7 @@ DROP TABLE IF EXISTS `ps_profile`;
 CREATE TABLE `ps_profile` (
   `id_profile` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_profile`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12426,7 +13388,7 @@ CREATE TABLE `ps_psgdpr_log` (
   PRIMARY KEY (`id_gdpr_log`),
   KEY `id_customer` (`id_customer`),
   KEY `idx_id_customer` (`id_customer`,`id_guest`,`client_name`,`id_module`,`date_add`,`date_upd`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12466,7 +13428,7 @@ CREATE TABLE `ps_psreassurance` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime DEFAULT NULL,
   PRIMARY KEY (`id_psreassurance`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12524,7 +13486,7 @@ CREATE TABLE `ps_quick_access` (
   `new_window` tinyint(1) NOT NULL DEFAULT 0,
   `link` varchar(255) NOT NULL,
   PRIMARY KEY (`id_quick_access`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12588,7 +13550,7 @@ CREATE TABLE `ps_range_price` (
   `delimiter2` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id_range_price`),
   UNIQUE KEY `id_carrier` (`id_carrier`,`delimiter1`,`delimiter2`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12635,7 +13597,7 @@ CREATE TABLE `ps_range_weight` (
   `delimiter2` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id_range_weight`),
   UNIQUE KEY `id_carrier` (`id_carrier`,`delimiter1`,`delimiter2`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12804,7 +13766,7 @@ CREATE TABLE `ps_risk` (
   `percent` tinyint(3) NOT NULL,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_risk`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12863,7 +13825,7 @@ CREATE TABLE `ps_search_engine` (
   `server` varchar(64) NOT NULL,
   `getvar` varchar(16) NOT NULL,
   PRIMARY KEY (`id_search_engine`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12936,6 +13898,51 @@ CREATE TABLE `ps_search_index` (
 
 LOCK TABLES `ps_search_index` WRITE;
 /*!40000 ALTER TABLE `ps_search_index` DISABLE KEYS */;
+INSERT INTO `ps_search_index` VALUES
+(100,691,1),
+(100,692,1),
+(100,693,1),
+(100,695,1),
+(100,696,1),
+(100,702,1),
+(100,707,1),
+(100,710,1),
+(100,712,1),
+(100,713,1),
+(100,714,1),
+(100,715,1),
+(100,716,1),
+(100,717,1),
+(100,718,1),
+(100,719,1),
+(100,720,1),
+(100,721,1),
+(100,722,1),
+(100,723,1),
+(100,724,1),
+(100,725,1),
+(100,726,1),
+(100,727,1),
+(100,728,1),
+(100,729,1),
+(100,730,1),
+(100,731,1),
+(100,732,1),
+(100,733,1),
+(100,982,1),
+(100,2309,1),
+(100,2325,1),
+(100,4165,1),
+(100,4166,1),
+(100,4167,1),
+(100,4168,1),
+(100,4169,1),
+(100,4170,1),
+(100,4171,1),
+(100,4172,1),
+(100,690,4),
+(100,4339,6),
+(100,4163,7);
 /*!40000 ALTER TABLE `ps_search_index` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12953,7 +13960,7 @@ CREATE TABLE `ps_search_word` (
   `word` varchar(30) NOT NULL,
   PRIMARY KEY (`id_word`),
   UNIQUE KEY `id_lang` (`id_lang`,`id_shop`,`word`)
-) ENGINE=InnoDB AUTO_INCREMENT=688 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51259 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12962,6 +13969,51 @@ CREATE TABLE `ps_search_word` (
 
 LOCK TABLES `ps_search_word` WRITE;
 /*!40000 ALTER TABLE `ps_search_word` DISABLE KEYS */;
+INSERT INTO `ps_search_word` VALUES
+(4339,1,1,'192'),
+(724,1,1,'czas'),
+(716,1,1,'czyszczenia'),
+(690,1,1,'damskie'),
+(4163,1,1,'dekoptica'),
+(4170,1,1,'dobierz'),
+(714,1,1,'etui'),
+(713,1,1,'gratis'),
+(4169,1,1,'jako'),
+(729,1,1,'karcie'),
+(982,1,1,'korekcyjne'),
+(693,1,1,'korekcyjnych'),
+(721,1,1,'korekcyjnymi'),
+(722,1,1,'montaz'),
+(725,1,1,'oczekiwania'),
+(4172,1,1,'okularami'),
+(692,1,1,'okularow'),
+(719,1,1,'okularowych'),
+(2325,1,1,'okulary'),
+(718,1,1,'opraw'),
+(4165,1,1,'oprawa'),
+(691,1,1,'oprawki'),
+(712,1,1,'otrzymujesz'),
+(696,1,1,'pomocy'),
+(726,1,1,'produkt'),
+(730,1,1,'produktu'),
+(2309,1,1,'przeciwsloneczn'),
+(695,1,1,'przy'),
+(4171,1,1,'przycisku'),
+(4168,1,1,'rowniez'),
+(715,1,1,'sciereczke'),
+(733,1,1,'soczewek'),
+(720,1,1,'soczewkami'),
+(702,1,1,'soczewki'),
+(4167,1,1,'sprawdzi'),
+(4166,1,1,'swietnie'),
+(727,1,1,'terminu'),
+(732,1,1,'typu'),
+(728,1,1,'widniejacego'),
+(731,1,1,'wybranego'),
+(723,1,1,'wydluza'),
+(717,1,1,'zakupie'),
+(707,1,1,'zamowienie'),
+(710,1,1,'zestawie');
 /*!40000 ALTER TABLE `ps_search_word` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12983,7 +14035,7 @@ CREATE TABLE `ps_shop` (
   `deleted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop`),
   KEY `IDX_CBDFBB9EF5C9E40` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13014,7 +14066,7 @@ CREATE TABLE `ps_shop_group` (
   `active` tinyint(1) NOT NULL,
   `deleted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13046,7 +14098,7 @@ CREATE TABLE `ps_shop_url` (
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop_url`),
   KEY `IDX_279F19DA274A50A0` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13200,7 +14252,7 @@ CREATE TABLE `ps_specific_price_priority` (
   `priority` varchar(80) NOT NULL,
   PRIMARY KEY (`id_specific_price_priority`,`id_product`),
   UNIQUE KEY `id_product` (`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13318,7 +14370,7 @@ CREATE TABLE `ps_state` (
   KEY `id_country` (`id_country`),
   KEY `name` (`name`),
   KEY `id_zone` (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=357 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=358 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13698,7 +14750,7 @@ CREATE TABLE `ps_statssearch` (
   `results` int(6) NOT NULL DEFAULT 0,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_statssearch`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13714,7 +14766,24 @@ INSERT INTO `ps_statssearch` VALUES
 (5,1,1,'TEST',0,'2023-11-17 19:41:52'),
 (6,1,1,'TEST',0,'2023-11-17 19:41:52'),
 (7,1,1,'TEST',1,'2023-11-17 19:43:16'),
-(8,1,1,'TEST',1,'2023-11-17 19:43:16');
+(8,1,1,'TEST',1,'2023-11-17 19:43:16'),
+(10,1,1,'E',0,'2023-11-23 20:36:57'),
+(11,1,1,'Etu',723,'2023-11-23 20:36:58'),
+(12,1,1,'Etui',723,'2023-11-23 20:36:58'),
+(13,1,1,'Eti',723,'2023-11-23 20:37:07'),
+(14,1,1,'Etui',723,'2023-11-23 20:37:07'),
+(15,1,1,'Etui',723,'2023-11-23 20:37:22'),
+(16,1,1,'etui',723,'2023-11-23 20:37:37'),
+(17,1,1,'etu',723,'2023-11-23 20:37:46'),
+(18,1,1,'etui',723,'2023-11-23 20:37:46'),
+(19,1,1,'etu',723,'2023-11-23 20:37:56'),
+(20,1,1,'opra',798,'2023-11-23 20:38:06'),
+(21,1,1,'etui',723,'2023-11-23 20:38:49'),
+(22,1,1,'etu',723,'2023-11-23 20:39:29'),
+(23,1,1,'etu',723,'2023-11-23 20:39:34'),
+(24,1,1,'etu',723,'2023-11-23 20:39:37'),
+(26,1,1,'DekOpti',39,'2023-11-23 20:47:00'),
+(27,1,1,'DekOptica',39,'2023-11-23 20:47:01');
 /*!40000 ALTER TABLE `ps_statssearch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -13779,7 +14848,7 @@ CREATE TABLE `ps_stock_available` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_product` (`id_product`),
   KEY `id_product_attribute` (`id_product_attribute`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1134 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13799,8 +14868,7 @@ INSERT INTO `ps_stock_available` VALUES
 (70,4,0,1,0,0,0,0,0,0,''),
 (71,3,0,1,0,0,0,0,0,0,''),
 (72,2,0,1,0,0,0,0,0,0,''),
-(73,1,0,1,0,0,0,0,0,0,''),
-(75,25,0,1,0,0,0,0,0,2,'');
+(73,1,0,1,0,0,0,0,0,0,'');
 /*!40000 ALTER TABLE `ps_stock_available` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -13830,7 +14898,7 @@ CREATE TABLE `ps_stock_mvt` (
   PRIMARY KEY (`id_stock_mvt`),
   KEY `id_stock` (`id_stock`),
   KEY `id_stock_mvt_reason` (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13858,7 +14926,7 @@ CREATE TABLE `ps_stock_mvt_reason` (
   `date_upd` datetime NOT NULL,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14020,7 +15088,7 @@ CREATE TABLE `ps_supplier` (
   `date_upd` datetime NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_supplier`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14262,7 +15330,7 @@ CREATE TABLE `ps_supply_order_state` (
   `enclosed` tinyint(1) NOT NULL DEFAULT 0,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_supply_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14333,7 +15401,7 @@ CREATE TABLE `ps_tab` (
   `wording` varchar(255) DEFAULT NULL,
   `wording_domain` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_tab`)
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14755,7 +15823,7 @@ CREATE TABLE `ps_tax` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_tax`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14876,7 +15944,7 @@ CREATE TABLE `ps_tax_rule` (
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_tax` (`id_tax`),
   KEY `category_getproducts` (`id_tax_rules_group`,`id_country`,`id_state`,`zipcode_from`)
-) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15042,7 +16110,7 @@ CREATE TABLE `ps_tax_rules_group` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_tax_rules_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15101,7 +16169,7 @@ CREATE TABLE `ps_timezone` (
   `id_timezone` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   PRIMARY KEY (`id_timezone`)
-) ENGINE=InnoDB AUTO_INCREMENT=565 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=566 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15691,7 +16759,7 @@ CREATE TABLE `ps_translation` (
   PRIMARY KEY (`id_translation`),
   KEY `IDX_ADEBEB36BA299860` (`id_lang`),
   KEY `key` (`domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15822,7 +16890,7 @@ CREATE TABLE `ps_web_browser` (
   `id_web_browser` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15863,7 +16931,7 @@ CREATE TABLE `ps_webservice_account` (
   `active` tinyint(2) NOT NULL,
   PRIMARY KEY (`id_webservice_account`),
   KEY `key` (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15872,6 +16940,8 @@ CREATE TABLE `ps_webservice_account` (
 
 LOCK TABLES `ps_webservice_account` WRITE;
 /*!40000 ALTER TABLE `ps_webservice_account` DISABLE KEYS */;
+INSERT INTO `ps_webservice_account` VALUES
+(1,'BBVLCZ1Y9AD4GH3MLZQZGSYEM8FHE4X9','','WebserviceRequest',0,NULL,1);
 /*!40000 ALTER TABLE `ps_webservice_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15896,6 +16966,8 @@ CREATE TABLE `ps_webservice_account_shop` (
 
 LOCK TABLES `ps_webservice_account_shop` WRITE;
 /*!40000 ALTER TABLE `ps_webservice_account_shop` DISABLE KEYS */;
+INSERT INTO `ps_webservice_account_shop` VALUES
+(1,1);
 /*!40000 ALTER TABLE `ps_webservice_account_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15916,7 +16988,7 @@ CREATE TABLE `ps_webservice_permission` (
   KEY `resource` (`resource`),
   KEY `method` (`method`),
   KEY `id_webservice_account` (`id_webservice_account`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=347 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15925,6 +16997,352 @@ CREATE TABLE `ps_webservice_permission` (
 
 LOCK TABLES `ps_webservice_permission` WRITE;
 /*!40000 ALTER TABLE `ps_webservice_permission` DISABLE KEYS */;
+INSERT INTO `ps_webservice_permission` VALUES
+(1,'addresses','GET',1),
+(3,'addresses','POST',1),
+(2,'addresses','PUT',1),
+(4,'addresses','DELETE',1),
+(5,'addresses','HEAD',1),
+(6,'attachments','GET',1),
+(8,'attachments','POST',1),
+(7,'attachments','PUT',1),
+(9,'attachments','DELETE',1),
+(10,'attachments','HEAD',1),
+(11,'carriers','GET',1),
+(13,'carriers','POST',1),
+(12,'carriers','PUT',1),
+(14,'carriers','DELETE',1),
+(15,'carriers','HEAD',1),
+(21,'carts','GET',1),
+(23,'carts','POST',1),
+(22,'carts','PUT',1),
+(24,'carts','DELETE',1),
+(25,'carts','HEAD',1),
+(16,'cart_rules','GET',1),
+(18,'cart_rules','POST',1),
+(17,'cart_rules','PUT',1),
+(19,'cart_rules','DELETE',1),
+(20,'cart_rules','HEAD',1),
+(26,'categories','GET',1),
+(28,'categories','POST',1),
+(27,'categories','PUT',1),
+(29,'categories','DELETE',1),
+(30,'categories','HEAD',1),
+(31,'combinations','GET',1),
+(33,'combinations','POST',1),
+(32,'combinations','PUT',1),
+(34,'combinations','DELETE',1),
+(35,'combinations','HEAD',1),
+(36,'configurations','GET',1),
+(38,'configurations','POST',1),
+(37,'configurations','PUT',1),
+(39,'configurations','DELETE',1),
+(40,'configurations','HEAD',1),
+(41,'contacts','GET',1),
+(43,'contacts','POST',1),
+(42,'contacts','PUT',1),
+(44,'contacts','DELETE',1),
+(45,'contacts','HEAD',1),
+(46,'content_management_system','GET',1),
+(48,'content_management_system','POST',1),
+(47,'content_management_system','PUT',1),
+(49,'content_management_system','DELETE',1),
+(50,'content_management_system','HEAD',1),
+(51,'countries','GET',1),
+(53,'countries','POST',1),
+(52,'countries','PUT',1),
+(54,'countries','DELETE',1),
+(55,'countries','HEAD',1),
+(56,'currencies','GET',1),
+(58,'currencies','POST',1),
+(57,'currencies','PUT',1),
+(59,'currencies','DELETE',1),
+(60,'currencies','HEAD',1),
+(71,'customers','GET',1),
+(73,'customers','POST',1),
+(72,'customers','PUT',1),
+(74,'customers','DELETE',1),
+(75,'customers','HEAD',1),
+(61,'customer_messages','GET',1),
+(63,'customer_messages','POST',1),
+(62,'customer_messages','PUT',1),
+(64,'customer_messages','DELETE',1),
+(65,'customer_messages','HEAD',1),
+(66,'customer_threads','GET',1),
+(68,'customer_threads','POST',1),
+(67,'customer_threads','PUT',1),
+(69,'customer_threads','DELETE',1),
+(70,'customer_threads','HEAD',1),
+(76,'customizations','GET',1),
+(78,'customizations','POST',1),
+(77,'customizations','PUT',1),
+(79,'customizations','DELETE',1),
+(80,'customizations','HEAD',1),
+(81,'deliveries','GET',1),
+(83,'deliveries','POST',1),
+(82,'deliveries','PUT',1),
+(84,'deliveries','DELETE',1),
+(85,'deliveries','HEAD',1),
+(86,'employees','GET',1),
+(88,'employees','POST',1),
+(87,'employees','PUT',1),
+(89,'employees','DELETE',1),
+(90,'employees','HEAD',1),
+(91,'groups','GET',1),
+(93,'groups','POST',1),
+(92,'groups','PUT',1),
+(94,'groups','DELETE',1),
+(95,'groups','HEAD',1),
+(96,'guests','GET',1),
+(98,'guests','POST',1),
+(97,'guests','PUT',1),
+(99,'guests','DELETE',1),
+(100,'guests','HEAD',1),
+(106,'images','GET',1),
+(108,'images','POST',1),
+(107,'images','PUT',1),
+(109,'images','DELETE',1),
+(110,'images','HEAD',1),
+(101,'image_types','GET',1),
+(103,'image_types','POST',1),
+(102,'image_types','PUT',1),
+(104,'image_types','DELETE',1),
+(105,'image_types','HEAD',1),
+(111,'languages','GET',1),
+(113,'languages','POST',1),
+(112,'languages','PUT',1),
+(114,'languages','DELETE',1),
+(115,'languages','HEAD',1),
+(116,'manufacturers','GET',1),
+(118,'manufacturers','POST',1),
+(117,'manufacturers','PUT',1),
+(119,'manufacturers','DELETE',1),
+(120,'manufacturers','HEAD',1),
+(121,'messages','GET',1),
+(123,'messages','POST',1),
+(122,'messages','PUT',1),
+(124,'messages','DELETE',1),
+(125,'messages','HEAD',1),
+(166,'orders','GET',1),
+(168,'orders','POST',1),
+(167,'orders','PUT',1),
+(169,'orders','DELETE',1),
+(170,'orders','HEAD',1),
+(126,'order_carriers','GET',1),
+(128,'order_carriers','POST',1),
+(127,'order_carriers','PUT',1),
+(129,'order_carriers','DELETE',1),
+(130,'order_carriers','HEAD',1),
+(131,'order_cart_rules','GET',1),
+(133,'order_cart_rules','POST',1),
+(132,'order_cart_rules','PUT',1),
+(134,'order_cart_rules','DELETE',1),
+(135,'order_cart_rules','HEAD',1),
+(136,'order_details','GET',1),
+(138,'order_details','POST',1),
+(137,'order_details','PUT',1),
+(139,'order_details','DELETE',1),
+(140,'order_details','HEAD',1),
+(141,'order_histories','GET',1),
+(143,'order_histories','POST',1),
+(142,'order_histories','PUT',1),
+(144,'order_histories','DELETE',1),
+(145,'order_histories','HEAD',1),
+(146,'order_invoices','GET',1),
+(148,'order_invoices','POST',1),
+(147,'order_invoices','PUT',1),
+(149,'order_invoices','DELETE',1),
+(150,'order_invoices','HEAD',1),
+(151,'order_payments','GET',1),
+(153,'order_payments','POST',1),
+(152,'order_payments','PUT',1),
+(154,'order_payments','DELETE',1),
+(155,'order_payments','HEAD',1),
+(156,'order_slip','GET',1),
+(158,'order_slip','POST',1),
+(157,'order_slip','PUT',1),
+(159,'order_slip','DELETE',1),
+(160,'order_slip','HEAD',1),
+(161,'order_states','GET',1),
+(163,'order_states','POST',1),
+(162,'order_states','PUT',1),
+(164,'order_states','DELETE',1),
+(165,'order_states','HEAD',1),
+(171,'price_ranges','GET',1),
+(173,'price_ranges','POST',1),
+(172,'price_ranges','PUT',1),
+(174,'price_ranges','DELETE',1),
+(175,'price_ranges','HEAD',1),
+(206,'products','GET',1),
+(208,'products','POST',1),
+(207,'products','PUT',1),
+(209,'products','DELETE',1),
+(210,'products','HEAD',1),
+(176,'product_customization_fields','GET',1),
+(178,'product_customization_fields','POST',1),
+(177,'product_customization_fields','PUT',1),
+(179,'product_customization_fields','DELETE',1),
+(180,'product_customization_fields','HEAD',1),
+(186,'product_features','GET',1),
+(188,'product_features','POST',1),
+(187,'product_features','PUT',1),
+(189,'product_features','DELETE',1),
+(190,'product_features','HEAD',1),
+(181,'product_feature_values','GET',1),
+(183,'product_feature_values','POST',1),
+(182,'product_feature_values','PUT',1),
+(184,'product_feature_values','DELETE',1),
+(185,'product_feature_values','HEAD',1),
+(196,'product_options','GET',1),
+(198,'product_options','POST',1),
+(197,'product_options','PUT',1),
+(199,'product_options','DELETE',1),
+(200,'product_options','HEAD',1),
+(191,'product_option_values','GET',1),
+(193,'product_option_values','POST',1),
+(192,'product_option_values','PUT',1),
+(194,'product_option_values','DELETE',1),
+(195,'product_option_values','HEAD',1),
+(201,'product_suppliers','GET',1),
+(203,'product_suppliers','POST',1),
+(202,'product_suppliers','PUT',1),
+(204,'product_suppliers','DELETE',1),
+(205,'product_suppliers','HEAD',1),
+(211,'search','GET',1),
+(213,'search','POST',1),
+(212,'search','PUT',1),
+(214,'search','DELETE',1),
+(215,'search','HEAD',1),
+(226,'shops','GET',1),
+(228,'shops','POST',1),
+(227,'shops','PUT',1),
+(229,'shops','DELETE',1),
+(230,'shops','HEAD',1),
+(216,'shop_groups','GET',1),
+(218,'shop_groups','POST',1),
+(217,'shop_groups','PUT',1),
+(219,'shop_groups','DELETE',1),
+(220,'shop_groups','HEAD',1),
+(221,'shop_urls','GET',1),
+(223,'shop_urls','POST',1),
+(222,'shop_urls','PUT',1),
+(224,'shop_urls','DELETE',1),
+(225,'shop_urls','HEAD',1),
+(236,'specific_prices','GET',1),
+(238,'specific_prices','POST',1),
+(237,'specific_prices','PUT',1),
+(239,'specific_prices','DELETE',1),
+(240,'specific_prices','HEAD',1),
+(231,'specific_price_rules','GET',1),
+(233,'specific_price_rules','POST',1),
+(232,'specific_price_rules','PUT',1),
+(234,'specific_price_rules','DELETE',1),
+(235,'specific_price_rules','HEAD',1),
+(241,'states','GET',1),
+(243,'states','POST',1),
+(242,'states','PUT',1),
+(244,'states','DELETE',1),
+(245,'states','HEAD',1),
+(261,'stocks','GET',1),
+(263,'stocks','POST',1),
+(262,'stocks','PUT',1),
+(264,'stocks','DELETE',1),
+(265,'stocks','HEAD',1),
+(246,'stock_availables','GET',1),
+(248,'stock_availables','POST',1),
+(247,'stock_availables','PUT',1),
+(249,'stock_availables','DELETE',1),
+(250,'stock_availables','HEAD',1),
+(256,'stock_movements','GET',1),
+(258,'stock_movements','POST',1),
+(257,'stock_movements','PUT',1),
+(259,'stock_movements','DELETE',1),
+(260,'stock_movements','HEAD',1),
+(251,'stock_movement_reasons','GET',1),
+(253,'stock_movement_reasons','POST',1),
+(252,'stock_movement_reasons','PUT',1),
+(254,'stock_movement_reasons','DELETE',1),
+(255,'stock_movement_reasons','HEAD',1),
+(266,'stores','GET',1),
+(268,'stores','POST',1),
+(267,'stores','PUT',1),
+(269,'stores','DELETE',1),
+(270,'stores','HEAD',1),
+(271,'suppliers','GET',1),
+(273,'suppliers','POST',1),
+(272,'suppliers','PUT',1),
+(274,'suppliers','DELETE',1),
+(275,'suppliers','HEAD',1),
+(296,'supply_orders','GET',1),
+(298,'supply_orders','POST',1),
+(297,'supply_orders','PUT',1),
+(299,'supply_orders','DELETE',1),
+(300,'supply_orders','HEAD',1),
+(276,'supply_order_details','GET',1),
+(278,'supply_order_details','POST',1),
+(277,'supply_order_details','PUT',1),
+(279,'supply_order_details','DELETE',1),
+(280,'supply_order_details','HEAD',1),
+(281,'supply_order_histories','GET',1),
+(283,'supply_order_histories','POST',1),
+(282,'supply_order_histories','PUT',1),
+(284,'supply_order_histories','DELETE',1),
+(285,'supply_order_histories','HEAD',1),
+(286,'supply_order_receipt_histories','GET',1),
+(288,'supply_order_receipt_histories','POST',1),
+(287,'supply_order_receipt_histories','PUT',1),
+(289,'supply_order_receipt_histories','DELETE',1),
+(290,'supply_order_receipt_histories','HEAD',1),
+(291,'supply_order_states','GET',1),
+(293,'supply_order_states','POST',1),
+(292,'supply_order_states','PUT',1),
+(294,'supply_order_states','DELETE',1),
+(295,'supply_order_states','HEAD',1),
+(301,'tags','GET',1),
+(303,'tags','POST',1),
+(302,'tags','PUT',1),
+(304,'tags','DELETE',1),
+(305,'tags','HEAD',1),
+(316,'taxes','GET',1),
+(318,'taxes','POST',1),
+(317,'taxes','PUT',1),
+(319,'taxes','DELETE',1),
+(320,'taxes','HEAD',1),
+(311,'tax_rules','GET',1),
+(313,'tax_rules','POST',1),
+(312,'tax_rules','PUT',1),
+(314,'tax_rules','DELETE',1),
+(315,'tax_rules','HEAD',1),
+(306,'tax_rule_groups','GET',1),
+(308,'tax_rule_groups','POST',1),
+(307,'tax_rule_groups','PUT',1),
+(309,'tax_rule_groups','DELETE',1),
+(310,'tax_rule_groups','HEAD',1),
+(321,'translated_configurations','GET',1),
+(323,'translated_configurations','POST',1),
+(322,'translated_configurations','PUT',1),
+(324,'translated_configurations','DELETE',1),
+(325,'translated_configurations','HEAD',1),
+(331,'warehouses','GET',1),
+(333,'warehouses','POST',1),
+(332,'warehouses','PUT',1),
+(334,'warehouses','DELETE',1),
+(335,'warehouses','HEAD',1),
+(326,'warehouse_product_locations','GET',1),
+(328,'warehouse_product_locations','POST',1),
+(327,'warehouse_product_locations','PUT',1),
+(329,'warehouse_product_locations','DELETE',1),
+(330,'warehouse_product_locations','HEAD',1),
+(336,'weight_ranges','GET',1),
+(338,'weight_ranges','POST',1),
+(337,'weight_ranges','PUT',1),
+(339,'weight_ranges','DELETE',1),
+(340,'weight_ranges','HEAD',1),
+(341,'zones','GET',1),
+(343,'zones','POST',1),
+(342,'zones','PUT',1),
+(344,'zones','DELETE',1),
+(345,'zones','HEAD',1);
 /*!40000 ALTER TABLE `ps_webservice_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15947,7 +17365,7 @@ CREATE TABLE `ps_wishlist` (
   `date_upd` datetime NOT NULL,
   `default` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id_wishlist`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16031,7 +17449,7 @@ CREATE TABLE `ps_zone` (
   `name` varchar(64) NOT NULL,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16094,4 +17512,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-21  9:50:18
+-- Dump completed on 2023-11-23 21:31:36
