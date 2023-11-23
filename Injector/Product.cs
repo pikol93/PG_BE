@@ -258,6 +258,12 @@ public class Product
         return result;
     }
 
+    public double ParsePrice()
+    {
+        var curatedPriceString = Price.Replace(" zł", "").Replace(",", "");
+        return double.Parse(curatedPriceString) / 100.0;
+    }
+
     public override string ToString()
     {
         return $"Product{{id={Id}}}";

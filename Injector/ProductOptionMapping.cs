@@ -1,7 +1,7 @@
-using Bukimedia.PrestaSharp.Entities;
+using Bukimedia.PrestaSharp.Entities.AuxEntities;
 using Bukimedia.PrestaSharp.Factories;
 using NLog;
-using product_option_value = Bukimedia.PrestaSharp.Entities.AuxEntities.product_option_value;
+using product_feature_value = Bukimedia.PrestaSharp.Entities.product_feature_value;
 
 namespace Injector;
 
@@ -35,9 +35,9 @@ public class ProductOptionMapping
                 continue;
             }
 
-            var option = new product_feature()
+            var option = new Bukimedia.PrestaSharp.Entities.product_feature
             {
-                name = propertyName.ToLanguageList(),
+                    name = propertyName.ToLanguageList(),
             };
 
             long featureId;
@@ -58,8 +58,8 @@ public class ProductOptionMapping
             {
                 var optionValue = new product_feature_value
                 {
-                    id_feature = featureId,
-                    value = possibleValue.ToLanguageList(),
+                        id_feature = featureId,
+                        value = possibleValue.ToLanguageList(),
                 };
 
                 long optionValueId;
@@ -79,8 +79,8 @@ public class ProductOptionMapping
 
                 var productFeatureValue = new ProductFeatureValue
                 {
-                    Id = optionValueId,
-                    Name = possibleValue,
+                        Id = optionValueId,
+                        Name = possibleValue,
                 };
 
                 productFeatureValues.Add(productFeatureValue);
@@ -89,27 +89,28 @@ public class ProductOptionMapping
             var possibleValuesDictionary = productFeatureValues.ToDictionary(value => value.Name, value => value);
             var productOption = new ProductOption
             {
-                Id = featureId,
-                Name = propertyName,
-                PossibleValues = possibleValuesDictionary,
+                    Id = featureId,
+                    Name = propertyName,
+                    PossibleValues = possibleValuesDictionary,
             };
 
             NameToProductOptionDictionary.Add(propertyName, productOption);
         }
     }
 
-    public List<Bukimedia.PrestaSharp.Entities.AuxEntities.product_feature> GetFeatureListForProduct(Product product)
+    public List<product_feature> GetFeatureListForProduct(Product product)
     {
-        var result = new List<Bukimedia.PrestaSharp.Entities.AuxEntities.product_feature>();
+        var result = new List<product_feature>();
         foreach (var (optionName, optionValue) in product.GetOptionalProperties())
         {
             var productOption = NameToProductOptionDictionary[optionName];
             var productOptionValue = productOption.PossibleValues[optionValue];
-            Logger.Trace("Got for product option = {} and value = {}. IDs = {}, {}", optionName, optionValue, productOption.Id, productOptionValue.Id);
-            result.Add(new Bukimedia.PrestaSharp.Entities.AuxEntities.product_feature()
+            Logger.Trace("Got product option = {} and value = {}. IDs = {}, {}", optionName, optionValue,
+                    productOption.Id, productOptionValue.Id);
+            result.Add(new product_feature
             {
-                id = productOption.Id,
-                id_feature_value = productOptionValue.Id,
+                    id = productOption.Id,
+                    id_feature_value = productOptionValue.Id,
             });
         }
 

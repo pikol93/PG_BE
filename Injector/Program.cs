@@ -48,6 +48,12 @@ public static class Program
         var productFeatureValueFactory = new ProductFeatureValueFactory(settings.PrestaShopBaseUrl,
                 settings.PrestaShopAccount,
                 settings.PrestaShopSecretKey);
+        var combinationFactory = new CombinationFactory(settings.PrestaShopBaseUrl,
+                settings.PrestaShopAccount,
+                settings.PrestaShopSecretKey);
+        var stockAvailableFactory = new StockAvailableFactory(settings.PrestaShopBaseUrl,
+                settings.PrestaShopAccount,
+                settings.PrestaShopSecretKey);
 
         var productOptionMapping = new ProductOptionMapping();
 
@@ -58,6 +64,7 @@ public static class Program
         InsertCategoryTree(categoryFactory, categories, MainPageCategoryParent);
         productOptionMapping.Insert(productFeatureFactory, productFeatureValueFactory, products);
         AddProducts(productFactory, productOptionMapping, products, categories);
+        UpdateStockCount(productFactory, stockAvailableFactory);
     }
 
     private static void ClearProducts(ProductFactory productFactory)
@@ -139,10 +146,10 @@ public static class Program
         {
             var cat = new category
             {
-                active = 1,
-                id_parent = parentId,
-                name = category.Name.ToLanguageList(),
-                link_rewrite = category.Name.Slugify().ToLanguageList(),
+                    active = 1,
+                    id_parent = parentId,
+                    name = category.Name.ToLanguageList(),
+                    link_rewrite = category.Name.Slugify().ToLanguageList(),
             };
 
             var insertedCategory = categoryFactory.Add(cat);
@@ -170,12 +177,25 @@ public static class Program
     {
         foreach (var product in products)
         {
+            double price;
+            try
+            {
+                price = product.ParsePrice();
+            }
+            catch (Exception)
+            {
+                Logger.Error("Could not parse price value. Price = {}", product.Price);
+                continue;
+            }
+
             var categoryId = categories
                     .Where(category => product.Category == category.Name)
                     .SelectMany(category => category.Subcategories)
                     .Where(subcategory => product.Subcategory == subcategory.Name)
                     .Select(subcategory => subcategory.Id)
                     .First();
+
+            Logger.Error("Category ID: {}", categoryId);
 
             if (categoryId == null)
             {
@@ -185,28 +205,28 @@ public static class Program
 
             var prod = new product
             {
-                active = 1,
-                state = 1,
-                name = "TODO".ToLanguageList(),
-                link_rewrite = $"TODO_{product.Id}".ToLanguageList(),
-                available_for_order = 1,
-                price = decimal.Round(new decimal(12.1 / VAT_MULTIPLIER), 2),
-                id_tax_rules_group = 1,
-                visibility = "both",
-                type = "simple",
-                show_price = 1,
-                minimal_quantity = 1,
-                id_category_default = categoryId,
-                description = "TODO".ToLanguageList(),
-                description_short = "TODO".ToLanguageList(),
-                associations = new AssociationsProduct
-                {
-                    categories = new List<Bukimedia.PrestaSharp.Entities.AuxEntities.category>
+                    active = 1,
+                    state = 1,
+                    name = "TODO".ToLanguageList(),
+                    link_rewrite = $"TODO_{product.Id}".ToLanguageList(),
+                    available_for_order = 1,
+                    price = decimal.Round(new decimal(price / VAT_MULTIPLIER), 2),
+                    id_tax_rules_group = 1,
+                    visibility = "both",
+                    type = "simple",
+                    show_price = 1,
+                    minimal_quantity = 1,
+                    id_category_default = categoryId,
+                    description = "TODO".ToLanguageList(),
+                    description_short = "TODO".ToLanguageList(),
+                    associations = new AssociationsProduct
+                    {
+                            categories = new List<Bukimedia.PrestaSharp.Entities.AuxEntities.category>
                             {
                                     new((long)categoryId),
                             },
-                    product_features = optionMapping.GetFeatureListForProduct(product),
-                },
+                            product_features = optionMapping.GetFeatureListForProduct(product),
+                    },
             };
 
             long insertedProductId;
@@ -223,6 +243,32 @@ public static class Program
 
             Logger.Info("Inserted a product {}. Resulted in ID = {}", product.Id, insertedProductId);
             product.insertedId = insertedProductId;
+        }
+    }
+
+    private static void UpdateStockCount(ProductFactory productFactory, StockAvailableFactory stockAvailableFactory)
+    {
+        List<product> products = productFactory.GetAll();
+        var random = new Random();
+        foreach (var product in products)
+        {
+            var quantity = random.Next(0, 10);
+            foreach (var associationsStockAvailable in product.associations.stock_availables)
+            {
+                try
+                {
+                    var stockAvailable = stockAvailableFactory.Get(associationsStockAvailable.id);
+                    stockAvailable.quantity = quantity;
+                    stockAvailableFactory.Update(stockAvailable);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error("Could not update quantity of product {}", ex, product.id);
+                    continue;
+                }
+
+                Logger.Info("Updated product {} quantity to {}", product.id, quantity);
+            }
         }
     }
 }
