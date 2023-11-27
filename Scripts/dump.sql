@@ -3226,7 +3226,11 @@ CREATE TABLE `ps_category` (
   KEY `nright` (`nright`),
   KEY `activenleft` (`active`,`nleft`),
   KEY `activenright` (`active`,`nright`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5542,7 +5546,11 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5597,8 +5605,12 @@ INSERT INTO `ps_connections` VALUES
 (45,1,1,23,4,2886860801,'2023-11-21 10:38:00','https://localhost:8001/moje-konto'),
 (46,1,1,23,1,2886860801,'2023-11-23 20:58:15',''),
 (47,1,1,23,1,2886860801,'2023-11-23 21:36:53',''),
+<<<<<<< HEAD
 (49,1,1,25,1,2887057409,'2023-11-25 14:27:04',''),
 (50,1,1,23,1,2886860801,'2023-11-27 19:45:19','');
+=======
+(49,1,1,25,1,2887057409,'2023-11-25 14:27:04','');
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7764,7 +7776,11 @@ CREATE TABLE `ps_feature` (
   `id_feature` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_feature`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -17218,7 +17234,11 @@ CREATE TABLE `ps_feature_value` (
   `custom` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_feature_value`),
   KEY `feature` (`id_feature`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=831 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=830 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18287,7 +18307,11 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19568,7 +19592,11 @@ CREATE TABLE `ps_image` (
   UNIQUE KEY `id_product_cover` (`id_product`,`cover`),
   UNIQUE KEY `idx_product_image` (`id_image`,`id_product`,`cover`),
   KEY `image_product` (`id_product`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=1567 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=1566 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28094,7 +28122,11 @@ CREATE TABLE `ps_product` (
   KEY `indexed` (`indexed`),
   KEY `date_add` (`date_add`),
   KEY `state` (`state`,`date_upd`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=2141 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=2140 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83282,7 +83314,11 @@ CREATE TABLE `ps_search_word` (
   `word` varchar(30) NOT NULL,
   PRIMARY KEY (`id_word`),
   UNIQUE KEY `id_lang` (`id_lang`,`id_shop`,`word`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=101830 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=101829 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87559,7 +87595,11 @@ CREATE TABLE `ps_stock_available` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_product` (`id_product`),
   KEY `id_product_attribute` (`id_product_attribute`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=2191 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=2190 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91279,4 +91319,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2023-11-27 20:02:33
+=======
+-- Dump completed on 2023-11-25 13:32:55
+>>>>>>> 3ae9ee1e6b5fe3d837ef9af4209273f68bcb37a1
