@@ -37,8 +37,10 @@ zcdefjk, to wystarczyłoby podać id 2ab. (bo to hashe)
 W celu załadowania dumpa należy:
 
 ```
-Upewnić się, że skrypt ma poprawnego chmoda
+Upewnić się, że skrypty mają poprawnego chmoda (Najlepiej wszystkie 4!)
 Uruchomić sklep przy użyciu docker-compose up -d
 Przy pomocy polecenia docker ps sprawdzić ID kontenera z bazą i z prestą
 Należy wywołać skrypt load_dump.sh podając argumenty: id kontenera z bazą, id kontenera z prestą, hasło do bazy.
+Można też wywołać jeden z trzech skryptów pomniejszych podając odpowiednie parametry (set images / update themes / database update)
+Jeżeli coś z wyglądem nie działa, trzeba wejść na admin-dev i wyczyścić cache w wydajności.
 ```
