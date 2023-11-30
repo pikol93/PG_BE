@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.11.6-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.19  Distrib 10.11.5-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: prestashop
 -- ------------------------------------------------------
--- Server version	10.11.6-MariaDB-1:10.11.6+maria~ubu2204
+-- Server version	10.11.5-MariaDB-1:10.11.5+maria~ubu2204
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -4829,7 +4829,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=720 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=721 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4954,7 +4954,7 @@ INSERT INTO `ps_configuration` VALUES
 (113,NULL,NULL,'PS_COOKIE_SAMESITE','Lax','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (114,NULL,NULL,'PS_USE_ECOTAX','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (115,NULL,NULL,'PS_CANONICAL_REDIRECT','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(116,NULL,NULL,'PS_IMG_UPDATE_TIME','1700938023','0000-00-00 00:00:00','2023-11-25 19:47:03'),
+(116,NULL,NULL,'PS_IMG_UPDATE_TIME','1701329547','0000-00-00 00:00:00','2023-11-30 08:32:27'),
 (117,NULL,NULL,'PS_BACKUP_DROP_TABLE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (118,NULL,NULL,'PS_OS_CHEQUE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (119,NULL,NULL,'PS_OS_PAYMENT','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -5078,8 +5078,8 @@ INSERT INTO `ps_configuration` VALUES
 (237,NULL,NULL,'PS_SHOP_EMAIL','demo@prestashop.com','0000-00-00 00:00:00','2023-10-23 14:28:56'),
 (238,NULL,NULL,'PS_MAIL_METHOD','2','0000-00-00 00:00:00','2023-10-31 09:56:49'),
 (239,NULL,NULL,'PS_SHOP_ACTIVITY','9','0000-00-00 00:00:00','2023-11-02 22:11:13'),
-(240,NULL,NULL,'PS_LOGO','logo-1700937757.jpg','0000-00-00 00:00:00','2023-11-25 19:42:37'),
-(241,NULL,NULL,'PS_FAVICON','favicon.ico','0000-00-00 00:00:00','2023-11-25 19:47:03'),
+(240,NULL,NULL,'PS_LOGO','logo-1701329381.jpg','0000-00-00 00:00:00','2023-11-30 08:29:41'),
+(241,NULL,NULL,'PS_FAVICON','favicon.ico','0000-00-00 00:00:00','2023-11-30 08:32:27'),
 (242,NULL,NULL,'PS_STORES_ICON','logo_stores.png','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (243,NULL,NULL,'PS_ROOT_CATEGORY','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (244,NULL,NULL,'PS_HOME_CATEGORY','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -5340,7 +5340,8 @@ INSERT INTO `ps_configuration` VALUES
 (714,NULL,NULL,'CONF_PS_CASHONDELIVERY_VAR','2','2023-11-17 20:38:58','2023-11-17 20:38:58'),
 (715,NULL,NULL,'CONF_PS_CASHONDELIVERY_FIXED_FOREIGN','0.2','2023-11-17 20:38:58','2023-11-17 20:38:58'),
 (716,NULL,NULL,'CONF_PS_CASHONDELIVERY_VAR_FOREIGN','2','2023-11-17 20:38:58','2023-11-17 20:38:58'),
-(719,NULL,NULL,'PS_LOGO_MAIL','logo_mail-1700937757.jpg','2023-11-25 19:42:37','2023-11-25 19:42:37');
+(719,NULL,NULL,'PS_LOGO_MAIL','logo_mail-1701329547.jpg','2023-11-25 19:42:37','2023-11-30 08:32:27'),
+(720,NULL,NULL,'PS_LOGO_INVOICE','logo_invoice-1701329547.jpg','2023-11-30 08:32:27','2023-11-30 08:32:27');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5550,7 +5551,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5605,7 +5606,8 @@ INSERT INTO `ps_connections` VALUES
 (45,1,1,23,4,2886860801,'2023-11-21 10:38:00','https://localhost:8001/moje-konto'),
 (46,1,1,23,1,2886860801,'2023-11-23 20:58:15',''),
 (47,1,1,23,1,2886860801,'2023-11-23 21:36:53',''),
-(49,1,1,25,1,2887057409,'2023-11-25 14:27:04','');
+(49,1,1,25,1,2887057409,'2023-11-25 14:27:04',''),
+(50,1,1,26,2,2886860801,'2023-11-30 08:28:39','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5653,7 +5655,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=831 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=834 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6489,7 +6491,10 @@ INSERT INTO `ps_connections_source` VALUES
 (827,65,'https://localhost:8001/','localhost:8001/43-oprawy','','2023-11-29 21:31:33'),
 (828,65,'https://localhost:8001/43-oprawy','localhost:8001/53-okulary-przeciwsloneczne','','2023-11-29 21:31:35'),
 (829,65,'https://localhost:8001/53-okulary-przeciwsloneczne','localhost:8001/sportowe/2017-product-4702.html','','2023-11-29 21:31:37'),
-(830,65,'https://localhost:8001/sportowe/2017-product-4702.html','localhost:8001/','','2023-11-29 21:31:51');
+(830,65,'https://localhost:8001/sportowe/2017-product-4702.html','localhost:8001/','','2023-11-29 21:31:51'),
+(831,50,'https://localhost:8001/50-do-komputera','localhost:8001/','','2023-11-30 08:26:42'),
+(832,50,'https://localhost:8001/','localhost:8001/','','2023-11-30 08:32:51'),
+(833,50,'https://localhost:8001/','localhost:8001/','','2023-11-30 08:32:52');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8047,7 +8052,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Politechniki','Student','demo@prestashop.com','$2y$10$St76xFqcBCF9vyjSnen2tuEjqQazlg2W/l/xqZYTsaYv.KDUwSod6','2023-10-23 08:28:56','2023-09-23','2023-10-23','0000-00-00','0000-00-00',1,'','','default','theme.css',1,0,1,1,NULL,6,0,0,'2023-11-29','','0000-00-00 00:00:00',0);
+(1,1,1,'Politechniki','Student','demo@prestashop.com','$2y$10$St76xFqcBCF9vyjSnen2tuEjqQazlg2W/l/xqZYTsaYv.KDUwSod6','2023-10-23 08:28:56','2023-09-23','2023-10-23','0000-00-00','0000-00-00',1,'','','default','theme.css',1,0,1,1,NULL,6,0,0,'2023-11-30','','0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8063,7 +8068,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8078,7 +8083,8 @@ INSERT INTO `ps_employee_session` VALUES
 (32,1,'834326de27057eaacef135ab0f9ab277e2be5a9c'),
 (35,1,'775393c8c44cd5b61f735d30862bc9d2abacb6f9'),
 (41,1,'9e242973ebd7816c020efa81c5e959d038fa9410'),
-(42,1,'e242f4ae79e89b2fd08fb5d80abf3b58fc456066');
+(42,1,'e242f4ae79e89b2fd08fb5d80abf3b58fc456066'),
+(43,1,'5a2778aaf2dd3acbd8a56077605b06b50308d89f');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -27013,7 +27019,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27119,7 +27125,8 @@ INSERT INTO `ps_log` VALUES
 (97,1,0,'Protect vendor folder in module ps_banner','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55'),
 (98,1,0,'Module ps_banner has no vendor folder','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55'),
 (99,1,0,'Protect vendor folder in module ps_customtext','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55'),
-(100,1,0,'Module ps_customtext has no vendor folder','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55');
+(100,1,0,'Module ps_customtext has no vendor folder','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55'),
+(101,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-30 08:28:25','2023-11-30 08:28:25');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92612,4 +92619,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-29 20:33:09
+-- Dump completed on 2023-11-30  7:33:32
