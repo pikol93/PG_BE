@@ -1017,7 +1017,7 @@ CREATE TABLE `ps_address` (
   KEY `id_manufacturer` (`id_manufacturer`),
   KEY `id_supplier` (`id_supplier`),
   KEY `id_warehouse` (`id_warehouse`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1318,7 +1318,7 @@ CREATE TABLE `ps_admin_filter` (
   `filter_id` varchar(191) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_filter_search_id_idx` (`employee`,`shop`,`controller`,`action`,`filter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1330,7 +1330,7 @@ LOCK TABLES `ps_admin_filter` WRITE;
 INSERT INTO `ps_admin_filter` VALUES
 (1,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order\",\"sortOrder\":\"DESC\",\"filters\":[]}','order'),
 (2,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order_slip\",\"sortOrder\":\"asc\",\"filters\":[]}','credit_slip'),
-(3,1,1,'ProductController','catalogAction','{\"filter_category\":\"\",\"filter_column_id_product\":\"\",\"filter_column_name\":\"Dekoptica\",\"filter_column_reference\":\"\",\"filter_column_name_category\":\"\",\"filter_column_price\":\"\",\"filter_column_sav_quantity\":\"\",\"filter_column_active\":\"\",\"last_offset\":\"0\",\"last_limit\":\"20\",\"last_orderBy\":\"id_product\",\"last_sortOrder\":\"desc\"}',''),
+(3,1,1,'ProductController','catalogAction','{\"filter_category\":\"\",\"filter_column_id_product\":\"\",\"filter_column_name\":\"Etui do okular\\u00f3w Albinex\",\"filter_column_reference\":\"\",\"filter_column_name_category\":\"\",\"filter_column_price\":\"\",\"filter_column_sav_quantity\":\"\",\"filter_column_active\":\"\",\"last_offset\":\"0\",\"last_limit\":\"20\",\"last_orderBy\":\"id_product\",\"last_sortOrder\":\"desc\"}',''),
 (4,1,1,'','','{\"limit\":10,\"orderBy\":\"id_request_sql\",\"sortOrder\":\"desc\",\"filters\":[]}','sql_request'),
 (5,1,1,'backup','index','{\"limit\":20,\"orderBy\":null,\"sortOrder\":null,\"filters\":[]}',''),
 (6,1,1,'','','{\"limit\":50,\"orderBy\":\"id_webservice_account\",\"sortOrder\":\"asc\",\"filters\":[]}','webservice_key'),
@@ -1377,7 +1377,7 @@ CREATE TABLE `ps_alias` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_alias`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1636,7 +1636,7 @@ CREATE TABLE `ps_authorization_role` (
   `slug` varchar(191) NOT NULL,
   PRIMARY KEY (`id_authorization_role`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=966 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=967 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2521,7 +2521,7 @@ CREATE TABLE `ps_carrier` (
   KEY `deleted` (`deleted`,`active`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `reference` (`id_reference`,`deleted`,`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2861,7 +2861,7 @@ CREATE TABLE `ps_cart` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop_2` (`id_shop`,`date_upd`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3228,7 +3228,7 @@ CREATE TABLE `ps_category` (
   KEY `nright` (`nright`),
   KEY `activenleft` (`active`,`nleft`),
   KEY `activenright` (`active`,`nright`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4581,7 +4581,7 @@ CREATE TABLE `ps_cms` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `indexation` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_cms`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4616,7 +4616,7 @@ CREATE TABLE `ps_cms_category` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_cms_category`),
   KEY `category_parent` (`id_parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4675,7 +4675,7 @@ CREATE TABLE `ps_cms_category_shop` (
   `id_shop` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_cms_category`,`id_shop`),
   KEY `id_shop` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4738,7 +4738,7 @@ CREATE TABLE `ps_cms_role` (
   `id_cms` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_cms_role`,`id_cms`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4827,7 +4827,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=721 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=722 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4980,11 +4980,11 @@ INSERT INTO `ps_configuration` VALUES
 (141,NULL,NULL,'PS_SHOW_NEW_MESSAGES','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (142,NULL,NULL,'PS_FEATURE_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (143,NULL,NULL,'PS_COMBINATION_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(144,NULL,NULL,'PS_SPECIFIC_PRICE_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-30 09:21:58'),
+(144,NULL,NULL,'PS_SPECIFIC_PRICE_FEATURE_ACTIVE','1','0000-00-00 00:00:00','2023-11-30 14:12:00'),
 (145,NULL,NULL,'PS_VIRTUAL_PROD_FEATURE_ACTIVE','1','0000-00-00 00:00:00','2023-10-23 14:29:43'),
 (146,NULL,NULL,'PS_CUSTOMIZATION_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (147,NULL,NULL,'PS_CART_RULE_FEATURE_ACTIVE','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-30 09:25:04'),
+(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-30 14:15:48'),
 (149,NULL,NULL,'PS_ALIAS_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (150,NULL,NULL,'PS_TAX_ADDRESS_TYPE','id_address_delivery','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (151,NULL,NULL,'PS_SHOP_DEFAULT','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -5362,7 +5362,7 @@ CREATE TABLE `ps_configuration_kpi` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5549,7 +5549,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5606,7 +5606,8 @@ INSERT INTO `ps_connections` VALUES
 (47,1,1,23,1,2886860801,'2023-11-23 21:36:53',''),
 (49,1,1,25,1,2887057409,'2023-11-25 14:27:04',''),
 (50,1,1,26,2,2886860801,'2023-11-30 08:28:39',''),
-(51,1,1,26,1,2886860801,'2023-11-30 09:31:35','');
+(51,1,1,26,1,2886860801,'2023-11-30 09:31:35',''),
+(53,1,1,26,1,2886860801,'2023-11-30 14:05:56','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5654,7 +5655,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=864 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=877 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6523,7 +6524,20 @@ INSERT INTO `ps_connections_source` VALUES
 (860,51,'https://localhost:8001/91-etui','localhost:8001/88-akcesoria','','2023-11-30 09:38:40'),
 (861,51,'https://localhost:8001/91-etui','localhost:8001/88-akcesoria','','2023-11-30 09:38:59'),
 (862,51,'https://localhost:8001/91-etui','localhost:8001/88-akcesoria','','2023-11-30 09:40:16'),
-(863,51,'https://localhost:8001/88-akcesoria','localhost:8001/69-damskie','','2023-11-30 09:40:22');
+(863,51,'https://localhost:8001/88-akcesoria','localhost:8001/69-damskie','','2023-11-30 09:40:22'),
+(864,51,'https://localhost:8001/69-damskie?q=Materia%C5%82-poliw%C4%99glan','localhost:8001/','','2023-11-30 09:44:14'),
+(865,51,'https://localhost:8001/','localhost:8001/68-oprawy','','2023-11-30 09:44:17'),
+(866,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/3195?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/etui/3195-product-1675.html','','2023-11-30 14:08:03'),
+(867,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/3195?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/etui/3195-product-1675.html','','2023-11-30 14:09:08'),
+(868,53,'https://localhost:8001/etui/3195-product-1675.html','localhost:8001/91-etui','','2023-11-30 14:09:30'),
+(869,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/3195?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/etui/3195-product-1675.html','','2023-11-30 14:11:32'),
+(870,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/3192?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/favicon.ico','','2023-11-30 14:12:17'),
+(871,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/3192?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/etui/3192-product-1678.html','','2023-11-30 14:12:17'),
+(872,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/3189?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/etui/3189-product-1681.html','','2023-11-30 14:12:39'),
+(873,53,'https://localhost:8001/etui/3189-product-1681.html','localhost:8001/91-etui','','2023-11-30 14:12:43'),
+(874,53,'https://localhost:8001/91-etui?page=3','localhost:8001/etui/3192-product-1678.html','','2023-11-30 14:12:56'),
+(875,53,'https://localhost:8001/91-etui?page=3','localhost:8001/etui/3192-product-1678.html','','2023-11-30 14:14:52'),
+(876,53,'https://localhost:8001/','localhost:8001/91-etui','','2023-11-30 14:15:22');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6540,7 +6554,7 @@ CREATE TABLE `ps_contact` (
   `customer_service` tinyint(1) NOT NULL DEFAULT 0,
   `position` tinyint(2) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_contact`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6632,7 +6646,7 @@ CREATE TABLE `ps_country` (
   PRIMARY KEY (`id_country`),
   KEY `country_iso_code` (`iso_code`),
   KEY `country_` (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7438,7 +7452,7 @@ CREATE TABLE `ps_currency` (
   `modified` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_currency`),
   KEY `currency_iso_code` (`iso_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7664,7 +7678,7 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7875,7 +7889,7 @@ CREATE TABLE `ps_delivery` (
   KEY `id_carrier` (`id_carrier`,`id_zone`),
   KEY `id_range_price` (`id_range_price`),
   KEY `id_range_weight` (`id_range_weight`)
-) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8016,7 +8030,7 @@ CREATE TABLE `ps_emailsubscription` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `id_lang` int(10) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8071,7 +8085,7 @@ CREATE TABLE `ps_employee` (
   KEY `employee_login` (`email`,`passwd`),
   KEY `id_employee_passwd` (`id_employee`,`passwd`),
   KEY `id_profile` (`id_profile`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8097,7 +8111,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8113,7 +8127,7 @@ INSERT INTO `ps_employee_session` VALUES
 (35,1,'775393c8c44cd5b61f735d30862bc9d2abacb6f9'),
 (41,1,'9e242973ebd7816c020efa81c5e959d038fa9410'),
 (42,1,'e242f4ae79e89b2fd08fb5d80abf3b58fc456066'),
-(44,1,'64e89b9e31779544db981f33ddcd787a45700b37');
+(47,1,'29aee052a1e7750db5ec3ef4cbd861669f7132c5');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8183,7 +8197,7 @@ CREATE TABLE `ps_feature` (
   `id_feature` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_feature`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8244,7 +8258,7 @@ CREATE TABLE `ps_feature_flag` (
   `description_domain` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_feature_flag`),
   UNIQUE KEY `UNIQ_91700F175E237E06` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -17637,7 +17651,7 @@ CREATE TABLE `ps_feature_value` (
   `custom` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_feature_value`),
   KEY `feature` (`id_feature`)
-) ENGINE=InnoDB AUTO_INCREMENT=1237 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1238 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18500,7 +18514,7 @@ CREATE TABLE `ps_gender` (
   `id_gender` int(11) NOT NULL AUTO_INCREMENT,
   `type` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_gender`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18558,7 +18572,7 @@ CREATE TABLE `ps_group` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18706,7 +18720,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18750,7 +18764,7 @@ CREATE TABLE `ps_homeslider` (
   `id_homeslider_slides` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_shop` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_homeslider_slides`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18780,7 +18794,7 @@ CREATE TABLE `ps_homeslider_slides` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_homeslider_slides`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18848,7 +18862,7 @@ CREATE TABLE `ps_hook` (
   `position` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_hook`),
   UNIQUE KEY `hook_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=764 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=765 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19629,7 +19643,7 @@ CREATE TABLE `ps_hook_alias` (
   `name` varchar(191) NOT NULL,
   PRIMARY KEY (`id_hook_alias`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19986,7 +20000,7 @@ CREATE TABLE `ps_image` (
   UNIQUE KEY `id_product_cover` (`id_product`,`cover`),
   UNIQUE KEY `idx_product_image` (`id_image`,`id_product`,`cover`),
   KEY `image_product` (`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=2622 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2623 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23240,7 +23254,7 @@ CREATE TABLE `ps_image_type` (
   `stores` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_image_type`),
   KEY `image_type_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23295,7 +23309,7 @@ DROP TABLE IF EXISTS `ps_info`;
 CREATE TABLE `ps_info` (
   `id_info` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_info`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23379,7 +23393,7 @@ CREATE TABLE `ps_lang` (
   `date_format_full` varchar(32) NOT NULL,
   `is_rtl` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_lang`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23440,7 +23454,7 @@ CREATE TABLE `ps_layered_category` (
   PRIMARY KEY (`id_layered_category`),
   KEY `id_category_shop` (`id_category`,`id_shop`,`type`,`id_value`,`position`),
   KEY `id_category` (`id_category`,`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=885 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=886 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -24351,7 +24365,7 @@ CREATE TABLE `ps_layered_filter` (
   `n_categories` int(10) unsigned NOT NULL,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_layered_filter`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -24385,10 +24399,6 @@ CREATE TABLE `ps_layered_filter_block` (
 
 LOCK TABLES `ps_layered_filter_block` WRITE;
 /*!40000 ALTER TABLE `ps_layered_filter_block` DISABLE KEYS */;
-INSERT INTO `ps_layered_filter_block` VALUES
-('227faf2a73b437ffb78b2a720e7a1f83','a:1:{s:7:\"filters\";a:22:{i:0;a:7:{s:9:\"type_lite\";s:12:\"availability\";s:4:\"type\";s:12:\"availability\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:3:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępny\";s:3:\"nbr\";i:20;}i:1;a:2:{s:4:\"name\";s:9:\"Dostępny\";s:3:\"nbr\";i:196;}i:2;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:196;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:1;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:3:\"216\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używany\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowiony\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:3;a:0:{}i:4;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:981;s:3:\"min\";d:67;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:216;s:5:\"value\";N;}i:5;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"70\";s:6:\"values\";a:29:{i:837;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:7:\"Beżowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:831;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"Biały\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:842;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:7:\"Bordowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:846;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:13:\"Brzoskwiniowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:836;a:4:{s:3:\"nbr\";s:2:\"12\";s:4:\"name\";s:8:\"Brązowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:850;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:11:\"Bursztynowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:835;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:10:\"Błękitny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:830;a:4:{s:3:\"nbr\";s:2:\"62\";s:4:\"name\";s:6:\"Czarny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:847;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:13:\"Czarny/Biały\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:848;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:16:\"Czarny/Niebieski\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:854;a:4:{s:3:\"nbr\";s:2:\"13\";s:4:\"name\";s:22:\"Czarny/Różowe złoto\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:853;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:13:\"Czarny/Złoty\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:845;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:8:\"Czerwony\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:840;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:9:\"Fioletowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:858;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:9:\"Grafitowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:833;a:4:{s:3:\"nbr\";s:2:\"10\";s:4:\"name\";s:9:\"Granatowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:857;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:17:\"Granatowy/Srebrny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:852;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:14:\"Jasny różowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:832;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:10:\"Multicolor\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:838;a:4:{s:3:\"nbr\";s:1:\"7\";s:4:\"name\";s:9:\"Niebieski\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:851;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:8:\"Oliwkowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:855;a:4:{s:3:\"nbr\";s:2:\"17\";s:4:\"name\";s:15:\"Różowe złoto\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:856;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:7:\"Srebrny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:839;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:5:\"Szary\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:841;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:8:\"Szylkret\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:834;a:4:{s:3:\"nbr\";s:1:\"7\";s:4:\"name\";s:13:\"Transparentny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:844;a:4:{s:3:\"nbr\";s:1:\"8\";s:4:\"name\";s:7:\"Zielony\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:843;a:4:{s:3:\"nbr\";s:2:\"14\";s:4:\"name\";s:6:\"Złoty\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:849;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:8:\"Żółty\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:5:\"Kolor\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:6;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"71\";s:6:\"values\";a:12:{i:881;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:3:\"125\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:879;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:3:\"130\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:880;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:3:\"132\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:874;a:4:{s:3:\"nbr\";s:2:\"32\";s:4:\"name\";s:3:\"135\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:878;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:3:\"137\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:877;a:4:{s:3:\"nbr\";s:1:\"7\";s:4:\"name\";s:3:\"138\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:873;a:4:{s:3:\"nbr\";s:3:\"120\";s:4:\"name\";s:3:\"140\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:876;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:8:\"140, 145\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:870;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:3:\"142\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:871;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:3:\"143\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:872;a:4:{s:3:\"nbr\";s:2:\"33\";s:4:\"name\";s:3:\"145\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:875;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:3:\"150\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:20:\"Długość zausznika\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:7;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"72\";s:6:\"values\";a:13:{i:922;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"47\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:920;a:4:{s:3:\"nbr\";s:1:\"8\";s:4:\"name\";s:2:\"48\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:919;a:4:{s:3:\"nbr\";s:2:\"12\";s:4:\"name\";s:2:\"49\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:917;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:6:\"49, 51\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:915;a:4:{s:3:\"nbr\";s:2:\"16\";s:4:\"name\";s:2:\"50\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:911;a:4:{s:3:\"nbr\";s:2:\"23\";s:4:\"name\";s:2:\"51\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:913;a:4:{s:3:\"nbr\";s:2:\"28\";s:4:\"name\";s:2:\"52\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:914;a:4:{s:3:\"nbr\";s:2:\"40\";s:4:\"name\";s:2:\"53\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:912;a:4:{s:3:\"nbr\";s:2:\"44\";s:4:\"name\";s:2:\"54\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:916;a:4:{s:3:\"nbr\";s:2:\"18\";s:4:\"name\";s:2:\"55\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:918;a:4:{s:3:\"nbr\";s:2:\"11\";s:4:\"name\";s:2:\"56\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:921;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:2:\"57\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:923;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:2:\"58\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:20:\"Szerokość soczewki\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:8;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"75\";s:6:\"values\";a:1:{i:964;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:3:\"14g\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:4:\"Waga\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:9;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"76\";s:6:\"values\";a:25:{i:990;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:7:\"Beżowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:992;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:6:\"Biały\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:983;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:7:\"Bordowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:978;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:8:\"Brązowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:988;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:10:\"Błękitny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:986;a:4:{s:3:\"nbr\";s:2:\"14\";s:4:\"name\";s:6:\"Czarny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:991;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:13:\"Czarny/Biały\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:984;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:8:\"Czerwony\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:993;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:9:\"Fioletowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:996;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:9:\"Grafitowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:994;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:9:\"Granatowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:982;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:14:\"Jasny różowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:977;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:16:\"Kość słoniowa\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:997;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:7:\"Limonka\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:987;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:10:\"Multicolor\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:976;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:9:\"Niebieski\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:989;a:4:{s:3:\"nbr\";s:1:\"7\";s:4:\"name\";s:15:\"Różowe złoto\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:981;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:8:\"Różowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:979;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:7:\"Srebrny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:974;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:5:\"Szary\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:973;a:4:{s:3:\"nbr\";s:1:\"9\";s:4:\"name\";s:8:\"Szylkret\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:980;a:4:{s:3:\"nbr\";s:1:\"9\";s:4:\"name\";s:13:\"Transparentny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:995;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:5:\"Wzór\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:985;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:7:\"Zielony\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:975;a:4:{s:3:\"nbr\";s:2:\"30\";s:4:\"name\";s:6:\"Złoty\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:15:\"Dodatkowy kolor\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:10;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"77\";s:6:\"values\";a:2:{i:1003;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:8:\"Brązowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1004;a:4:{s:3:\"nbr\";s:1:\"8\";s:4:\"name\";s:5:\"Szary\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:14:\"Kolor soczewki\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:11;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"84\";s:6:\"values\";a:8:{i:1056;a:4:{s:3:\"nbr\";s:2:\"31\";s:4:\"name\";s:12:\"Geometryczny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1062;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:24:\"Geometryczny, Kwadratowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1057;a:4:{s:3:\"nbr\";s:2:\"41\";s:4:\"name\";s:4:\"Koci\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1058;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:16:\"Koci, Kwadratowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1061;a:4:{s:3:\"nbr\";s:2:\"36\";s:4:\"name\";s:10:\"Kwadratowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1055;a:4:{s:3:\"nbr\";s:1:\"7\";s:4:\"name\";s:9:\"Okrągły\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1059;a:4:{s:3:\"nbr\";s:2:\"42\";s:4:\"name\";s:6:\"Owalny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1060;a:4:{s:3:\"nbr\";s:2:\"54\";s:4:\"name\";s:12:\"Prostokątny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:8:\"Kształt\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:12;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"85\";s:6:\"values\";a:16:{i:1070;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"23\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1075;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"24\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1078;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"26\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1076;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"27\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1079;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"31\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1077;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"32\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1069;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"34\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1066;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:2:\"35\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1068;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"37\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1081;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"38\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1071;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:2:\"40\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1072;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:2:\"42\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1067;a:4:{s:3:\"nbr\";s:1:\"4\";s:4:\"name\";s:2:\"43\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1080;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"45\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1073;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"46\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1074;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"47\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:19:\"Wysokość soczewki\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:13;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"87\";s:6:\"values\";a:11:{i:1110;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:2:\"14\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1104;a:4:{s:3:\"nbr\";s:2:\"15\";s:4:\"name\";s:2:\"15\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1105;a:4:{s:3:\"nbr\";s:2:\"38\";s:4:\"name\";s:2:\"16\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1107;a:4:{s:3:\"nbr\";s:2:\"64\";s:4:\"name\";s:2:\"17\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1106;a:4:{s:3:\"nbr\";s:2:\"45\";s:4:\"name\";s:2:\"18\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1103;a:4:{s:3:\"nbr\";s:2:\"18\";s:4:\"name\";s:2:\"19\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1109;a:4:{s:3:\"nbr\";s:2:\"14\";s:4:\"name\";s:2:\"20\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1108;a:4:{s:3:\"nbr\";s:1:\"7\";s:4:\"name\";s:2:\"21\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1102;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:2:\"22\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1112;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"24\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1111;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"27\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:18:\"Szerokość mostka\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:14;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"89\";s:6:\"values\";a:2:{i:1129;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:7:\"damskie\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1130;a:4:{s:3:\"nbr\";s:2:\"24\";s:4:\"name\";s:11:\"do korekcji\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:13:\"Przeznaczenie\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:15;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"91\";s:6:\"values\";a:2:{i:1148;a:4:{s:3:\"nbr\";s:1:\"8\";s:4:\"name\";s:3:\"NIE\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1147;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:3:\"TAK\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:11:\"Polaryzacja\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:16;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"92\";s:6:\"values\";a:1:{i:1149;a:4:{s:3:\"nbr\";s:1:\"9\";s:4:\"name\";s:3:\"TAK\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:8:\"Filtr UV\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:17;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"93\";s:6:\"values\";a:10:{i:1160;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:3:\"125\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1161;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:3:\"128\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1153;a:4:{s:3:\"nbr\";s:2:\"11\";s:4:\"name\";s:3:\"130\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1152;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:3:\"133\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1157;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:3:\"134\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1154;a:4:{s:3:\"nbr\";s:1:\"8\";s:4:\"name\";s:3:\"135\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1158;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:3:\"136\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1155;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:3:\"137\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1159;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:3:\"138\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1156;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:3:\"140\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:18:\"Szerokość oprawy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:18;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"94\";s:6:\"values\";a:3:{i:1183;a:4:{s:3:\"nbr\";s:2:\"12\";s:4:\"name\";s:11:\"na żyłkę\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1184;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"patent\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1182;a:4:{s:3:\"nbr\";s:3:\"196\";s:4:\"name\";s:6:\"pełna\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:3:\"Typ\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:19;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"95\";s:6:\"values\";a:3:{i:1189;a:4:{s:3:\"nbr\";s:3:\"201\";s:4:\"name\";s:15:\"2-3 dni robocze\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1191;a:4:{s:3:\"nbr\";s:1:\"9\";s:4:\"name\";s:17:\"3-5 dni roboczych\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1190;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:18:\"7-10 dni roboczych\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:29:\"Termin realizacji zamówienia\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:20;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"97\";s:6:\"values\";a:3:{i:1210;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:6:\"Matowe\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1211;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:7:\"Połysk\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1209;a:4:{s:3:\"nbr\";s:2:\"14\";s:4:\"name\";s:13:\"Transparentne\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:12:\"Wykończenie\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:21;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"99\";s:6:\"values\";a:9:{i:1217;a:4:{s:3:\"nbr\";s:2:\"37\";s:4:\"name\";s:6:\"acetat\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1220;a:4:{s:3:\"nbr\";s:2:\"43\";s:4:\"name\";s:5:\"metal\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1218;a:4:{s:3:\"nbr\";s:2:\"33\";s:4:\"name\";s:16:\"metal i tworzywo\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1223;a:4:{s:3:\"nbr\";s:2:\"37\";s:4:\"name\";s:5:\"monel\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1224;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:11:\"poliwęglan\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1222;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:15:\"stal nierdzewna\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1219;a:4:{s:3:\"nbr\";s:2:\"53\";s:4:\"name\";s:8:\"tworzywo\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1225;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:5:\"tytan\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1221;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:5:\"ultem\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:9:\"Materiał\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}}}'),
-('ef42e91611680da7405d7e2c33e1ab59','a:1:{s:7:\"filters\";a:16:{i:0;a:7:{s:9:\"type_lite\";s:12:\"availability\";s:4:\"type\";s:12:\"availability\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:3:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępny\";s:3:\"nbr\";i:7;}i:1;a:2:{s:4:\"name\";s:9:\"Dostępny\";s:3:\"nbr\";i:64;}i:2;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:64;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:1;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"71\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używany\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowiony\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:3;a:0:{}i:4;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:130;s:3:\"min\";d:6;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:71;s:5:\"value\";N;}i:5;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"70\";s:6:\"values\";a:6:{i:837;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:7:\"Beżowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:836;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:8:\"Brązowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:830;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"Czarny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:840;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:9:\"Fioletowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:833;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:9:\"Granatowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:869;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:7:\"Limonka\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:5:\"Kolor\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:6;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"72\";s:6:\"values\";a:3:{i:929;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"45\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:920;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"48\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:914;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"53\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:20:\"Szerokość soczewki\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:7;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"73\";s:6:\"values\";a:1:{i:960;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:4:\"36cm\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:10:\"Długość\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:8;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"78\";s:6:\"values\";a:1:{i:1015;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:19:\"do opraw sportowych\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:17:\"Funkcja specjalna\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:9;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"85\";s:6:\"values\";a:3:{i:1082;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"28\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1089;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"33\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1068;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"37\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:19:\"Wysokość soczewki\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:10;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"87\";s:6:\"values\";a:3:{i:1103;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"19\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1109;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"20\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1102;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"22\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:18:\"Szerokość mostka\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:11;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"88\";s:6:\"values\";a:6:{i:1124;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:13:\"19 cm x 19 cm\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1127;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:5:\"37 ml\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1125;a:4:{s:3:\"nbr\";s:1:\"6\";s:4:\"name\";s:14:\"145 mm x 80 mm\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1126;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:6:\"160 ml\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1128;a:4:{s:3:\"nbr\";s:2:\"19\";s:4:\"name\";s:15:\"180 mm x 150 mm\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1123;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"200 ml\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:7:\"Wymiary\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:12;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"89\";s:6:\"values\";a:3:{i:1142;a:4:{s:3:\"nbr\";s:2:\"32\";s:4:\"name\";s:12:\"pielęgnacja\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1139;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:19:\"wkładki korekcyjne\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1144;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:30:\"zabezpieczenie przed zsuwaniem\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:13:\"Przeznaczenie\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:13;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"94\";s:6:\"values\";a:2:{i:1183;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:11:\"na żyłkę\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1182;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"pełna\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:3:\"Typ\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:14;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"95\";s:6:\"values\";a:2:{i:1189;a:4:{s:3:\"nbr\";s:2:\"66\";s:4:\"name\";s:15:\"2-3 dni robocze\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1195;a:4:{s:3:\"nbr\";s:1:\"5\";s:4:\"name\";s:14:\"na zamówienie\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:29:\"Termin realizacji zamówienia\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:15;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"99\";s:6:\"values\";a:1:{i:1219;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:8:\"tworzywo\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:9:\"Materiał\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}}}'),
-('fa1394b68bdc39b6014d4d595003ad72','a:1:{s:7:\"filters\";a:13:{i:0;a:7:{s:9:\"type_lite\";s:12:\"availability\";s:4:\"type\";s:12:\"availability\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:3:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępny\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:9:\"Dostępny\";s:3:\"nbr\";i:2;}i:2;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:2;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:1;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"2\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używany\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowiony\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:3;a:0:{}i:4;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:110;s:3:\"min\";d:109;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:2;s:5:\"value\";N;}i:5;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"70\";s:6:\"values\";a:1:{i:830;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"Czarny\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:5:\"Kolor\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:6;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"71\";s:6:\"values\";a:1:{i:873;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:3:\"140\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:20:\"Długość zausznika\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:7;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"72\";s:6:\"values\";a:2:{i:912;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"54\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:918;a:4:{s:3:\"nbr\";s:1:\"1\";s:4:\"name\";s:2:\"56\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:20:\"Szerokość soczewki\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:8;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"84\";s:6:\"values\";a:1:{i:1061;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:10:\"Kwadratowy\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:8:\"Kształt\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:9;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"87\";s:6:\"values\";a:1:{i:1105;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:2:\"16\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:18:\"Szerokość mostka\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:10;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"94\";s:6:\"values\";a:1:{i:1182;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:6:\"pełna\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:3:\"Typ\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:11;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"95\";s:6:\"values\";a:1:{i:1189;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:15:\"2-3 dni robocze\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:29:\"Termin realizacji zamówienia\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}i:12;a:9:{s:9:\"type_lite\";s:10:\"id_feature\";s:4:\"type\";s:10:\"id_feature\";s:6:\"id_key\";s:2:\"99\";s:6:\"values\";a:9:{i:1217;a:4:{s:3:\"nbr\";s:2:\"37\";s:4:\"name\";s:6:\"acetat\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1220;a:4:{s:3:\"nbr\";s:2:\"43\";s:4:\"name\";s:5:\"metal\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1218;a:4:{s:3:\"nbr\";s:2:\"33\";s:4:\"name\";s:16:\"metal i tworzywo\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1223;a:4:{s:3:\"nbr\";s:2:\"37\";s:4:\"name\";s:5:\"monel\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1224;a:5:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:11:\"poliwęglan\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:7:\"checked\";b:1;}i:1222;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:15:\"stal nierdzewna\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1219;a:4:{s:3:\"nbr\";s:2:\"53\";s:4:\"name\";s:8:\"tworzywo\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1225;a:4:{s:3:\"nbr\";s:1:\"3\";s:4:\"name\";s:5:\"tytan\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}i:1221;a:4:{s:3:\"nbr\";s:1:\"2\";s:4:\"name\";s:5:\"ultem\";s:8:\"url_name\";N;s:10:\"meta_title\";N;}}s:4:\"name\";s:9:\"Materiał\";s:8:\"url_name\";N;s:10:\"meta_title\";N;s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"2\";}}}');
 /*!40000 ALTER TABLE `ps_layered_filter_block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -27767,26 +27777,26 @@ INSERT INTO `ps_layered_price_index` VALUES
 (3173,1,1,45.005700,45.005700,14),
 (3174,1,1,47.994600,47.994600,14),
 (3175,1,1,55.005600,55.005600,14),
-(3176,1,1,55.005600,55.005600,14),
+(3176,1,1,49.505040,55.005600,14),
 (3177,1,1,49.003200,49.003200,14),
 (3178,1,1,36.002100,36.002100,14),
 (3179,1,1,35.005800,35.005800,14),
 (3180,1,1,35.005800,35.005800,14),
 (3181,1,1,59.003100,59.003100,14),
 (3182,1,1,33.000900,33.000900,14),
-(3183,1,1,55.005600,55.005600,14),
+(3183,1,1,49.505040,55.005600,14),
 (3184,1,1,49.999500,49.999500,14),
 (3185,1,1,52.004400,52.004400,14),
 (3186,1,1,49.003200,49.003200,14),
 (3187,1,1,57.994500,57.994500,14),
 (3188,1,1,47.994600,47.994600,14),
-(3189,1,1,57.994500,57.994500,14),
+(3189,1,1,52.195050,57.994500,14),
 (3190,1,1,57.994500,57.994500,14),
 (3191,1,1,49.003200,49.003200,14),
-(3192,1,1,57.994500,57.994500,14),
+(3192,1,1,52.195050,57.994500,14),
 (3193,1,1,52.004400,52.004400,14),
 (3194,1,1,19.003500,19.003500,14),
-(3195,1,1,57.994500,57.994500,14);
+(3195,1,1,52.195050,57.994500,14);
 /*!40000 ALTER TABLE `ps_layered_price_index` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -27867,7 +27877,7 @@ CREATE TABLE `ps_link_block` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `content` text DEFAULT NULL,
   PRIMARY KEY (`id_link_block`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27922,7 +27932,7 @@ CREATE TABLE `ps_link_block_shop` (
   `id_shop` int(10) unsigned NOT NULL,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_link_block`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28010,7 +28020,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28118,7 +28128,21 @@ INSERT INTO `ps_log` VALUES
 (99,1,0,'Protect vendor folder in module ps_customtext','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55'),
 (100,1,0,'Module ps_customtext has no vendor folder','',0,1,NULL,1,0,1,'2023-11-29 19:43:55','2023-11-29 19:43:55'),
 (101,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-30 08:28:25','2023-11-30 08:28:25'),
-(102,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-30 09:33:18','2023-11-30 09:33:18');
+(102,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-30 09:33:18','2023-11-30 09:33:18'),
+(104,1,0,'Połączenie z panelem administracyjnym z 172.19.0.1','',0,NULL,NULL,1,1,1,'2023-11-30 09:49:15','2023-11-30 09:49:15'),
+(105,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-30 14:01:32','2023-11-30 14:01:32'),
+(106,1,0,'Product modification','Product',3195,1,NULL,1,0,1,'2023-11-30 14:08:02','2023-11-30 14:08:02'),
+(107,1,0,'Product modification','Product',3195,1,NULL,1,0,1,'2023-11-30 14:08:58','2023-11-30 14:08:58'),
+(108,1,0,'Product modification','Product',3195,1,NULL,1,0,1,'2023-11-30 14:09:01','2023-11-30 14:09:01'),
+(109,1,0,'Product modification','Product',3195,1,NULL,1,0,1,'2023-11-30 14:11:29','2023-11-30 14:11:29'),
+(110,1,0,'Product modification','Product',3195,1,NULL,1,0,1,'2023-11-30 14:11:31','2023-11-30 14:11:31'),
+(111,1,0,'Product modification','Product',3192,1,NULL,1,0,1,'2023-11-30 14:12:14','2023-11-30 14:12:14'),
+(112,1,0,'Product modification','Product',3192,1,NULL,1,0,1,'2023-11-30 14:12:16','2023-11-30 14:12:16'),
+(113,1,0,'Product modification','Product',3189,1,NULL,1,0,1,'2023-11-30 14:12:37','2023-11-30 14:12:37'),
+(114,1,0,'Product modification','Product',3189,1,NULL,1,0,1,'2023-11-30 14:12:39','2023-11-30 14:12:39'),
+(115,1,0,'Product modification','Product',3192,1,NULL,1,0,1,'2023-11-30 14:13:11','2023-11-30 14:13:11'),
+(116,1,0,'Product modification','Product',3183,1,NULL,1,0,1,'2023-11-30 14:15:11','2023-11-30 14:15:11'),
+(117,1,0,'Product modification','Product',3176,1,NULL,1,0,1,'2023-11-30 14:15:48','2023-11-30 14:15:48');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -28164,7 +28188,7 @@ CREATE TABLE `ps_manufacturer` (
   `date_upd` datetime NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_manufacturer`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28332,7 +28356,7 @@ CREATE TABLE `ps_meta` (
   `configurable` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_meta`),
   UNIQUE KEY `page` (`page`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28461,7 +28485,7 @@ CREATE TABLE `ps_module` (
   PRIMARY KEY (`id_module`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29093,7 +29117,7 @@ CREATE TABLE `ps_module_history` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29238,7 +29262,7 @@ CREATE TABLE `ps_operating_system` (
   `id_operating_system` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_operating_system`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29281,7 +29305,7 @@ CREATE TABLE `ps_order_carrier` (
   KEY `id_order` (`id_order`),
   KEY `id_carrier` (`id_carrier`),
   KEY `id_order_invoice` (`id_order_invoice`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29395,7 +29419,7 @@ CREATE TABLE `ps_order_detail` (
   KEY `product_attribute_id` (`product_attribute_id`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_order_id_order_detail` (`id_order`,`id_order_detail`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29461,7 +29485,7 @@ CREATE TABLE `ps_order_history` (
   KEY `order_history_order` (`id_order`),
   KEY `id_employee` (`id_employee`),
   KEY `id_order_state` (`id_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29585,7 +29609,7 @@ CREATE TABLE `ps_order_message` (
   `id_order_message` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_order_message`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29726,7 +29750,7 @@ CREATE TABLE `ps_order_return_state` (
   `id_order_return_state` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_order_return_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -29866,7 +29890,7 @@ CREATE TABLE `ps_order_state` (
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_order_state`),
   KEY `module_name` (`module_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -30012,7 +30036,7 @@ CREATE TABLE `ps_orders` (
   KEY `current_state` (`current_state`),
   KEY `id_shop` (`id_shop`),
   KEY `date_add` (`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -30071,7 +30095,7 @@ CREATE TABLE `ps_page` (
   PRIMARY KEY (`id_page`),
   KEY `id_page_type` (`id_page_type`),
   KEY `id_object` (`id_object`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -30104,7 +30128,7 @@ CREATE TABLE `ps_page_type` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id_page_type`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -30430,7 +30454,7 @@ CREATE TABLE `ps_product` (
   KEY `indexed` (`indexed`),
   KEY `date_add` (`date_add`),
   KEY `state` (`state`,`date_upd`)
-) ENGINE=InnoDB AUTO_INCREMENT=3196 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -31476,26 +31500,26 @@ INSERT INTO `ps_product` VALUES
 (3173,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,36.590000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0,0,1,''),
 (3174,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,39.020000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0,0,1,''),
 (3175,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0,0,1,''),
-(3176,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0,0,1,''),
+(3176,0,0,91,1,1,1,0,'','','','',0.000000,0,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:01','2023-11-30 14:15:48',0,0,1,''),
 (3177,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,39.840000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0,0,1,''),
 (3178,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,29.270000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
 (3179,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,28.460000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
 (3180,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,28.460000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
 (3181,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,47.970000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
 (3182,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,26.830000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
-(3183,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
+(3183,0,0,91,1,1,1,0,'','','','',0.000000,0,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 14:15:11',0,0,1,''),
 (3184,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,40.650000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
 (3185,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,42.280000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0,0,1,''),
 (3186,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,39.840000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
 (3187,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
 (3188,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,39.020000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
-(3189,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
+(3189,0,0,91,1,1,1,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 14:12:39',0,0,1,''),
 (3190,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
 (3191,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,39.840000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
-(3192,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0,0,1,''),
+(3192,0,0,91,1,1,1,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:03','2023-11-30 14:13:11',0,0,1,''),
 (3193,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,42.280000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:04','2023-11-30 09:25:04',0,0,1,''),
 (3194,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,15.450000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:04','2023-11-30 09:25:04',0,0,1,''),
-(3195,0,0,91,1,1,0,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:04','2023-11-30 09:25:04',0,0,1,'');
+(3195,0,0,91,1,1,1,0,'','','','',0.000000,0,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:25:04','2023-11-30 14:11:31',0,0,1,'');
 /*!40000 ALTER TABLE `ps_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -31722,7 +31746,7 @@ CREATE TABLE `ps_product_comment_criterion` (
   `id_product_comment_criterion_type` tinyint(1) NOT NULL,
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_product_comment_criterion`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -33045,13 +33069,13 @@ INSERT INTO `ps_product_lang` VALUES
 (3186,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Futerał zamykany na magnes, wykonany z poliuretanu. Futerał zapakowany w ozdobne pudełko. Wymiary zewnętrzne:  152 x 55 x 28 mm','','product-1693','','','','Etui do okularów Albinex 102.024','','','',''),
 (3187,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. W komplecie ściereczka z mikrofibry. Futerał zamykany na magnes, wykonany z mikrofibry. Futerał zapakowany w ozdobne pudełko. Wymiary zewnętrzne:  151 x 62 x 31 mm','','product-1684','','','','Etui do okularów Albinex 80.118','','','',''),
 (3188,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Futerał zamykany na magnes, wykonany z poliuretanu. Futerał zapakowany w ozdobne pudełko. Wymiary zewnętrzne:  157 x 60 x 39 mm','','product-1683','','','','Etui do okularów Albinex 80.040','','','',''),
-(3189,1,1,'Etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Futerał zamykany magnetycznie, wykonany z mikrofibry. W zestawie ściereczka z mikrofibry. Wymiary zewnętrzne:  151 x 62 x 31 mm','','product-1681','','','','Etui do okularów Albinex 102.033 + ściereczka z mikrofibry','','','',''),
+(3189,1,1,'<p>Etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Futerał zamykany magnetycznie, wykonany z mikrofibry. W zestawie ściereczka z mikrofibry. Wymiary zewnętrzne: 151 x 62 x 31 mm</p>','','product-1681','','','','Etui do okularów Albinex 102.033 + ściereczka z mikrofibry','','','',''),
 (3190,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Futerał zamykany na magnes, wykonany z mikrofibry. W zestawie ściereczka z mikrofibry. Futerał zapakowany w ozdobne pudełko. Wymiary zewnętrzne:  152 x 66 x 36 mm','','product-1680','','','','Etui do okularów Albinex 102.034','','','',''),
 (3191,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Futerał zamykany na magnes, wykonany z poliuretanu. Zapakowany w ozdobne pudełko.   Wymiary zewnętrzne:  151 x 61 x 30 mm','','product-1679','','','','Etui do okularów Albinex 80,064','','','',''),
-(3192,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Futerał zamykany na magnes, wykonany z mikrofibry. W zestawie ściereczka z mikrofibry.  Zapakowany w ozdobne pudełko.   Wymiary zewnętrzne:  152 x 66 x 33 mm','','product-1678','','','','Etui do okularów Albinex 102.040 + ściereczka z mikrofibry','','','',''),
+(3192,1,1,'<p>Eleganckie, twarde etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Futerał zamykany na magnes, wykonany z mikrofibry. W zestawie ściereczka z mikrofibry. Zapakowany w ozdobne pudełko. Wymiary zewnętrzne: 152 x 66 x 33 mm</p>','','product-1678','','','','Etui do okularów Albinex 102.040 + ściereczka z mikrofibry','','','',''),
 (3193,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex.  Futerał zamykany na magnes, wykonany z poliuretanu.  Futerał zapakowany w ozdobne pudełko.  Wymiary zewnętrzne:  155 x 62 x 45 mm','','product-1677','','','','Etui do okularów Albinex 102.017','','','',''),
 (3194,1,1,'Twarde etui dziecięce z nadrukiem owieczki, polskiego producenta Albinex. W komplecie chusteczka z mikrofazy z identycznym nadrukiem jak na etui.','','product-1676','','','','Etui do okularów DZ 15','','','',''),
-(3195,1,1,'Eleganckie, twarde etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Zapinane magnetycznie, pokryte mikrofibrą.  W zestawie chusteczka z mikrofibry. Futerał zapakowany w ozdobne pudełko. Wymiary zewnętrzne:  152 x 66 x 33 mm','','product-1675','','','','Etui do okularów Albinex 80.120 + ściereczka z mikrofibry','','','','');
+(3195,1,1,'<p>Eleganckie, twarde etui do okularów polskiego producenta Albinex. Wykonane ręcznie z najwyższej jakości materiałów czołowych producentów europejskich. Zapinane magnetycznie, pokryte mikrofibrą. W zestawie chusteczka z mikrofibry. Futerał zapakowany w ozdobne pudełko. Wymiary zewnętrzne: 152 x 66 x 33 mm</p>','','product-1675','','','','Etui do okularów Albinex 80.120 + ściereczka z mikrofibry','','','','');
 /*!40000 ALTER TABLE `ps_product_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -34172,26 +34196,26 @@ INSERT INTO `ps_product_shop` VALUES
 (3173,1,91,1,0,0,0.000000,1,NULL,0,36.590000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0),
 (3174,1,91,1,0,0,0.000000,1,NULL,0,39.020000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0),
 (3175,1,91,1,0,0,0.000000,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0),
-(3176,1,91,1,0,0,0.000000,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0),
+(3176,1,91,1,1,0,0.000000,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:01','2023-11-30 14:15:48',0),
 (3177,1,91,1,0,0,0.000000,1,NULL,0,39.840000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:01','2023-11-30 09:25:01',0),
 (3178,1,91,1,0,0,0.000000,1,NULL,0,29.270000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
 (3179,1,91,1,0,0,0.000000,1,NULL,0,28.460000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
 (3180,1,91,1,0,0,0.000000,1,NULL,0,28.460000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
 (3181,1,91,1,0,0,0.000000,1,NULL,0,47.970000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
 (3182,1,91,1,0,0,0.000000,1,NULL,0,26.830000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
-(3183,1,91,1,0,0,0.000000,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
+(3183,1,91,1,1,0,0.000000,1,NULL,0,44.720000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 14:15:11',0),
 (3184,1,91,1,0,0,0.000000,1,NULL,0,40.650000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
 (3185,1,91,1,0,0,0.000000,1,NULL,0,42.280000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:02','2023-11-30 09:25:02',0),
 (3186,1,91,1,0,0,0.000000,1,NULL,0,39.840000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
 (3187,1,91,1,0,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
 (3188,1,91,1,0,0,0.000000,1,NULL,0,39.020000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
-(3189,1,91,1,0,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
+(3189,1,91,1,1,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 14:12:39',0),
 (3190,1,91,1,0,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
 (3191,1,91,1,0,0,0.000000,1,NULL,0,39.840000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
-(3192,1,91,1,0,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 09:25:03',0),
+(3192,1,91,1,1,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:03','2023-11-30 14:13:11',0),
 (3193,1,91,1,0,0,0.000000,1,NULL,0,42.280000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:04','2023-11-30 09:25:04',0),
 (3194,1,91,1,0,0,0.000000,1,NULL,0,15.450000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:04','2023-11-30 09:25:04',0),
-(3195,1,91,1,0,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:04','2023-11-30 09:25:04',0);
+(3195,1,91,1,1,0,0.000000,1,NULL,0,47.150000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:25:04','2023-11-30 14:11:31',0);
 /*!40000 ALTER TABLE `ps_product_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -34261,7 +34285,7 @@ DROP TABLE IF EXISTS `ps_profile`;
 CREATE TABLE `ps_profile` (
   `id_profile` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_profile`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34476,7 +34500,7 @@ CREATE TABLE `ps_psgdpr_log` (
   PRIMARY KEY (`id_gdpr_log`),
   KEY `id_customer` (`id_customer`),
   KEY `idx_id_customer` (`id_customer`,`id_guest`,`client_name`,`id_module`,`date_add`,`date_upd`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34516,7 +34540,7 @@ CREATE TABLE `ps_psreassurance` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime DEFAULT NULL,
   PRIMARY KEY (`id_psreassurance`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34574,7 +34598,7 @@ CREATE TABLE `ps_quick_access` (
   `new_window` tinyint(1) NOT NULL DEFAULT 0,
   `link` varchar(255) NOT NULL,
   PRIMARY KEY (`id_quick_access`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34638,7 +34662,7 @@ CREATE TABLE `ps_range_price` (
   `delimiter2` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id_range_price`),
   UNIQUE KEY `id_carrier` (`id_carrier`,`delimiter1`,`delimiter2`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34685,7 +34709,7 @@ CREATE TABLE `ps_range_weight` (
   `delimiter2` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id_range_weight`),
   UNIQUE KEY `id_carrier` (`id_carrier`,`delimiter1`,`delimiter2`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34854,7 +34878,7 @@ CREATE TABLE `ps_risk` (
   `percent` tinyint(3) NOT NULL,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_risk`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34913,7 +34937,7 @@ CREATE TABLE `ps_search_engine` (
   `server` varchar(64) NOT NULL,
   `getvar` varchar(16) NOT NULL,
   PRIMARY KEY (`id_search_engine`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85176,6 +85200,9 @@ INSERT INTO `ps_search_index` VALUES
 (3176,151949,1),
 (3176,151950,1),
 (3176,151951,1),
+(3176,127110,2),
+(3176,152400,2),
+(3176,152740,2),
 (3176,151948,6),
 (3176,692,7),
 (3176,119048,7),
@@ -85314,6 +85341,8 @@ INSERT INTO `ps_search_index` VALUES
 (3183,151737,1),
 (3183,151738,1),
 (3183,151739,1),
+(3183,127110,2),
+(3183,152400,2),
 (3183,151727,6),
 (3183,692,7),
 (3183,119048,7),
@@ -85463,6 +85492,8 @@ INSERT INTO `ps_search_index` VALUES
 (3189,151738,1),
 (3189,151755,1),
 (3189,151757,1),
+(3189,127110,2),
+(3189,152400,2),
 (3189,151754,6),
 (3189,692,7),
 (3189,119048,7),
@@ -85532,6 +85563,8 @@ INSERT INTO `ps_search_index` VALUES
 (3192,151739,1),
 (3192,151755,1),
 (3192,151756,1),
+(3192,127110,2),
+(3192,152400,2),
 (3192,152307,6),
 (3192,692,7),
 (3192,119048,7),
@@ -85595,6 +85628,8 @@ INSERT INTO `ps_search_index` VALUES
 (3195,151823,1),
 (3195,151824,1),
 (3195,151927,1),
+(3195,127110,2),
+(3195,152400,2),
 (3195,119048,6),
 (3195,152368,6),
 (3195,692,7),
@@ -85618,7 +85653,7 @@ CREATE TABLE `ps_search_word` (
   `word` varchar(30) NOT NULL,
   PRIMARY KEY (`id_word`),
   UNIQUE KEY `id_lang` (`id_lang`,`id_shop`,`word`)
-) ENGINE=InnoDB AUTO_INCREMENT=152399 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=152775 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87336,6 +87371,7 @@ INSERT INTO `ps_search_word` VALUES
 (143958,1,1,'licencji'),
 (136005,1,1,'liczy'),
 (111578,1,1,'limitowana'),
+(152740,1,1,'limonka'),
 (106027,1,1,'lina'),
 (119032,1,1,'linia'),
 (150952,1,1,'linii'),
@@ -88114,6 +88150,7 @@ INSERT INTO `ps_search_word` VALUES
 (146843,1,1,'revo'),
 (137929,1,1,'rewelacyjnej'),
 (143955,1,1,'rms'),
+(152400,1,1,'robocze'),
 (137678,1,1,'rock'),
 (151883,1,1,'rodzaj'),
 (110803,1,1,'rodzaje'),
@@ -89076,7 +89113,7 @@ CREATE TABLE `ps_shop` (
   `deleted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop`),
   KEY `IDX_CBDFBB9EF5C9E40` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89107,7 +89144,7 @@ CREATE TABLE `ps_shop_group` (
   `active` tinyint(1) NOT NULL,
   `deleted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89139,7 +89176,7 @@ CREATE TABLE `ps_shop_url` (
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop_url`),
   KEY `IDX_279F19DA274A50A0` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89268,7 +89305,7 @@ CREATE TABLE `ps_specific_price` (
   KEY `id_customer` (`id_customer`),
   KEY `from` (`from`),
   KEY `to` (`to`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89277,6 +89314,12 @@ CREATE TABLE `ps_specific_price` (
 
 LOCK TABLES `ps_specific_price` WRITE;
 /*!40000 ALTER TABLE `ps_specific_price` DISABLE KEYS */;
+INSERT INTO `ps_specific_price` VALUES
+(6,0,0,3195,1,0,0,0,0,0,0,-1.000000,1,0.100000,1,'percentage','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(8,0,0,3192,1,0,0,0,0,0,0,-1.000000,1,0.100000,1,'percentage','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(9,0,0,3189,1,0,0,0,0,0,0,-1.000000,1,0.100000,1,'percentage','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(10,0,0,3183,1,0,0,0,0,0,0,-1.000000,1,0.100000,1,'percentage','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(11,0,0,3176,1,0,0,0,0,0,0,-1.000000,1,0.100000,1,'percentage','0000-00-00 00:00:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `ps_specific_price` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89293,7 +89336,7 @@ CREATE TABLE `ps_specific_price_priority` (
   `priority` varchar(80) NOT NULL,
   PRIMARY KEY (`id_specific_price_priority`,`id_product`),
   UNIQUE KEY `id_product` (`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89304,7 +89347,12 @@ LOCK TABLES `ps_specific_price_priority` WRITE;
 /*!40000 ALTER TABLE `ps_specific_price_priority` DISABLE KEYS */;
 INSERT INTO `ps_specific_price_priority` VALUES
 (1,18,'id_shop;id_currency;id_country;id_group'),
-(6,24,'id_shop;id_currency;id_country;id_group');
+(6,24,'id_shop;id_currency;id_country;id_group'),
+(19,3195,'id_shop;id_currency;id_country;id_group'),
+(24,3192,'id_shop;id_currency;id_country;id_group'),
+(26,3189,'id_shop;id_currency;id_country;id_group'),
+(29,3183,'id_shop;id_currency;id_country;id_group'),
+(30,3176,'id_shop;id_currency;id_country;id_group');
 /*!40000 ALTER TABLE `ps_specific_price_priority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89411,7 +89459,7 @@ CREATE TABLE `ps_state` (
   KEY `id_country` (`id_country`),
   KEY `name` (`name`),
   KEY `id_zone` (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=358 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=359 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89791,7 +89839,7 @@ CREATE TABLE `ps_statssearch` (
   `results` int(6) NOT NULL DEFAULT 0,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_statssearch`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89898,7 +89946,7 @@ CREATE TABLE `ps_stock_available` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_product` (`id_product`),
   KEY `id_product_attribute` (`id_product_attribute`)
-) ENGINE=InnoDB AUTO_INCREMENT=3246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91004,7 +91052,7 @@ CREATE TABLE `ps_stock_mvt` (
   PRIMARY KEY (`id_stock_mvt`),
   KEY `id_stock` (`id_stock`),
   KEY `id_stock_mvt_reason` (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91032,7 +91080,7 @@ CREATE TABLE `ps_stock_mvt_reason` (
   `date_upd` datetime NOT NULL,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91194,7 +91242,7 @@ CREATE TABLE `ps_supplier` (
   `date_upd` datetime NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_supplier`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91436,7 +91484,7 @@ CREATE TABLE `ps_supply_order_state` (
   `enclosed` tinyint(1) NOT NULL DEFAULT 0,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_supply_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91507,7 +91555,7 @@ CREATE TABLE `ps_tab` (
   `wording` varchar(255) DEFAULT NULL,
   `wording_domain` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_tab`)
-) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91929,7 +91977,7 @@ CREATE TABLE `ps_tax` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_tax`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92050,7 +92098,7 @@ CREATE TABLE `ps_tax_rule` (
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_tax` (`id_tax`),
   KEY `category_getproducts` (`id_tax_rules_group`,`id_country`,`id_state`,`zipcode_from`)
-) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92216,7 +92264,7 @@ CREATE TABLE `ps_tax_rules_group` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_tax_rules_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92275,7 +92323,7 @@ CREATE TABLE `ps_timezone` (
   `id_timezone` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   PRIMARY KEY (`id_timezone`)
-) ENGINE=InnoDB AUTO_INCREMENT=566 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=567 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92865,7 +92913,7 @@ CREATE TABLE `ps_translation` (
   PRIMARY KEY (`id_translation`),
   KEY `IDX_ADEBEB36BA299860` (`id_lang`),
   KEY `key` (`domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92996,7 +93044,7 @@ CREATE TABLE `ps_web_browser` (
   `id_web_browser` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93037,7 +93085,7 @@ CREATE TABLE `ps_webservice_account` (
   `active` tinyint(2) NOT NULL,
   PRIMARY KEY (`id_webservice_account`),
   KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93094,7 +93142,7 @@ CREATE TABLE `ps_webservice_permission` (
   KEY `resource` (`resource`),
   KEY `method` (`method`),
   KEY `id_webservice_account` (`id_webservice_account`)
-) ENGINE=InnoDB AUTO_INCREMENT=347 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=348 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93471,7 +93519,7 @@ CREATE TABLE `ps_wishlist` (
   `date_upd` datetime NOT NULL,
   `default` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id_wishlist`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93555,7 +93603,7 @@ CREATE TABLE `ps_zone` (
   `name` varchar(64) NOT NULL,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93618,4 +93666,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-30  8:40:54
+-- Dump completed on 2023-11-30 13:16:41
