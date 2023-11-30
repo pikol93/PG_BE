@@ -1330,7 +1330,7 @@ LOCK TABLES `ps_admin_filter` WRITE;
 INSERT INTO `ps_admin_filter` VALUES
 (1,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order\",\"sortOrder\":\"DESC\",\"filters\":[]}','order'),
 (2,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order_slip\",\"sortOrder\":\"asc\",\"filters\":[]}','credit_slip'),
-(3,1,1,'ProductController','catalogAction','{\"filter_category\":\"\",\"filter_column_id_product\":\"\",\"filter_column_name\":\"Etui do okular\\u00f3w Albinex\",\"filter_column_reference\":\"\",\"filter_column_name_category\":\"\",\"filter_column_price\":\"\",\"filter_column_sav_quantity\":\"\",\"filter_column_active\":\"\",\"last_offset\":\"0\",\"last_limit\":\"20\",\"last_orderBy\":\"id_product\",\"last_sortOrder\":\"desc\"}',''),
+(3,1,1,'ProductController','catalogAction','{\"filter_category\":\"\",\"filter_column_id_product\":\"\",\"filter_column_name\":\"Soczewki\",\"filter_column_reference\":\"\",\"filter_column_name_category\":\"\",\"filter_column_price\":\"\",\"filter_column_sav_quantity\":\"\",\"filter_column_active\":\"\",\"last_offset\":\"0\",\"last_limit\":\"20\",\"last_orderBy\":\"id_product\",\"last_sortOrder\":\"desc\"}',''),
 (4,1,1,'','','{\"limit\":10,\"orderBy\":\"id_request_sql\",\"sortOrder\":\"desc\",\"filters\":[]}','sql_request'),
 (5,1,1,'backup','index','{\"limit\":20,\"orderBy\":null,\"sortOrder\":null,\"filters\":[]}',''),
 (6,1,1,'','','{\"limit\":50,\"orderBy\":\"id_webservice_account\",\"sortOrder\":\"asc\",\"filters\":[]}','webservice_key'),
@@ -1457,7 +1457,7 @@ CREATE TABLE `ps_attribute` (
   `position` int(11) NOT NULL,
   PRIMARY KEY (`id_attribute`),
   KEY `attribute_group` (`id_attribute_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1466,6 +1466,10 @@ CREATE TABLE `ps_attribute` (
 
 LOCK TABLES `ps_attribute` WRITE;
 /*!40000 ALTER TABLE `ps_attribute` DISABLE KEYS */;
+INSERT INTO `ps_attribute` VALUES
+(30,9,'',0),
+(31,9,'',1),
+(32,9,'',2);
 /*!40000 ALTER TABLE `ps_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1482,7 +1486,7 @@ CREATE TABLE `ps_attribute_group` (
   `group_type` varchar(255) NOT NULL,
   `position` int(11) NOT NULL,
   PRIMARY KEY (`id_attribute_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1491,6 +1495,8 @@ CREATE TABLE `ps_attribute_group` (
 
 LOCK TABLES `ps_attribute_group` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_group` DISABLE KEYS */;
+INSERT INTO `ps_attribute_group` VALUES
+(9,0,'select',0);
 /*!40000 ALTER TABLE `ps_attribute_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1518,6 +1524,8 @@ CREATE TABLE `ps_attribute_group_lang` (
 
 LOCK TABLES `ps_attribute_group_lang` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_group_lang` DISABLE KEYS */;
+INSERT INTO `ps_attribute_group_lang` VALUES
+(9,1,'Krzywizna','Krzywizna');
 /*!40000 ALTER TABLE `ps_attribute_group_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1543,6 +1551,8 @@ CREATE TABLE `ps_attribute_group_shop` (
 
 LOCK TABLES `ps_attribute_group_shop` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_group_shop` DISABLE KEYS */;
+INSERT INTO `ps_attribute_group_shop` VALUES
+(9,1);
 /*!40000 ALTER TABLE `ps_attribute_group_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1596,6 +1606,10 @@ CREATE TABLE `ps_attribute_lang` (
 
 LOCK TABLES `ps_attribute_lang` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_lang` DISABLE KEYS */;
+INSERT INTO `ps_attribute_lang` VALUES
+(30,1,'8.6'),
+(31,1,'8.4'),
+(32,1,'8.2');
 /*!40000 ALTER TABLE `ps_attribute_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1621,6 +1635,10 @@ CREATE TABLE `ps_attribute_shop` (
 
 LOCK TABLES `ps_attribute_shop` WRITE;
 /*!40000 ALTER TABLE `ps_attribute_shop` DISABLE KEYS */;
+INSERT INTO `ps_attribute_shop` VALUES
+(30,1),
+(31,1),
+(32,1);
 /*!40000 ALTER TABLE `ps_attribute_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4984,7 +5002,7 @@ INSERT INTO `ps_configuration` VALUES
 (145,NULL,NULL,'PS_VIRTUAL_PROD_FEATURE_ACTIVE','1','0000-00-00 00:00:00','2023-10-23 14:29:43'),
 (146,NULL,NULL,'PS_CUSTOMIZATION_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (147,NULL,NULL,'PS_CART_RULE_FEATURE_ACTIVE','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-30 14:15:48'),
+(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-30 14:30:50'),
 (149,NULL,NULL,'PS_ALIAS_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (150,NULL,NULL,'PS_TAX_ADDRESS_TYPE','id_address_delivery','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (151,NULL,NULL,'PS_SHOP_DEFAULT','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -5655,7 +5673,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=877 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=886 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6537,7 +6555,16 @@ INSERT INTO `ps_connections_source` VALUES
 (873,53,'https://localhost:8001/etui/3189-product-1681.html','localhost:8001/91-etui','','2023-11-30 14:12:43'),
 (874,53,'https://localhost:8001/91-etui?page=3','localhost:8001/etui/3192-product-1678.html','','2023-11-30 14:12:56'),
 (875,53,'https://localhost:8001/91-etui?page=3','localhost:8001/etui/3192-product-1678.html','','2023-11-30 14:14:52'),
-(876,53,'https://localhost:8001/','localhost:8001/91-etui','','2023-11-30 14:15:22');
+(876,53,'https://localhost:8001/','localhost:8001/91-etui','','2023-11-30 14:15:22'),
+(877,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2804?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/ogolne/2804-product-70.html','','2023-11-30 14:19:33'),
+(878,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2817?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/dla-dzieci/2817-product-80.html','','2023-11-30 14:25:04'),
+(879,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2817?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/dla-dzieci/2817-product-80.html','','2023-11-30 14:27:03'),
+(880,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2807?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/ogolne/2807-product-67.html','','2023-11-30 14:28:40'),
+(881,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2806?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/ogolne/2806-product-68.html','','2023-11-30 14:29:33'),
+(882,53,'https://localhost:8001/ogolne/2806-product-68.html','localhost:8001/szukaj?controller=search&s=Soczewki','','2023-11-30 14:29:37'),
+(883,53,'https://localhost:8001/szukaj?controller=search&s=Soczewki','localhost:8001/ogolne/2806-49-product-68.html','','2023-11-30 14:29:45'),
+(884,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2805?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/ogolne/2805-product-69.html','','2023-11-30 14:30:25'),
+(885,53,'https://localhost:8001/admin-dev/index.php/sell/catalog/products/2804?_token=yZPC0Jnhy8t44OUsbf8jvQNtKZ3xsCV04oLoVUoB81I','localhost:8001/ogolne/2804-product-70.html','','2023-11-30 14:30:50');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -27860,7 +27887,21 @@ INSERT INTO `ps_layered_product_attribute` VALUES
 (24,18,4,1),
 (25,16,4,1),
 (25,17,4,1),
-(25,18,4,1);
+(25,18,4,1),
+(30,2804,9,1),
+(30,2805,9,1),
+(30,2806,9,1),
+(30,2807,9,1),
+(30,2817,9,1),
+(31,2804,9,1),
+(31,2805,9,1),
+(31,2806,9,1),
+(31,2807,9,1),
+(31,2817,9,1),
+(32,2805,9,1),
+(32,2806,9,1),
+(32,2807,9,1),
+(32,2817,9,1);
 /*!40000 ALTER TABLE `ps_layered_product_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -28020,7 +28061,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28142,7 +28183,34 @@ INSERT INTO `ps_log` VALUES
 (114,1,0,'Product modification','Product',3189,1,NULL,1,0,1,'2023-11-30 14:12:39','2023-11-30 14:12:39'),
 (115,1,0,'Product modification','Product',3192,1,NULL,1,0,1,'2023-11-30 14:13:11','2023-11-30 14:13:11'),
 (116,1,0,'Product modification','Product',3183,1,NULL,1,0,1,'2023-11-30 14:15:11','2023-11-30 14:15:11'),
-(117,1,0,'Product modification','Product',3176,1,NULL,1,0,1,'2023-11-30 14:15:48','2023-11-30 14:15:48');
+(117,1,0,'Product modification','Product',3176,1,NULL,1,0,1,'2023-11-30 14:15:48','2023-11-30 14:15:48'),
+(118,1,0,'Product modification','Product',2804,1,NULL,1,0,1,'2023-11-30 14:19:05','2023-11-30 14:19:05'),
+(119,1,0,'Product modification','Product',2804,1,NULL,1,0,1,'2023-11-30 14:19:32','2023-11-30 14:19:32'),
+(120,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:23:56','2023-11-30 14:23:56'),
+(121,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:24:06','2023-11-30 14:24:06'),
+(122,1,0,'dodanie AttributeGroup','AttributeGroup',9,1,NULL,1,0,1,'2023-11-30 14:24:32','2023-11-30 14:24:32'),
+(123,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:24:53','2023-11-30 14:24:53'),
+(124,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:24:57','2023-11-30 14:24:57'),
+(125,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:25:04','2023-11-30 14:25:04'),
+(126,1,0,'dodanie Attribute','Attribute',30,1,NULL,1,0,1,'2023-11-30 14:25:39','2023-11-30 14:25:39'),
+(127,1,0,'dodanie Attribute','Attribute',31,1,NULL,1,0,1,'2023-11-30 14:25:43','2023-11-30 14:25:43'),
+(128,1,0,'dodanie Attribute','Attribute',32,1,NULL,1,0,1,'2023-11-30 14:25:48','2023-11-30 14:25:48'),
+(129,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:26:37','2023-11-30 14:26:37'),
+(130,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:27:00','2023-11-30 14:27:00'),
+(131,1,0,'Product modification','Product',2817,1,NULL,1,0,1,'2023-11-30 14:27:03','2023-11-30 14:27:03'),
+(132,1,0,'Product modification','Product',2807,1,NULL,1,0,1,'2023-11-30 14:28:27','2023-11-30 14:28:27'),
+(133,1,0,'Product modification','Product',2807,1,NULL,1,0,1,'2023-11-30 14:28:37','2023-11-30 14:28:37'),
+(134,1,0,'Product modification','Product',2807,1,NULL,1,0,1,'2023-11-30 14:28:39','2023-11-30 14:28:39'),
+(135,1,0,'Product modification','Product',2806,1,NULL,1,0,1,'2023-11-30 14:29:20','2023-11-30 14:29:20'),
+(136,1,0,'Product modification','Product',2806,1,NULL,1,0,1,'2023-11-30 14:29:30','2023-11-30 14:29:30'),
+(137,1,0,'Product modification','Product',2806,1,NULL,1,0,1,'2023-11-30 14:29:32','2023-11-30 14:29:32'),
+(138,1,0,'Product modification','Product',2806,1,NULL,1,0,1,'2023-11-30 14:29:58','2023-11-30 14:29:58'),
+(139,1,0,'Product modification','Product',2805,1,NULL,1,0,1,'2023-11-30 14:30:09','2023-11-30 14:30:09'),
+(140,1,0,'Product modification','Product',2805,1,NULL,1,0,1,'2023-11-30 14:30:19','2023-11-30 14:30:19'),
+(141,1,0,'Product modification','Product',2805,1,NULL,1,0,1,'2023-11-30 14:30:25','2023-11-30 14:30:25'),
+(142,1,0,'Product modification','Product',2804,1,NULL,1,0,1,'2023-11-30 14:30:38','2023-11-30 14:30:38'),
+(143,1,0,'Product modification','Product',2804,1,NULL,1,0,1,'2023-11-30 14:30:48','2023-11-30 14:30:48'),
+(144,1,0,'Product modification','Product',2804,1,NULL,1,0,1,'2023-11-30 14:30:50','2023-11-30 14:30:50');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -31128,10 +31196,10 @@ INSERT INTO `ps_product` VALUES
 (2801,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,341.460000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0,0,1,''),
 (2802,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0,0,1,''),
 (2803,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,260.160000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0,0,1,''),
-(2804,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,73.170000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0,0,1,''),
-(2805,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,60.980000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0,0,1,''),
-(2806,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,146.340000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0,0,1,''),
-(2807,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,97.560000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0,0,1,''),
+(2804,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,73.170000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,56,'2023-11-30 09:24:10','2023-11-30 14:30:50',0,0,1,'combinations'),
+(2805,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,60.980000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,52,'2023-11-30 09:24:11','2023-11-30 14:30:25',0,0,1,'combinations'),
+(2806,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,146.340000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,49,'2023-11-30 09:24:11','2023-11-30 14:29:58',0,0,1,'combinations'),
+(2807,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,97.560000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,46,'2023-11-30 09:24:11','2023-11-30 14:28:39',0,0,1,'combinations'),
 (2808,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,479.670000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0,0,1,''),
 (2809,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,398.370000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0,0,1,''),
 (2810,0,0,74,1,1,0,0,'','','','',0.000000,0,1,NULL,0,235.770000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0,0,1,''),
@@ -31141,7 +31209,7 @@ INSERT INTO `ps_product` VALUES
 (2814,0,0,77,1,1,0,0,'','','','',0.000000,0,1,NULL,0,154.470000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0,0,1,''),
 (2815,0,0,77,1,1,0,0,'','','','',0.000000,0,1,NULL,0,235.770000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0,0,1,''),
 (2816,0,0,77,1,1,0,0,'','','','',0.000000,0,1,NULL,0,284.550000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0,0,1,''),
-(2817,0,0,77,1,1,0,0,'','','','',0.000000,0,1,NULL,0,178.860000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0,0,1,''),
+(2817,0,0,77,1,1,0,0,'','','','',0.000000,0,1,NULL,0,178.860000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,43,'2023-11-30 09:24:12','2023-11-30 14:27:03',0,0,1,'combinations'),
 (2818,0,0,79,1,1,0,0,'','','','',0.000000,0,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0,0,1,''),
 (2819,0,0,79,1,1,0,0,'','','','',0.000000,0,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:13','2023-11-30 09:24:13',0,0,1,''),
 (2820,0,0,79,1,1,0,0,'','','','',0.000000,0,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,0,0,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-30 09:24:13','2023-11-30 09:24:13',0,0,1,''),
@@ -31580,7 +31648,7 @@ CREATE TABLE `ps_product_attribute` (
   KEY `reference` (`reference`),
   KEY `supplier_reference` (`supplier_reference`),
   KEY `id_product_id_product_attribute` (`id_product_attribute`,`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -31589,6 +31657,21 @@ CREATE TABLE `ps_product_attribute` (
 
 LOCK TABLES `ps_product_attribute` WRITE;
 /*!40000 ALTER TABLE `ps_product_attribute` DISABLE KEYS */;
+INSERT INTO `ps_product_attribute` VALUES
+(43,2817,'','','','','','','',0.000000,0.000000,0.000000,3,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(44,2817,'','','','','','','',0.000000,0.000000,0.000000,4,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(45,2817,'','','','','','','',0.000000,0.000000,0.000000,0,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(46,2807,'','','','','','','',0.000000,0.000000,0.000000,7,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(47,2807,'','','','','','','',0.000000,0.000000,0.000000,2,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(48,2807,'','','','','','','',0.000000,0.000000,0.000000,12,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(49,2806,'','','','','','','',0.000000,0.000000,0.000000,2,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(50,2806,'','','','','','','',0.000000,0.000000,0.000000,2,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(51,2806,'','','','','','','',0.000000,0.000000,0.000000,15,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(52,2805,'','','','','','','',0.000000,0.000000,0.000000,2,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(53,2805,'','','','','','','',0.000000,0.000000,0.000000,1,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(54,2805,'','','','','','','',0.000000,0.000000,0.000000,2,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(55,2804,'','','','','','','',0.000000,0.000000,0.000000,1,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(56,2804,'','','','','','','',0.000000,0.000000,0.000000,1,0.000000,0.000000,1,1,NULL,0,'0000-00-00');
 /*!40000 ALTER TABLE `ps_product_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -31613,6 +31696,21 @@ CREATE TABLE `ps_product_attribute_combination` (
 
 LOCK TABLES `ps_product_attribute_combination` WRITE;
 /*!40000 ALTER TABLE `ps_product_attribute_combination` DISABLE KEYS */;
+INSERT INTO `ps_product_attribute_combination` VALUES
+(30,43),
+(30,46),
+(30,49),
+(30,52),
+(30,55),
+(31,44),
+(31,47),
+(31,50),
+(31,54),
+(31,56),
+(32,45),
+(32,48),
+(32,51),
+(32,53);
 /*!40000 ALTER TABLE `ps_product_attribute_combination` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -31672,6 +31770,21 @@ CREATE TABLE `ps_product_attribute_shop` (
 
 LOCK TABLES `ps_product_attribute_shop` WRITE;
 /*!40000 ALTER TABLE `ps_product_attribute_shop` DISABLE KEYS */;
+INSERT INTO `ps_product_attribute_shop` VALUES
+(2817,43,1,0.000000,0.000000,0.000000,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(2817,44,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2817,45,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2807,46,1,0.000000,0.000000,0.000000,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(2807,47,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2807,48,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2806,49,1,0.000000,0.000000,0.000000,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(2806,50,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2806,51,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2805,52,1,0.000000,0.000000,0.000000,0.000000,0.000000,1,1,NULL,0,'0000-00-00'),
+(2805,53,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2805,54,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2804,55,1,0.000000,0.000000,0.000000,0.000000,0.000000,NULL,1,NULL,0,'0000-00-00'),
+(2804,56,1,0.000000,0.000000,0.000000,0.000000,0.000000,1,1,NULL,0,'0000-00-00');
 /*!40000 ALTER TABLE `ps_product_attribute_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -32684,10 +32797,10 @@ INSERT INTO `ps_product_lang` VALUES
 (2801,1,1,'Maksymalna odporność na zarysowania    Łatwe czyszczenie    Właściwości antystatyczne    Właściwości hydrofobowe zapobiegają przyleganiu kropel wody do powierzchni soczewki    Eliminuje niepożądane zjawiska odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego    Zwiększa przejrzystość soczewki i polepsza kontrast    Zmniejsza zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze   Cena dotyczy 2 szkieł magazynowych wraz z montażem przy zakupie opraw w naszym sklepie internetowym.','','product-97','','','','Hoya Hilux 1.50 Hi-Vision Longlife','','','',''),
 (2802,1,1,'Soczewki recepturowe o poszerzonym zakresie dostępnych mocy  Nadają się do opraw sportowych (profilowanych) Soczewki z podstawową powłoką antyrefleksyjną Świetne właściwości optyczne  Cena obejmuje montaż 2 szt. przy zakupie opraw w naszym sklepie internetowym','','product-73','','','','JZO Izoplast 150 SF Szmaragd UV','','','',''),
 (2803,1,1,'Przeznaczone do opraw sportowych (profilowanych) Świetne właściwości optyczne Powłoka utwardzająca  Cena obejmuje montaż 2 szt. przy zakupie opraw w naszym sklepie internetowym.','','product-71','','','','JZO Izoplast 150 SF Topaz','','','',''),
-(2804,1,1,'Soczewki plastikowe z podstawowym antyrefleksem w idneksie 1.5 o standardowej grubości.  Podstawowa powłoka antyrefleksyjna w atrakcyjnej cenie. Eliminują odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego. Większa przejrzystość i lepszy kontrast. Redukują zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Cena dotyczy szkieł magazynowych: od -6,0 do +6,0 cyl. 2,0 Dobre rozwiązanie przy małych i średnich wadach wzroku.   cena za parę soczewek (2 szt.)   Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.','','product-70','','','','JZO Praktis 150 AR cyl. do 2  soczewki okularowe z antyrefleksem','','','',''),
-(2805,1,1,'Soczewki plastikowe z powłoką utwardzającą w idneksie 1.5 o standardowej grubości.  Świetne właściwości optyczne w atrakcyjnej cenie Powłoka utwardzająca Cena dotyczy szkieł magazynowych: od -6,0 do +6,0 cyl. 2,0 Dobre rozwiązanie przy małych i średnich wadach wzroku  cena za parę soczewek (2 szt.)   Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS.   Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.','','product-69','','','','JZO Praktis 150 UTR cyl. do 2 utwardzone soczewki okularowe','','','',''),
-(2806,1,1,'Soczewki plastikowe z podstawowym antyrefleksem ułatwiającym czyszczenie w idneksie 1.5 o standardowej grubości.  Podstawowa powłoka antyrefleksyjna w atrakcyjnej cenie. Dodatkowa powłoka oleofobowa ułatwiająca utrzymanie okularów w czystości. Eliminują odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego. Większa przejrzystość i lepszy kontrast. Redukują zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Cena dotyczy szkieł magazynowych: od -6,0 do +3,75 cyl. 4,0 Dobre rozwiązanie przy małych i średnich wadach wzroku.   cena za parę soczewek (2 szt.)   Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.','','product-68','','','','JZO Praktis 150 SHMC cyl. do 4 soczewki okularowe z antyrefleksem','','','',''),
-(2807,1,1,'Soczewki plastikowe z podstawowym antyrefleksem ułatwiającym czyszczenie w idneksie 1.5 o standardowej grubości.  Podstawowa powłoka antyrefleksyjna w atrakcyjnej cenie. Dodatkowa powłoka oleofobowa ułatwiająca utrzymanie okularów w czystości. Eliminują odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego. Większa przejrzystość i lepszy kontrast. Redukują zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Cena dotyczy szkieł magazynowych: od -6,0 do +6,0 cyl. 2,0 Dobre rozwiązanie przy małych i średnich wadach wzroku.   cena za parę soczewek (2 szt.)   Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.','','product-67','','','','JZO Praktis 150 SHMC cyl. do 2 soczewki okularowe z antyrefleksem','','','',''),
+(2804,1,1,'<p>Soczewki plastikowe z podstawowym antyrefleksem w idneksie 1.5 o standardowej grubości. Podstawowa powłoka antyrefleksyjna w atrakcyjnej cenie. Eliminują odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego. Większa przejrzystość i lepszy kontrast. Redukują zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Cena dotyczy szkieł magazynowych: od -6,0 do +6,0 cyl. 2,0 Dobre rozwiązanie przy małych i średnich wadach wzroku. cena za parę soczewek (2 szt.) Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.</p>','','product-70','','','','JZO Praktis 150 AR cyl. do 2  soczewki okularowe z antyrefleksem','','','',''),
+(2805,1,1,'<p>Soczewki plastikowe z powłoką utwardzającą w idneksie 1.5 o standardowej grubości. Świetne właściwości optyczne w atrakcyjnej cenie Powłoka utwardzająca Cena dotyczy szkieł magazynowych: od -6,0 do +6,0 cyl. 2,0 Dobre rozwiązanie przy małych i średnich wadach wzroku cena za parę soczewek (2 szt.) Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.</p>','','product-69','','','','JZO Praktis 150 UTR cyl. do 2 utwardzone soczewki okularowe','','','',''),
+(2806,1,1,'<p>Soczewki plastikowe z podstawowym antyrefleksem ułatwiającym czyszczenie w idneksie 1.5 o standardowej grubości. Podstawowa powłoka antyrefleksyjna w atrakcyjnej cenie. Dodatkowa powłoka oleofobowa ułatwiająca utrzymanie okularów w czystości. Eliminują odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego. Większa przejrzystość i lepszy kontrast. Redukują zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Cena dotyczy szkieł magazynowych: od -6,0 do +3,75 cyl. 4,0 Dobre rozwiązanie przy małych i średnich wadach wzroku. cena za parę soczewek (2 szt.) Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.</p>','','product-68','','','','JZO Praktis 150 SHMC cyl. do 4 soczewki okularowe z antyrefleksem','','','',''),
+(2807,1,1,'<p>Soczewki plastikowe z podstawowym antyrefleksem ułatwiającym czyszczenie w idneksie 1.5 o standardowej grubości. Podstawowa powłoka antyrefleksyjna w atrakcyjnej cenie. Dodatkowa powłoka oleofobowa ułatwiająca utrzymanie okularów w czystości. Eliminują odbicia światła, dzięki temu do oka dociera prawie 100 % światła widzialnego. Większa przejrzystość i lepszy kontrast. Redukują zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Cena dotyczy szkieł magazynowych: od -6,0 do +6,0 cyl. 2,0 Dobre rozwiązanie przy małych i średnich wadach wzroku. cena za parę soczewek (2 szt.) Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.</p>','','product-67','','','','JZO Praktis 150 SHMC cyl. do 2 soczewki okularowe z antyrefleksem','','','',''),
 (2808,1,1,'CIENKIE I WYTRZYMAŁE Soczewki w wysokim indeksie, 30% cieńsze i 7 razy bardziej wytrzymałe od standardowych. Doskonałe do każdego materiału w szczególności do opraw \"na żyłkę\". ODPORNOŚĆ NA KURZ Usuwają cząsteczki kurzu, dzięki czemu szkła są łatwe do czyszczenia, zapewniając tym samym bardziej wyraźne widzenie. ODPORNE NA SMUGI Przeciwdziałają powstawaniu kłopotliwych smug, zapewniając klarowność widzenia i łatwość w czyszczeniu szkieł. PRZEJRZYSTE WIDZENIE Mniej refleksów świetlnych dla lepszej widoczności i estetyki. ODPORNY NA ZARYSOWANIA Zapewnienie wyraźnego widzenia, gwarantowane przez 2 lata. OCHRONA PRZED PROMIENIOWANIEM UV Chroni Twoje oczy przed promieniami UVA i UVB. OCHRONA PRZED WODĄ Nie pozwalają na osadzanie kropel wody, dzięki czemu szkła pozostają czyste.','','product-59','','','','Essilor Ormix 1,6 Crizal Sapphire HR','','','',''),
 (2809,1,1,'ODPORNOŚĆ NA KURZ Usuwają cząsteczki kurzu, dzięki czemu szkła są łatwe do czyszczenia, zapewniając tym samym bardziej wyraźne widzenie.   ODPORNE NA SMUGI Przeciwdziałają powstawaniu kłopotliwych smug, zapewniając klarowność widzenia i łatwość w czyszczeniu szkieł.     PRZEJRZYSTE WIDZENIE Mniej refleksów świetlnych dla lepszej widoczności i estetyki.     ODPORNY NA ZARYSOWANIA Zapewnienie wyraźnego widzenia, gwarantowane przez 2 lata.     OCHRONA PRZED PROMIENIOWANIEM UV Chroni Twoje oczy przed promieniami UVA i UVB.  OCHRONA PRZED WODĄ   Nie pozwalają na osadzanie kropel wody, dzięki czemu szkła pozostają czyste.','','product-32','','','','Essilor Orma 1,5 Crizal Sapphire HR','','','',''),
 (2810,1,1,'Przejrzyste soczewki do okularów Essilor Orma 1.5 o standardowej grubości, z niezwykle łatwą w czyszczeniu powłoką antyrefleksyjną Crizal ROCK.  Odporność na zarysowania, również podczas wycierania czy upuszczania okularów.  Redukcja odblasków dla wyraźnego widzenia. Odpychanie kurzu i wody, a także odporność na smugi dla szkieł, które pozostają przejrzyste, tak jak pierwszego dnia Najbardziej wszechstronna i codzienna ochrona przed niewidocznymi i często nieodwracalnymi zagrożeniami związanymi z odbiciem promieni UV.  cena za parę soczewek (2 szt.)  Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS.    Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.','','product-30','','','','Essilor Orma 1,5 Crizal ROCK szkła z antyrefleksem do okularów korekcyjnych','','','',''),
@@ -32697,7 +32810,7 @@ INSERT INTO `ps_product_lang` VALUES
 (2814,1,1,'Soczewki dedykowane dla małych dzieci i niemowląt.   Nowoczesny materiał optyczny o wyjątkowej odporności na uderzenia, oraz rewelacyjnej przejrzystości i lekkości    Wielowarstwowa powłoka antyrefleksyjna z warstwą hydrofobową (zmniejsza przyleganie kropelek wody do powierzchni soczewki)    Eliminuje niepożądane zjawiska odbicia światła, dzięki temu do oka dociera prawie 100 % światła    Zwiększa przejrzystość soczewki i polepsza kontrast    Zmniejsza zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze   Cena dotyczy 2 szkieł magazynowych wraz z montażem przy zakupie opraw w naszym sklepie internetowym.','','product-99','','','','Hoya Hilux PNX Kids 1.53 Hi-Vision Aqua','','','',''),
 (2815,1,1,'Nowoczesny materiał optyczny o wyjątkowej odporności na uderzenia, oraz rewelacyjnej przejrzystości i lekkości    Szczególnie polecany dla zastosowań sportowych, dzieci oraz do opraw typu \"patent\"    Wielowarstwowa powłoka antyrefleksyjna z warstwą hydrofobową (zmniejsza przyleganie kropelek wody do powierzchni soczewki)    Eliminuje niepożądane zjawiska odbicia światła, dzięki temu do oka dociera prawie 100 % światła    Zwiększa przejrzystość soczewki i polepsza kontrast    Zmniejsza zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze   Cena dotyczy 2 szkieł magazynowych wraz z montażem przy zakupie opraw w naszym sklepie internetowym.','','product-98','','','','Hoya Hilux PNX 1.53 Hi-Vision Aqua','','','',''),
 (2816,1,1,'Plastikowe soczewki fotochromowe.    Soczewki z powłoką utwardzającą.    Zaciemniają się jednolicie na całej powierzchni.    Zapewniają wygodę użytkowania w zmiennych warunkach oświetlenia.    Kolor barwienia brązowy lub szary.    Cena za 2 szt. z montażem przy zakupie opraw w naszym sklepie internetowym.','','product-89','','','','JZO Izoplast 150 M Acclimates Topaz','','','',''),
-(2817,1,1,'Soczewki plastikowe z podstawowym antyrefleksem ułatwiającym czyszczenie w idneksie 1.6 o zredukowanej grubości.    30% cieńsze i 7 razy bardziej wytrzymałe od standardowych. Doskonałe do każdego materiału w szczególności do opraw \"na żyłkę\" oraz do opraw z nakładką polaryzacyjną Clip-ON    Ekonomiczna powłoka antyrefleksyjna z ułatwiającą czyszczenie powłoką oleofobową.    Eliminują niepożądane zjawiska odbicia światła, dzięki temu do oka dociera prawie 100 % światła.    Większa przejrzystość i lepszy kontrast.    Zmniejszają zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze.    Idealne dla mocy powyżej + 2.0 i poniżej -2.0   cena za parę soczewek (2 szt.)  Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.','','product-80','','','','JZO Praktis 160 SHMC cyl. do 2 cienkie soczewki okularowe z antyrefleksem','','','',''),
+(2817,1,1,'<p>Soczewki plastikowe z podstawowym antyrefleksem ułatwiającym czyszczenie w idneksie 1.6 o zredukowanej grubości. 30% cieńsze i 7 razy bardziej wytrzymałe od standardowych. Doskonałe do każdego materiału w szczególności do opraw \"na żyłkę\" oraz do opraw z nakładką polaryzacyjną Clip-ON Ekonomiczna powłoka antyrefleksyjna z ułatwiającą czyszczenie powłoką oleofobową. Eliminują niepożądane zjawiska odbicia światła, dzięki temu do oka dociera prawie 100 % światła. Większa przejrzystość i lepszy kontrast. Zmniejszają zmęczenie oczu spowodowane przez sztuczne źródła światła, pracę przy komputerze. Idealne dla mocy powyżej + 2.0 i poniżej -2.0 cena za parę soczewek (2 szt.) Przy zakupie opraw okularowych z soczewkami korekcyjnymi montaż GRATIS. Zamówienie opraw z soczewkami korekcyjnymi wydłuża czas oczekiwania na produkt do terminu widniejącego na karcie produktu wybranego typu soczewek.</p>','','product-80','','','','JZO Praktis 160 SHMC cyl. do 2 cienkie soczewki okularowe z antyrefleksem','','','',''),
 (2818,1,1,'TECHNOLOGIA W PIĘKNEJ OPRAWIE Damskie okulary przeciwsłoneczne z polaryzacją Anne Marii wykonane z odpornego na korozję monelu. Wyposażone w soczewki z filtrem UV oraz filtrem polaryzacyjnym, zapewniające 100% ochronę przed szkodliwym promieniowaniem słonecznym.  W zestawie z okularami Anne Marii otrzymujesz gratis:  etui do okularów ściereczkę do czyszczenia okularów','','product-4533','','','','Anne Marii AMS 10030 okulary przeciwsłoneczne z polaryzacją','','','',''),
 (2819,1,1,'TECHNOLOGIA W PIĘKNEJ OPRAWIE Damskie okulary przeciwsłoneczne z polaryzacją Anne Marii wykonane z odpornego na korozję monelu. Wyposażone w soczewki z filtrem UV oraz filtrem polaryzacyjnym, zapewniające 100% ochronę przed szkodliwym promieniowaniem słonecznym.  W zestawie z okularami Anne Marii otrzymujesz gratis:  etui do okularów ściereczkę do czyszczenia okularów','','product-4532','','','','Anne Marii AMS 10029 okulary przeciwsłoneczne z polaryzacją','','','',''),
 (2820,1,1,'TECHNOLOGIA W PIĘKNEJ OPRAWIE Damskie okulary przeciwsłoneczne z polaryzacją Anne Marii wykonane z odpornego na korozję monelu. Wyposażone w soczewki z filtrem UV oraz filtrem polaryzacyjnym, zapewniające 100% ochronę przed szkodliwym promieniowaniem słonecznym.  W zestawie z okularami Anne Marii otrzymujesz gratis:  etui do okularów ściereczkę do czyszczenia okularów','','product-4531','','','','Anne Marii AMS 10028 okulary przeciwsłoneczne z polaryzacją','','','',''),
@@ -33824,10 +33937,10 @@ INSERT INTO `ps_product_shop` VALUES
 (2801,1,74,1,0,0,0.000000,1,NULL,0,341.460000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0),
 (2802,1,74,1,0,0,0.000000,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0),
 (2803,1,74,1,0,0,0.000000,1,NULL,0,260.160000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0),
-(2804,1,74,1,0,0,0.000000,1,NULL,0,73.170000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:10','2023-11-30 09:24:10',0),
-(2805,1,74,1,0,0,0.000000,1,NULL,0,60.980000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0),
-(2806,1,74,1,0,0,0.000000,1,NULL,0,146.340000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0),
-(2807,1,74,1,0,0,0.000000,1,NULL,0,97.560000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0),
+(2804,1,74,1,0,0,0.000000,1,NULL,0,73.170000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',56,0,'2023-11-30 09:24:10','2023-11-30 14:30:50',0),
+(2805,1,74,1,0,0,0.000000,1,NULL,0,60.980000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',52,0,'2023-11-30 09:24:11','2023-11-30 14:30:25',0),
+(2806,1,74,1,0,0,0.000000,1,NULL,0,146.340000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',49,0,'2023-11-30 09:24:11','2023-11-30 14:29:58',0),
+(2807,1,74,1,0,0,0.000000,1,NULL,0,97.560000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',46,0,'2023-11-30 09:24:11','2023-11-30 14:28:39',0),
 (2808,1,74,1,0,0,0.000000,1,NULL,0,479.670000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0),
 (2809,1,74,1,0,0,0.000000,1,NULL,0,398.370000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0),
 (2810,1,74,1,0,0,0.000000,1,NULL,0,235.770000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:11','2023-11-30 09:24:11',0),
@@ -33837,7 +33950,7 @@ INSERT INTO `ps_product_shop` VALUES
 (2814,1,77,1,0,0,0.000000,1,NULL,0,154.470000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0),
 (2815,1,77,1,0,0,0.000000,1,NULL,0,235.770000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0),
 (2816,1,77,1,0,0,0.000000,1,NULL,0,284.550000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0),
-(2817,1,77,1,0,0,0.000000,1,NULL,0,178.860000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0),
+(2817,1,77,1,0,0,0.000000,1,NULL,0,178.860000,0.000000,'',0.000000,0.000000,0,0,0,1,'301-category',0,1,'0000-00-00',0,'new',1,1,'both',43,0,'2023-11-30 09:24:12','2023-11-30 14:27:03',0),
 (2818,1,79,1,0,0,0.000000,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:12','2023-11-30 09:24:12',0),
 (2819,1,79,1,0,0,0.000000,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:13','2023-11-30 09:24:13',0),
 (2820,1,79,1,0,0,0.000000,1,NULL,0,317.070000,0.000000,'',0.000000,0.000000,0,0,0,1,'',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-30 09:24:13','2023-11-30 09:24:13',0),
@@ -70473,7 +70586,6 @@ INSERT INTO `ps_search_index` VALUES
 (2803,137194,6),
 (2803,137223,6),
 (2804,695,1),
-(2804,707,1),
 (2804,713,1),
 (2804,717,1),
 (2804,718,1),
@@ -70520,7 +70632,6 @@ INSERT INTO `ps_search_index` VALUES
 (2804,137167,1),
 (2804,137168,1),
 (2804,137169,1),
-(2804,137201,1),
 (2804,137202,1),
 (2804,137206,1),
 (2804,137248,1),
@@ -70539,7 +70650,12 @@ INSERT INTO `ps_search_index` VALUES
 (2804,137261,1),
 (2804,137262,1),
 (2804,137263,1),
+(2804,127110,2),
+(2804,152775,2),
+(2804,152776,2),
+(2804,707,3),
 (2804,137175,3),
+(2804,137201,3),
 (2804,101837,6),
 (2804,137136,6),
 (2804,137193,6),
@@ -70548,7 +70664,6 @@ INSERT INTO `ps_search_index` VALUES
 (2804,134480,7),
 (2804,137247,7),
 (2805,695,1),
-(2805,707,1),
 (2805,713,1),
 (2805,717,1),
 (2805,718,1),
@@ -70592,6 +70707,11 @@ INSERT INTO `ps_search_index` VALUES
 (2805,137261,1),
 (2805,137262,1),
 (2805,137263,1),
+(2805,127110,2),
+(2805,137201,2),
+(2805,152775,2),
+(2805,152776,2),
+(2805,707,3),
 (2805,137175,3),
 (2805,101837,6),
 (2805,137136,6),
@@ -70603,7 +70723,6 @@ INSERT INTO `ps_search_index` VALUES
 (2805,134480,7),
 (2806,692,1),
 (2806,695,1),
-(2806,707,1),
 (2806,713,1),
 (2806,717,1),
 (2806,718,1),
@@ -70638,7 +70757,6 @@ INSERT INTO `ps_search_index` VALUES
 (2806,136603,1),
 (2806,136731,1),
 (2806,136870,1),
-(2806,137144,1),
 (2806,137156,1),
 (2806,137157,1),
 (2806,137158,1),
@@ -70677,6 +70795,12 @@ INSERT INTO `ps_search_index` VALUES
 (2806,137379,1),
 (2806,137380,1),
 (2806,137381,1),
+(2806,127110,2),
+(2806,137143,2),
+(2806,152775,2),
+(2806,152776,2),
+(2806,707,3),
+(2806,137144,3),
 (2806,137175,3),
 (2806,101837,6),
 (2806,137136,6),
@@ -70688,7 +70812,6 @@ INSERT INTO `ps_search_index` VALUES
 (2806,137247,7),
 (2807,692,1),
 (2807,695,1),
-(2807,707,1),
 (2807,713,1),
 (2807,717,1),
 (2807,718,1),
@@ -70723,7 +70846,6 @@ INSERT INTO `ps_search_index` VALUES
 (2807,136603,1),
 (2807,136731,1),
 (2807,136870,1),
-(2807,137144,1),
 (2807,137156,1),
 (2807,137157,1),
 (2807,137158,1),
@@ -70737,7 +70859,6 @@ INSERT INTO `ps_search_index` VALUES
 (2807,137167,1),
 (2807,137168,1),
 (2807,137169,1),
-(2807,137201,1),
 (2807,137202,1),
 (2807,137206,1),
 (2807,137248,1),
@@ -70761,7 +70882,14 @@ INSERT INTO `ps_search_index` VALUES
 (2807,137378,1),
 (2807,137379,1),
 (2807,137380,1),
+(2807,127110,2),
+(2807,137143,2),
+(2807,152775,2),
+(2807,152776,2),
+(2807,707,3),
+(2807,137144,3),
 (2807,137175,3),
+(2807,137201,3),
 (2807,101837,6),
 (2807,137136,6),
 (2807,137193,6),
@@ -71324,7 +71452,6 @@ INSERT INTO `ps_search_index` VALUES
 (2816,137223,6),
 (2816,138063,6),
 (2817,695,1),
-(2817,707,1),
 (2817,713,1),
 (2817,717,1),
 (2817,718,1),
@@ -71370,7 +71497,6 @@ INSERT INTO `ps_search_index` VALUES
 (2817,136603,1),
 (2817,136731,1),
 (2817,136870,1),
-(2817,137144,1),
 (2817,137154,1),
 (2817,137155,1),
 (2817,137156,1),
@@ -71404,7 +71530,14 @@ INSERT INTO `ps_search_index` VALUES
 (2817,138101,1),
 (2817,138102,1),
 (2817,138103,1),
+(2817,127110,2),
+(2817,137143,2),
+(2817,137201,2),
+(2817,152775,2),
+(2817,152776,2),
+(2817,707,3),
 (2817,119000,3),
+(2817,137144,3),
 (2817,101837,6),
 (2817,134480,6),
 (2817,137193,6),
@@ -85653,7 +85786,7 @@ CREATE TABLE `ps_search_word` (
   `word` varchar(30) NOT NULL,
   PRIMARY KEY (`id_word`),
   UNIQUE KEY `id_lang` (`id_lang`,`id_shop`,`word`)
-) ENGINE=InnoDB AUTO_INCREMENT=152775 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=154727 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86649,6 +86782,7 @@ INSERT INTO `ps_search_word` VALUES
 (120190,1,1,'bezramkowa'),
 (126083,1,1,'bezsrubowy'),
 (123186,1,1,'bezsrubowym'),
+(152775,1,1,'biale'),
 (106518,1,1,'bialym'),
 (144451,1,1,'biegaczy'),
 (120980,1,1,'biegania'),
@@ -88151,6 +88285,7 @@ INSERT INTO `ps_search_word` VALUES
 (137929,1,1,'rewelacyjnej'),
 (143955,1,1,'rms'),
 (152400,1,1,'robocze'),
+(152776,1,1,'roboczych'),
 (137678,1,1,'rock'),
 (151883,1,1,'rodzaj'),
 (110803,1,1,'rodzaje'),
@@ -89336,7 +89471,7 @@ CREATE TABLE `ps_specific_price_priority` (
   `priority` varchar(80) NOT NULL,
   PRIMARY KEY (`id_specific_price_priority`,`id_product`),
   UNIQUE KEY `id_product` (`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89352,7 +89487,12 @@ INSERT INTO `ps_specific_price_priority` VALUES
 (24,3192,'id_shop;id_currency;id_country;id_group'),
 (26,3189,'id_shop;id_currency;id_country;id_group'),
 (29,3183,'id_shop;id_currency;id_country;id_group'),
-(30,3176,'id_shop;id_currency;id_country;id_group');
+(30,3176,'id_shop;id_currency;id_country;id_group'),
+(31,2804,'id_shop;id_currency;id_country;id_group'),
+(33,2817,'id_shop;id_currency;id_country;id_group'),
+(41,2807,'id_shop;id_currency;id_country;id_group'),
+(44,2806,'id_shop;id_currency;id_country;id_group'),
+(48,2805,'id_shop;id_currency;id_country;id_group');
 /*!40000 ALTER TABLE `ps_specific_price_priority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89839,7 +89979,7 @@ CREATE TABLE `ps_statssearch` (
   `results` int(6) NOT NULL DEFAULT 0,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_statssearch`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89881,7 +90021,9 @@ INSERT INTO `ps_statssearch` VALUES
 (33,1,1,'9etui',723,'2023-11-30 08:32:25'),
 (34,1,1,'o',0,'2023-11-30 08:32:26'),
 (35,1,1,'olk',1,'2023-11-30 08:32:27'),
-(36,1,1,'okular',1036,'2023-11-30 08:32:29');
+(36,1,1,'okular',1036,'2023-11-30 08:32:29'),
+(38,1,1,'Soczewki',452,'2023-11-30 13:29:36'),
+(39,1,1,'Soczewki',452,'2023-11-30 13:29:37');
 /*!40000 ALTER TABLE `ps_statssearch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89946,7 +90088,7 @@ CREATE TABLE `ps_stock_available` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_product` (`id_product`),
   KEY `id_product_attribute` (`id_product_attribute`)
-) ENGINE=InnoDB AUTO_INCREMENT=3247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3261 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90633,8 +90775,8 @@ INSERT INTO `ps_stock_available` VALUES
 (2853,2803,0,1,0,6,0,0,0,2,''),
 (2854,2804,0,1,0,2,0,0,0,2,''),
 (2855,2805,0,1,0,5,0,0,0,2,''),
-(2856,2806,0,1,0,3,0,0,0,2,''),
-(2857,2807,0,1,0,1,0,0,0,2,''),
+(2856,2806,0,1,0,19,0,0,0,2,''),
+(2857,2807,0,1,0,21,0,0,0,2,''),
 (2858,2808,0,1,0,7,0,0,0,2,''),
 (2859,2809,0,1,0,1,0,0,0,2,''),
 (2860,2810,0,1,0,5,0,0,0,2,''),
@@ -91022,7 +91164,21 @@ INSERT INTO `ps_stock_available` VALUES
 (3242,3192,0,1,0,4,0,0,0,2,''),
 (3243,3193,0,1,0,2,0,0,0,2,''),
 (3244,3194,0,1,0,1,0,0,0,2,''),
-(3245,3195,0,1,0,1,0,0,0,2,'');
+(3245,3195,0,1,0,1,0,0,0,2,''),
+(3247,2817,43,1,0,3,0,0,0,2,''),
+(3248,2817,44,1,0,4,0,0,0,2,''),
+(3249,2817,45,1,0,0,0,0,0,2,''),
+(3250,2807,46,1,0,7,0,0,0,2,''),
+(3251,2807,47,1,0,2,0,0,0,2,''),
+(3252,2807,48,1,0,12,0,0,0,2,''),
+(3253,2806,49,1,0,2,0,0,0,2,''),
+(3254,2806,50,1,0,2,0,0,0,2,''),
+(3255,2806,51,1,0,15,0,0,0,2,''),
+(3256,2805,52,1,0,2,0,0,0,2,''),
+(3257,2805,53,1,0,1,0,0,0,2,''),
+(3258,2805,54,1,0,2,0,0,0,2,''),
+(3259,2804,55,1,0,1,0,0,0,2,''),
+(3260,2804,56,1,0,1,0,0,0,2,'');
 /*!40000 ALTER TABLE `ps_stock_available` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91052,7 +91208,7 @@ CREATE TABLE `ps_stock_mvt` (
   PRIMARY KEY (`id_stock_mvt`),
   KEY `id_stock` (`id_stock`),
   KEY `id_stock_mvt_reason` (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91062,7 +91218,20 @@ CREATE TABLE `ps_stock_mvt` (
 LOCK TABLES `ps_stock_mvt` WRITE;
 /*!40000 ALTER TABLE `ps_stock_mvt` DISABLE KEYS */;
 INSERT INTO `ps_stock_mvt` VALUES
-(1,74,NULL,NULL,11,1,'Doe','John',10,'2023-11-17 20:40:44',1,0.000000,0.000000,0.000000,NULL);
+(1,74,NULL,NULL,11,1,'Doe','John',10,'2023-11-17 20:40:44',1,0.000000,0.000000,0.000000,NULL),
+(5,3247,NULL,NULL,11,1,'Politechniki','Student',3,'2023-11-30 14:27:00',1,0.000000,0.000000,0.000000,NULL),
+(6,3248,NULL,NULL,11,1,'Politechniki','Student',4,'2023-11-30 14:27:00',1,0.000000,0.000000,0.000000,NULL),
+(7,3250,NULL,NULL,11,1,'Politechniki','Student',7,'2023-11-30 14:28:37',1,0.000000,0.000000,0.000000,NULL),
+(8,3251,NULL,NULL,11,1,'Politechniki','Student',2,'2023-11-30 14:28:37',1,0.000000,0.000000,0.000000,NULL),
+(9,3252,NULL,NULL,11,1,'Politechniki','Student',12,'2023-11-30 14:28:37',1,0.000000,0.000000,0.000000,NULL),
+(10,3253,NULL,NULL,11,1,'Politechniki','Student',2,'2023-11-30 14:29:30',1,0.000000,0.000000,0.000000,NULL),
+(11,3254,NULL,NULL,11,1,'Politechniki','Student',2,'2023-11-30 14:29:30',1,0.000000,0.000000,0.000000,NULL),
+(12,3255,NULL,NULL,11,1,'Politechniki','Student',15,'2023-11-30 14:29:30',1,0.000000,0.000000,0.000000,NULL),
+(13,3256,NULL,NULL,11,1,'Politechniki','Student',2,'2023-11-30 14:30:19',1,0.000000,0.000000,0.000000,NULL),
+(14,3258,NULL,NULL,11,1,'Politechniki','Student',2,'2023-11-30 14:30:19',1,0.000000,0.000000,0.000000,NULL),
+(15,3257,NULL,NULL,11,1,'Politechniki','Student',1,'2023-11-30 14:30:19',1,0.000000,0.000000,0.000000,NULL),
+(16,3259,NULL,NULL,11,1,'Politechniki','Student',1,'2023-11-30 14:30:48',1,0.000000,0.000000,0.000000,NULL),
+(17,3260,NULL,NULL,11,1,'Politechniki','Student',1,'2023-11-30 14:30:48',1,0.000000,0.000000,0.000000,NULL);
 /*!40000 ALTER TABLE `ps_stock_mvt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93666,4 +93835,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-30 13:16:41
+-- Dump completed on 2023-11-30 13:31:08
