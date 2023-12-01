@@ -14,6 +14,9 @@ presta_runner.delete_3_products_from_cart()
 presta_runner.register_new_account()
 presta_runner.make_order()
 presta_runner.get_order_details()
+
+print('test finished')
+
 time.sleep(1000)
 
 driver.close()
