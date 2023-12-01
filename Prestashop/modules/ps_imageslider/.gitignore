@@ -2,6 +2,7 @@
 /translations/*.php
 /vendor/
 /.php_cs.cache
-.github/
-LICENSE.md
-README.md
+/.github/
+/tests/
+/LICENSE.md
+/README.md
