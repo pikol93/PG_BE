@@ -10,7 +10,7 @@ import string
 
 class PrestaRunner():
     __GO_TO_ORDER_XPATH = '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
-    __SEARCHED_PRODUCT_NAME = 'mug'
+    __SEARCHED_PRODUCT_NAME = 'oprawki'
 
     def __init__(self, web_driver, url_base):
         self.web_driver = web_driver
@@ -69,7 +69,7 @@ class PrestaRunner():
         self.web_driver.find_element(By.XPATH, '//*[@id="payment-confirmation"]/div[1]/button').click()
 
     def __choose_delivery(self):
-        self.web_driver.find_element(By.XPATH, '//*[@id="js-delivery"]/div/div[1]/div[4]/div/span/span').click()
+        self.web_driver.find_element(By.XPATH, '//*[@id="delivery_option_11"]').click()
         self.web_driver.find_element(By.XPATH, '//*[@id="js-delivery"]/button').click()
 
     def __fill_address_data(self):
@@ -110,31 +110,40 @@ class PrestaRunner():
         products_count = len(elements_div.find_elements(By.XPATH, "./*"))
         starting_index = 1
         rand_index = starting_index + random.randint(0, products_count - 1)
-        xpath = f'//*[@id="js-product-list"]/div[1]/div[{rand_index}]/article/div/div[1]/a/img'
+        xpath = f'//*[@id="js-product-list"]/div[1]/div[{rand_index}]/article/div/div[2]/h2/a'
         self.web_driver.find_element(By.XPATH, xpath).click()
 
     def __select_first_category(self):
         actions = ActionChains(self.web_driver)
-        cat_elem = self.web_driver.find_element(By.XPATH, '//*[@id="category-3"]/a')
+        cat_elem = self.web_driver.find_element(By.XPATH, '//*[@id="category-69"]/a')
         actions.move_to_element(cat_elem)
-        category = self.web_driver.find_element(By.XPATH, '//*[@id="category-4"]/a')
+        category = self.web_driver.find_element(By.XPATH, '//*[@id="category-69"]/a')
         actions.click(category)
         actions.perform()
 
     def __select_second_category(self):
         actions = ActionChains(self.web_driver)
-        cat_elem = self.web_driver.find_element(By.XPATH, '//*[@id="category-3"]/a')
+        cat_elem = self.web_driver.find_element(By.XPATH, '//*[@id="category-69"]/a')
         actions.move_to_element(cat_elem)
-        category = self.web_driver.find_element(By.XPATH, '//*[@id="category-5"]/a')
+        category = self.web_driver.find_element(By.XPATH, '//*[@id="category-70"]/a')
         actions.click(category)
         actions.perform()
 
     def __select_products_from_category(self, count):
-        for i in range(count):
+        i = 0
+        more_than_one_added = False
+        while i < count:
             prd_count = 1
-            if i % 2 == 0:
-                prd_count = 3
-            self.__go_to_nth_product_and_add_to_cart(i + 1, prd_count)
+            if not more_than_one_added:
+                prd_count = 2
+            try:
+                self.__go_to_nth_product_and_add_to_cart(i + 1, prd_count)
+                if prd_count > 1:
+                    more_than_one_added = True
+            except Exception as e:
+                count += 1
+                self.web_driver.back()
+            i += 1
 
     def __go_to_nth_product_and_add_to_cart(self, index, count):
         xpath = self.__get_nth_element_xpath(index)
@@ -148,8 +157,8 @@ class PrestaRunner():
         #                                                     '//*[@id="add-to-cart-or-refresh"]/div[2]/div[1]/div[1]/div/span[3]/button[1]')
         if count > 1:
             input_elem = self.web_driver.find_element(By.XPATH, '//*[@id="quantity_wanted"]')
-            input_elem.send_keys('1')
-            #input_elem.send_keys(Keys.ENTER)
+            input_elem.send_keys(Keys.CONTROL + "a", Keys.BACKSPACE)
+            input_elem.send_keys(str(count) + Keys.ENTER)
 
         ignored_exceptions = (NoSuchElementException, StaleElementReferenceException)
         add_to_cart_button = WebDriverWait(self.web_driver, 10, ignored_exceptions=ignored_exceptions) \
