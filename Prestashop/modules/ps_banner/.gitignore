@@ -1,0 +1,8 @@
+/config_*.xml
+/translations/*.php
+/.php_cs.cache
+/vendor/
+.github
+CONTRIBUTORS.md
+LICENSE.md
+Readme.md
