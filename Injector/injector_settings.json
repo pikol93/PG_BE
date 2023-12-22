@@ -1,8 +1,0 @@
-{
-  "CategoriesFilePath": "../ScrappedData/dataset_large/categories.txt",
-  "ScrappedFilePath": "../ScrappedData/dataset_large/scrapped.txt",
-  "ImagesDirectoryFilePath": "../ScrappedData/dataset_large/images/",
-  "PrestaShopBaseUrl": "https://localhost:8001/api",
-  "PrestaShopAccount": "BBVLCZ1Y9AD4GH3MLZQZGSYEM8FHE4X9",
-  "PrestaShopSecretKey": ""
-}

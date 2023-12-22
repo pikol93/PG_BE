@@ -1,0 +1,13 @@
+<?php return array (
+  0 => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController',
+  1 => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\Controller',
+  2 => 'PrestaShop\\Module\\Mbo\\Controller\\Admin\\ModuleController',
+  3 => 'PrestaShop\\Module\\Mbo\\Controller\\Admin\\ModuleRecommendedController',
+  4 => 'PrestaShop\\Module\\Mbo\\Controller\\Admin\\ModuleSelectionController',
+  5 => 'PrestaShop\\Module\\Mbo\\Controller\\Admin\\SecurityController',
+  6 => 'PrestaShop\\Module\\Mbo\\Controller\\Admin\\ThemeCatalogController',
+  7 => 'PrestaShop\\Module\\Ps_metrics\\Controller\\Admin\\MetricsController',
+  8 => 'PrestaShop\\Module\\Ps_metrics\\Controller\\Admin\\MetricsLegacyStatsController',
+  9 => 'PrestaShop\\Module\\Ps_metrics\\Controller\\Admin\\MetricsOauthController',
+  10 => 'PrestaShop\\Module\\Ps_metrics\\Controller\\Admin\\MetricsResolverController',
+);
