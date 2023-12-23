@@ -7,13 +7,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: student
       MYSQL_DATABASE: be_188581_db
+    volumes:
+      - db_data:/var/lib/mysql
     restart: always
+    ports:
+      - "3306:3306"
 
-  prestashop-git:
+  prestashop:
     container_name: presta_188581
     build: .
     environment:
-      PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-1}
+      PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-0}  #to instaluje cos tam
       DB_PASSWD: ${DB_PASSWD:-student}
       DB_NAME: ${DB_NAME:-be_188581_db}
       DB_SERVER: ${DB_SERVER:-mysql}
@@ -26,9 +30,13 @@ services:
       PS_DEV_MODE: ${PS_DEV_MODE:-0}
       ADMIN_MAIL: ${ADMIN_MAIL:-demo@prestashop.com}
       ADMIN_PASSWD: ${ADMIN_PASSWD:-prestashop_demo}
-      PS_ERASE_DB: ${PS_ERASE_DB:-1}
+      PS_ERASE_DB: ${PS_ERASE_DB:-0}  #to do dropowania bazy musi byc install auto
     command: ["/tmp/launch.sh"]
     ports:
       - "1885:443"
     depends_on:
         - mysql
+
+
+volumes:
+  db_data:

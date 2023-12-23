@@ -43,4 +43,5 @@ RUN a2enmod rewrite
 
 COPY ./launch.sh /tmp/
 COPY ./dump /tmp/dump
+RUN /tmp/dump/set_images.sh
 #RUN rm -rf var/cache/prod/*
