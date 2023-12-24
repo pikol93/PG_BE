@@ -1,4 +1,4 @@
 #!/bin/bash
 
-(sleep 5 && echo jazda && ./baza.sh student baza_188581) &
+(sleep 10 && echo jazda && ./baza.sh student baza_188581) &
 docker-compose up
