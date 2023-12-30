@@ -22,7 +22,7 @@ services:
       DB_NAME: ${DB_NAME:-be_188581_db}
       DB_SERVER: ${DB_SERVER:-mysql}
       DB_PREFIX: ${DB_PREFIX:-ps_}
-      PS_DOMAIN: ${PS_DOMAIN:-localhost:1885}
+      PS_DOMAIN: ${PS_DOMAIN:-localhost:18858}
       PS_FOLDER_INSTALL: ${PS_FOLDER_INSTALL:-install-dev}
       PS_FOLDER_ADMIN: ${PS_FOLDER_ADMIN:-admin-dev}
       PS_COUNTRY: ${PS_COUNTRY:-pl}
@@ -33,7 +33,7 @@ services:
       PS_ERASE_DB: ${PS_ERASE_DB:-0}  #to do dropowania bazy musi byc install auto
     command: ["/tmp/launch.sh"]
     ports:
-      - "1885:443"
+      - "18858:443"
     depends_on:
         - mysql
 
