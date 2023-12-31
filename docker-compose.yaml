@@ -1,9 +1,8 @@
-version: '2.1'
+version: '3'
 
 services:
   mysql:
     image: mariadb:10
-    container_name: baza_188581
     environment:
       MYSQL_ROOT_PASSWORD: student
       MYSQL_DATABASE: be_188581_db
@@ -14,10 +13,9 @@ services:
       - "3306:3306"
 
   prestashop:
-    container_name: presta_188581
-    build: .
+    image: kikz01/be_18858:latest
     environment:
-      PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-0}  #to instaluje cos tam
+      PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-1}  #to instaluje cos tam
       DB_PASSWD: ${DB_PASSWD:-student}
       DB_NAME: ${DB_NAME:-be_188581_db}
       DB_SERVER: ${DB_SERVER:-mysql}
