@@ -1,24 +1,23 @@
 version: '3'
 
 services:
-  mysql:
-    image: mariadb:10
-    environment:
-      MYSQL_ROOT_PASSWORD: student
-      MYSQL_DATABASE: be_188581_db
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    ports:
-      - "3306:3306"
-
   prestashop:
     image: kikz01/be_18858:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 60s
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
     environment:
       PS_INSTALL_AUTO: ${PS_INSTALL_AUTO:-1}  #to instaluje cos tam
       DB_PASSWD: ${DB_PASSWD:-student}
       DB_NAME: ${DB_NAME:-be_188581_db}
-      DB_SERVER: ${DB_SERVER:-mysql}
+      DB_SERVER: ${DB_SERVER:-db}
       DB_PREFIX: ${DB_PREFIX:-ps_}
       PS_DOMAIN: ${PS_DOMAIN:-localhost:18858}
       PS_FOLDER_INSTALL: ${PS_FOLDER_INSTALL:-install-dev}
@@ -28,13 +27,13 @@ services:
       PS_DEV_MODE: ${PS_DEV_MODE:-0}
       ADMIN_MAIL: ${ADMIN_MAIL:-demo@prestashop.com}
       ADMIN_PASSWD: ${ADMIN_PASSWD:-prestashop_demo}
-      PS_ERASE_DB: ${PS_ERASE_DB:-0}  #to do dropowania bazy musi byc install auto
+      PS_ERASE_DB: ${PS_ERASE_DB:-1}  #to do dropowania bazy musi byc install auto, dorpuje jak baza istnieje jak nie to nie
     command: ["/tmp/launch.sh"]
     ports:
       - "18858:443"
-    depends_on:
-        - mysql
+    networks:
+      - admin-mysql_default
 
-
-volumes:
-  db_data:
+networks:
+  admin-mysql_default:
+    external: true

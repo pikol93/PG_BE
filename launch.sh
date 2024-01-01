@@ -42,6 +42,7 @@ if [ $PS_INSTALL_AUTO = 1 ]; then
             mysql -h $DB_SERVER -P $DB_PORT -u $DB_USER -p$DB_PASSWD -e "drop database if exists $DB_NAME;"
             echo "\n* Creating database $DB_NAME..."
             mysqladmin -h $DB_SERVER -P $DB_PORT -u $DB_USER -p$DB_PASSWD create $DB_NAME --force;
+            mysql -h $DB_SERVER -P $DB_PORT -u $DB_USER -p$DB_PASSWD < /tmp/dump/dump.sql #BAZA DUMP - JAK NIE DZIALA TO PRZED EXEC WYWALIC
         fi
     fi
 
